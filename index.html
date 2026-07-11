@@ -69,6 +69,14 @@
   .wx-hero .big small{display:block;font-size:12px;font-weight:600;color:#6E8A76;letter-spacing:1px}
   .wx-hero .note{flex:1;min-width:200px;font-size:13.5px;color:#3E5B49}
 
+  /* 补给待办 */
+  .todo{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:6px 14px;margin-top:4px}
+  .todo label{display:flex;align-items:flex-start;gap:9px;font-size:14px;color:#33322b;padding:6px 2px;cursor:pointer;border-radius:8px}
+  .todo label:active{background:#F1EEE6}
+  .todo input{flex:none;width:19px;height:19px;margin-top:2px;accent-color:var(--grass);cursor:pointer}
+  .todo input:checked + span{color:#A9A597;text-decoration:line-through}
+  .todo b{color:var(--amber)}
+
   /* 预算统计 */
   .budget{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 22px}
   .b-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px dashed var(--line)}
@@ -292,7 +300,22 @@
       <div class="row"><div class="k">玩什么</div><div class="v">落地取车、加满油、采买路上补给。市区逛<span class="hl">成吉思汗广场、呼伦贝尔古城</span>；傍晚就近去<span class="hl">金帐汗草原</span>看第一场草原日落。</div></div>
       <div class="row"><div class="k">住</div><div class="v">海拉尔市区。推荐：<span class="hl">棠下酒店(~¥549,4.7分)</span> 或 海拉尔宾馆(~¥588,老牌)——携程订票页已推给你这两家；预算紧选古城/中央桥附近如家·汉庭(~¥300)。选古城附近，晚饭遛弯方便。</div></div>
       <div class="row"><div class="k">吃</div><div class="v">第一顿手把肉 / 涮羊肉，市区老字号。</div></div>
-      <div class="row tip"><div class="k">贴士</div><div class="v">落地先办三件事：<span class="hl">取车验车拍照存证、加满油、买水和零食</span>。海拉尔是后面几天补给最方便的地方。</div></div>
+      <div class="row tip"><div class="k">贴士</div><div class="v">落地先办三件事：<span class="hl">取车验车拍照存证、加满油、超市采买</span>。海拉尔是后面几天补给最方便的地方，出了城小镇超市又贵又缺。</div></div>
+      <div class="row"><div class="k">🛒 采买</div><div class="v">
+        <div style="font-size:12.5px;color:var(--sub);margin-bottom:4px">城区大超市一次买齐（点击勾选，自动保存在手机里）：</div>
+        <div class="todo" id="supplies">
+          <label><input type="checkbox" data-k="s1"><span><b>整箱矿泉水</b>（车上放一箱，林区水贵）</span></label>
+          <label><input type="checkbox" data-k="s2"><span><b>驱蚊液</b>（派卡瑞丁/避蚊胺）+ 止痒膏——7月蚊虫高峰，头等大事</span></label>
+          <label><input type="checkbox" data-k="s3"><span><b>路餐零食</b>：面包、牛肉干、坚果、士力架（D5 长途午饭不准点）</span></label>
+          <label><input type="checkbox" data-k="s4"><span><b>水果</b>：苹果/黄瓜/西红柿（耐放不用洗手也能吃的）</span></label>
+          <label><input type="checkbox" data-k="s5"><span><b>小药包</b>：晕车药、肠胃药(蒙脱石/藿香)、退烧药、创可贴——北线药店稀少</span></label>
+          <label><input type="checkbox" data-k="s6"><span><b>湿巾 + 卷纸</b>（蒙古包那晚和路上厕所全靠它）</span></label>
+          <label><input type="checkbox" data-k="s7"><span><b>车充 + 手机支架</b>（租车未必带，导航命脉；顺便检查数据线）</span></label>
+          <label><input type="checkbox" data-k="s8"><span><b>现金 ~¥300</b>（骑马/老加油站/小卖部偶尔扫码不灵）</span></label>
+          <label><input type="checkbox" data-k="s9"><span><b>垃圾袋一卷</b>（车内 + 草原自己的垃圾自己带走）</span></label>
+          <label><input type="checkbox" data-k="s10"><span><b>防晒补货</b>：若深圳带的 SPF50+ 不够一周用量，这里补</span></label>
+        </div>
+      </div></div>
     </div>
   </div>
 
@@ -454,6 +477,20 @@
     }
     ids.forEach(function(i){document.getElementById(i).addEventListener("input",calc)});
     calc();
+  })();
+  // 采买待办:勾选状态存 localStorage
+  (function(){
+    var KEY="hlbr-supplies";
+    var saved={};
+    try{saved=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+    var boxes=document.querySelectorAll("#supplies input[type=checkbox]");
+    boxes.forEach(function(b){
+      if(saved[b.dataset.k]) b.checked=true;
+      b.addEventListener("change",function(){
+        saved[b.dataset.k]=b.checked;
+        try{localStorage.setItem(KEY,JSON.stringify(saved))}catch(e){}
+      });
+    });
   })();
   </script>
 
