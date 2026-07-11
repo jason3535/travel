@@ -58,6 +58,25 @@
   .tips .grp:first-of-type{border-top:0}
   .tips .grp b{display:block;font-size:14px;margin-bottom:4px}
   .tips .grp p{font-size:13.5px;color:#4c4a42}
+
+  /* 天气与穿衣:底部展开网格 */
+  .wx{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+  .wx-item{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 16px 14px}
+  .wx-item .wt{font-size:14px;font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:7px}
+  .wx-item p{font-size:13.5px;color:#4c4a42}
+  .wx-hero{grid-column:1/-1;background:linear-gradient(135deg,#EAF1E7,#F4F8F3);border:1px solid #D8E5DA;border-radius:16px;padding:16px 18px;display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+  .wx-hero .big{font-size:26px;font-weight:800;color:#2F5D46;line-height:1.2}
+  .wx-hero .big small{display:block;font-size:12px;font-weight:600;color:#6E8A76;letter-spacing:1px}
+  .wx-hero .note{flex:1;min-width:200px;font-size:13.5px;color:#3E5B49}
+
+  /* 避雷防坑 */
+  .pit{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:6px 22px 10px}
+  .pit .p-item{padding:14px 0;border-top:1px solid var(--line)}
+  .pit .p-item:first-of-type{border-top:0}
+  .pit .p-item b{display:block;font-size:14.5px;margin-bottom:4px}
+  .pit .p-item p{font-size:13.5px;color:#4c4a42}
+  .pit .no{color:#B0453A;font-weight:700}
+  .pit .yes{color:var(--grass);font-weight:700}
   footer{text-align:center;color:var(--sub);font-size:12.5px;margin-top:36px}
 </style>
 </head>
@@ -374,16 +393,6 @@
       <p>六晚清单：<b>7/25 海拉尔</b>·棠下/海拉尔宾馆 → <b>7/26 额尔古纳</b>·湿地景观民宿 → <b>7/27 临江</b>·木刻楞(⚠最紧俏,最先订) → <b>7/28 莫尔道嘎</b>·评分最高标间 → <b>7/29 黑山头</b>·带卫浴蒙古包(全程唯一一晚包) → <b>7/30 满洲里</b>·套娃酒店(给娃的惊喜)。旺季合计约 <b>¥2,500–3,500</b>。距出发仅 2 周，<b style="color:var(--amber)">今天就把 6 晚全订掉，优先顺序：临江→黑山头蒙古包→套娃酒店→其余</b>。</p>
     </div>
     <div class="grp">
-      <b>🌤 天气与穿衣（7 月底实况：白天 26–28°C / 夜间 14–19°C，雨季）</b>
-      <p><b>温度</b>：白天短袖舒适；早晚凉，<b style="color:var(--amber)">莫尔道嘎林区(7/28)和黑山头蒙古包(7/29)夜里可低至 10–12°C</b>。<br>
-      <b>穿法·洋葱三层</b>：短袖 T + 长袖防晒衣/薄外套 + <b>每人一件抓绒或薄羽绒</b>（林区和蒙古包夜里全靠它）。下装长裤为主（骑马/进林区必须），运动鞋 + 备一双拖鞋。<br>
-      <b>雨具</b>：7 月是雨季、阵雨说来就来——<b style="color:var(--grass)">轻便雨衣优于伞</b>（草原风大），车里再备一把伞。阵雨过后天最通透，<b>正是拍 S 弯和彩虹的好时机，别窝在车里</b>。<br>
-      <b>防晒</b>：高纬草原紫外线烈过深圳，SPF50+ 每 2–3h 补、防晒帽、墨镜，派芝更要抓紧。<br>
-      <b>防蚊 ⚠️</b>：7 月是草原/湿地蚊虫高峰，傍晚河边、根河湿地、蒙古包营地最凶——<b style="color:var(--amber)">驱蚊液（派卡瑞丁或避蚊胺）必带</b>，傍晚活动穿长袖长裤。<br>
-      <b>📷 拍照加分</b>：给老婆和派芝各带一条<b>红色或白色连衣裙</b>，绿草原上最出片；外套选亮色，别全家黑灰。</p>
-    </div>
-
-    <div class="grp">
       <b>✈️ 已定航班 ✓</b>
       <div style="border:1.5px solid var(--grass);border-radius:12px;padding:12px 14px;margin:10px 0;background:#F4F8F3">
         <p style="font-size:14px">▸ <b>去程 7/25(六)</b> 深圳宝安 <b>06:55</b> 起飞 → 石家庄转机 → 海拉尔 ｜ 深航 <b>ZH9137</b></p>
@@ -393,16 +402,60 @@
       <p><b style="color:var(--amber)">⚠️ 两个时间提醒</b>：① 去程 <b>06:55 早班</b>，7/25 约 <b>4:30–5:00 就要到宝安 T3</b>，前一晚务必早睡；② 返程 <b>7/31 23:05 红眼、次日 8/1 中午才到深圳</b>，<b>8/1 白天别排事</b>。中转（石家庄/北京）确认行李直挂。</p>
     </div>
     <div class="grp">
-      <b>⚠️ 避坑（先讲好价）</b>
-      <p>路边"牧场"的骑马、射箭、篝火常宰客，<b style="color:var(--amber)">先问清价格和路线再上马</b>，别上了车才谈。满洲里俄餐、景区门票提前看点评。</p>
-    </div>
-    <div class="grp">
       <b>⛽ 油 &amp; 路</b>
       <p>越往林区（莫尔道嘎/满归方向）加油站越稀，<b style="color:var(--amber)">见站就加满</b>；草原路有牛羊横穿，慢行；严禁驶入草场碾压。</p>
     </div>
     <div class="grp">
       <b>🍖 吃</b>
       <p>手把肉、烤羊排、涮羊肉；满洲里/恩和俄式西餐；<b>大兴安岭蓝莓</b>当季，便宜新鲜。</p>
+    </div>
+  </div>
+
+  <div class="section-title">— 天 气 与 穿 衣 —</div>
+  <div class="wx">
+    <div class="wx-hero">
+      <div class="big">26–28°C<small>白天 · 短袖舒适</small></div>
+      <div class="big" style="color:#557089">14–19°C<small>早晚 · 要加外套</small></div>
+      <div class="big" style="color:#8a5a1e">10–12°C<small>林区/蒙古包夜里</small></div>
+      <div class="note">7 月底是<b>雨季</b>，阵雨说来就来；高纬草原<b>紫外线烈过深圳</b>；昼夜温差 10°C+。<b>7/28 莫尔道嘎、7/29 黑山头蒙古包这两晚最冷</b>，抓绒/薄羽绒就是为它们带的。</div>
+    </div>
+    <div class="wx-item"><div class="wt">🧅 穿法 · 洋葱三层</div><p>短袖 T + 长袖防晒衣/薄外套 + <b>每人一件抓绒或薄羽绒</b>。下装长裤为主（骑马/进林区必须），运动鞋 + 备一双拖鞋。</p></div>
+    <div class="wx-item"><div class="wt">🌧 雨具</div><p><b>轻便雨衣优于伞</b>（草原风大），车里再备一把伞。阵雨过后天最通透，<b>正是拍 S 弯和彩虹的窗口，别窝在车里</b>。</p></div>
+    <div class="wx-item"><div class="wt">☀️ 防晒</div><p>SPF50+ 每 2–3 小时补一次、防晒帽、墨镜。派芝的防晒更要抓紧，晒伤当天就红。</p></div>
+    <div class="wx-item"><div class="wt">🦟 防蚊（7 月高峰）</div><p>傍晚河边、根河湿地、蒙古包营地最凶。<b>派卡瑞丁或避蚊胺驱蚊液必带</b>（深圳出发最容易漏的就是它），傍晚长袖长裤。</p></div>
+    <div class="wx-item"><div class="wt">📷 穿搭彩蛋</div><p>给老婆和派芝各带一条<b>红色或白色连衣裙</b>，绿草原上最出片；外套选亮色，全家黑灰在草原上就是"丢了"。</p></div>
+    <div class="wx-item"><div class="wt">🎒 易漏清单</div><p>抓绒/薄羽绒 · 驱蚊液 · 雨衣 · 防晒帽 · 保温杯（草原早晚喝热水）· 湿巾（蒙古包那晚洗漱简陋）。</p></div>
+  </div>
+
+  <div class="section-title">— 避 雷 防 坑 清 单 —</div>
+  <div class="pit">
+    <div class="p-item">
+      <b>🐴 骑马 —— 全程最大坑，没有之一</b>
+      <p><span class="no">✘ 别</span>被路边"50 元骑马"招牌拉进去：上马后加收牵马费/上山费/拍照费，中途要价、不给就让你在草原中间下马。<br><span class="yes">✔ 要</span>选正规马场，<b>上马前谈定总价+时长+路线</b>，拍下价目表；黑山头马场相对规范，也贵不了多少。</p>
+    </div>
+    <div class="p-item">
+      <b>🍖 吃饭 —— 上秤前问单价</b>
+      <p><span class="no">✘ 别</span>直接说"来个手把肉"：按斤称的菜（手把肉/烤羊排/鱼）不问价就下单，结账翻倍。"免费篝火晚会/下马酒"多半捆绑消费。<br><span class="yes">✔ 要</span>点单时问清<b>单价和大概几斤</b>；连锁/高评分店优先，出租车司机推荐的店一律不去（有回扣）。</p>
+    </div>
+    <div class="p-item">
+      <b>🏨 住宿 —— 防"图片仅供参考"</b>
+      <p><span class="no">✘ 别</span>订无独立卫浴的普通蒙古包（夜里上厕所要出包，10°C 冷风）；也别信到店再谈价，旺季会坐地起价。<br><span class="yes">✔ 要</span>平台可退款渠道订、<b>确认"独立卫浴"字样</b>、截图订单价格。到店被要求加价，直接打平台客服。</p>
+    </div>
+    <div class="p-item">
+      <b>🎫 门票 —— 有些不值得进去</b>
+      <p><b>满洲里国门</b>（~¥80）：进去看的和外面看的差不多，<span class="yes">✔ 在外面拍照即可</span>。<b>套娃景区</b>：住套娃酒店通常含门票，别重复买。<b>莫尔道嘎森林公园</b>：门票和观光车分开收费，买之前看清楚。</p>
+    </div>
+    <div class="p-item">
+      <b>🛣 路上 —— 罚款和陷车</b>
+      <p>草原公路又直又空但<b>区间测速密</b>，别飙（一路好几个卡点）；<span class="no">✘ 别</span>信导航的土路"近路"，雨后陷车叫拖车半天起步；<span class="no">✘ 别</span>把车开进草场拍照——罚款且破坏草原。路遇牛羊过路，停车等，别按喇叭（惊群会撞车）。</p>
+    </div>
+    <div class="p-item">
+      <b>🛍 购物 —— 特产回海拉尔买</b>
+      <p><span class="no">✘ 别</span>在景点买"野生蓝莓干/鹿产品/俄货"——溢价 2–3 倍且真假难辨；司机/马场推荐的购物点都有回扣。<br><span class="yes">✔ 要</span>买就最后一天回海拉尔，<b>本地超市</b>买蓝莓制品和奶制品，价真货实。</p>
+    </div>
+    <div class="p-item">
+      <b>🪪 证件 —— 边境地区备查</b>
+      <p>临江/黑山头/满洲里都是边境管理区，路上有<b>边防检查站</b>：全家身份证随身带（派芝的也要），配合登记即可，一般无需另办边境证。无人机在边境线附近（额尔古纳河沿线）<span class="no">禁飞</span>。</p>
     </div>
   </div>
 
