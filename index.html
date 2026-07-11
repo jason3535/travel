@@ -69,6 +69,23 @@
   .wx-hero .big small{display:block;font-size:12px;font-weight:600;color:#6E8A76;letter-spacing:1px}
   .wx-hero .note{flex:1;min-width:200px;font-size:13.5px;color:#3E5B49}
 
+  /* 预算统计 */
+  .budget{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 22px}
+  .b-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px dashed var(--line)}
+  .b-row:first-of-type{border-top:0}
+  .b-row .bi{flex:none;width:26px;text-align:center;font-size:16px}
+  .b-row .bn{flex:1;min-width:0}
+  .b-row .bn b{font-size:14.5px;display:block}
+  .b-row .bn small{font-size:12px;color:var(--sub);display:block;margin-top:1px}
+  .b-row input{flex:none;width:92px;text-align:right;font-size:15px;font-weight:700;color:var(--ink);
+    border:1px solid var(--line);border-radius:9px;padding:6px 9px;background:#FBFAF6;font-family:inherit}
+  .b-row input:focus{outline:2px solid var(--grass);border-color:var(--grass)}
+  .b-total{display:flex;align-items:baseline;justify-content:space-between;margin-top:14px;padding-top:14px;border-top:2px solid var(--ink)}
+  .b-total .tl{font-size:15px;font-weight:800}
+  .b-total .tv{font-size:28px;font-weight:800;color:var(--forest)}
+  .b-sub{display:flex;justify-content:space-between;font-size:12.5px;color:var(--sub);margin-top:6px}
+  .b-note{font-size:12px;color:#A9A597;margin-top:12px}
+
   /* 避雷防坑 */
   .pit{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:6px 22px 10px}
   .pit .p-item{padding:14px 0;border-top:1px solid var(--line)}
@@ -268,7 +285,7 @@
       <div class="badge"><small>DAY</small><b>1</b></div>
       <div class="day-title">
         <h3>抵达海拉尔 · 取车热身</h3>
-        <div class="meta"><span class="chip" style="background:#EAF1E7;color:#3E6E52;font-weight:700">7/25 六</span><span class="chip drive">机场→市区 ~5km</span><span class="chip">宿·海拉尔</span></div>
+        <div class="meta"><span class="chip" style="background:#EAF1E7;color:#3E6E52;font-weight:700">7/25 六</span><span class="chip drive">机场→市区 ~5km</span><span class="chip">宿·海拉尔 ~¥550</span></div>
       </div>
     </div>
     <div class="rows">
@@ -285,7 +302,7 @@
       <div class="badge"><small>DAY</small><b>2</b></div>
       <div class="day-title">
         <h3>海拉尔 → 额尔古纳</h3>
-        <div class="meta"><span class="chip" style="background:#EAF1E7;color:#3E6E52;font-weight:700">7/26 日</span><span class="chip drive">~130km · 2h</span><span class="chip">宿·额尔古纳</span></div>
+        <div class="meta"><span class="chip" style="background:#EAF1E7;color:#3E6E52;font-weight:700">7/26 日</span><span class="chip drive">~130km · 2h</span><span class="chip">宿·额尔古纳 ~¥500</span></div>
       </div>
     </div>
     <div class="rows">
@@ -303,7 +320,7 @@
       <div class="badge"><small>DAY</small><b>3</b></div>
       <div class="day-title">
         <h3>额尔古纳 → 恩和 → 临江</h3>
-        <div class="meta"><span class="chip" style="background:#EAF1E7;color:#3E6E52;font-weight:700">7/27 一</span><span class="chip drive">~150km · 3h</span><span class="chip">宿·临江</span></div>
+        <div class="meta"><span class="chip" style="background:#EAF1E7;color:#3E6E52;font-weight:700">7/27 一</span><span class="chip drive">~150km · 3h</span><span class="chip">宿·临江 ~¥400</span></div>
       </div>
     </div>
     <div class="rows">
@@ -320,7 +337,7 @@
       <div class="badge" style="background:#2F5D46"><small>DAY</small><b>4</b></div>
       <div class="day-title">
         <h3>临江 → 老鹰嘴 → 太平 → 莫尔道嘎<span style="color:var(--forest)"> · 进大兴安岭</span></h3>
-        <div class="meta"><span class="chip" style="background:#EAF1E7;color:#3E6E52;font-weight:700">7/28 二</span><span class="chip drive">~120km · 3h</span><span class="chip">宿·莫尔道嘎</span></div>
+        <div class="meta"><span class="chip" style="background:#EAF1E7;color:#3E6E52;font-weight:700">7/28 二</span><span class="chip drive">~120km · 3h</span><span class="chip">宿·莫尔道嘎 ~¥300</span></div>
       </div>
     </div>
     <div class="rows">
@@ -337,7 +354,7 @@
       <div class="badge"><small>DAY</small><b>5</b></div>
       <div class="day-title">
         <h3>莫尔道嘎 → 根河·敖鲁古雅 → 黑山头</h3>
-        <div class="meta"><span class="chip" style="background:#EAF1E7;color:#3E6E52;font-weight:700">7/29 三</span><span class="chip drive" style="background:#F3D9C0;color:#8a4e14">~380km · 今日最长</span><span class="chip">宿·黑山头</span></div>
+        <div class="meta"><span class="chip" style="background:#EAF1E7;color:#3E6E52;font-weight:700">7/29 三</span><span class="chip drive" style="background:#F3D9C0;color:#8a4e14">~380km · 今日最长</span><span class="chip">宿·黑山头 ~¥500</span></div>
       </div>
     </div>
     <div class="rows">
@@ -356,7 +373,7 @@
       <div class="badge"><small>DAY</small><b>6</b></div>
       <div class="day-title">
         <h3>黑山头 → 满洲里</h3>
-        <div class="meta"><span class="chip" style="background:#EAF1E7;color:#3E6E52;font-weight:700">7/30 四</span><span class="chip drive">~140km · 2.5h</span><span class="chip">宿·满洲里</span></div>
+        <div class="meta"><span class="chip" style="background:#EAF1E7;color:#3E6E52;font-weight:700">7/30 四</span><span class="chip drive">~140km · 2.5h</span><span class="chip">宿·满洲里 ~¥750</span></div>
       </div>
     </div>
     <div class="rows">
@@ -410,6 +427,35 @@
       <p>手把肉、烤羊排、涮羊肉；满洲里/恩和俄式西餐；<b>大兴安岭蓝莓</b>当季，便宜新鲜。</p>
     </div>
   </div>
+
+  <div class="section-title">— 预 算 统 计（一家三口 · 可点数字改成实付，自动重算）—</div>
+  <div class="budget">
+    <div class="b-row"><div class="bi">✈️</div><div class="bn"><b>机票（已出票 ✓）</b><small>3 人往返 ZH9137 / CA1130 · 含机场餐饮券 · 默认为估算，改成实付</small></div><input type="number" id="b1" value="3600" inputmode="numeric"></div>
+    <div class="b-row"><div class="bi">🚗</div><div class="bn"><b>租车 · 哈弗大狗 7 天</b><small>旺季约 ¥380/天 + 全险 ¥80/天，机场取还</small></div><input type="number" id="b2" value="3200" inputmode="numeric"></div>
+    <div class="b-row"><div class="bi">🏨</div><div class="bn"><b>酒店 6 晚</b><small>海拉尔550 + 额尔古纳500 + 临江400 + 莫尔道嘎300 + 蒙古包500 + 套娃750</small></div><input type="number" id="b3" value="3000" inputmode="numeric"></div>
+    <div class="b-row"><div class="bi">⛽</div><div class="bn"><b>加油</b><small>~1500km × 8.5L/100km × ¥7.8/L ≈ 128L</small></div><input type="number" id="b4" value="1000" inputmode="numeric"></div>
+    <div class="b-row"><div class="bi">🍖</div><div class="bn"><b>餐饮（弹性）</b><small>三口约 ¥350/天 × 7 天，手把肉烤羊排俄餐都在内</small></div><input type="number" id="b5" value="2500" inputmode="numeric"></div>
+    <div class="b-row"><div class="bi">🎫</div><div class="bn"><b>门票 + 活动（弹性）</b><small>莫尔道嘎森林公园、敖鲁古雅、骑马、套娃等</small></div><input type="number" id="b6" value="1200" inputmode="numeric"></div>
+    <div class="b-total"><div class="tl">合计</div><div class="tv" id="bt">¥14,500</div></div>
+    <div class="b-sub"><span>核心四项（机票+租车+酒店+加油）：<b id="bc">¥10,800</b></span><span>人均：<b id="bp">¥4,833</b></span></div>
+    <div class="b-note">* 数字可直接点击修改（如机票改为实付价），仅本机即时重算、不保存不上传。</div>
+  </div>
+  <script>
+  (function(){
+    var ids=["b1","b2","b3","b4","b5","b6"];
+    function fmt(n){return "¥"+Math.round(n).toLocaleString("zh-CN")}
+    function calc(){
+      var v=ids.map(function(i){return parseFloat(document.getElementById(i).value)||0});
+      var total=v.reduce(function(a,b){return a+b},0);
+      var core=v[0]+v[1]+v[2]+v[3];
+      document.getElementById("bt").textContent=fmt(total);
+      document.getElementById("bc").textContent=fmt(core);
+      document.getElementById("bp").textContent=fmt(total/3);
+    }
+    ids.forEach(function(i){document.getElementById(i).addEventListener("input",calc)});
+    calc();
+  })();
+  </script>
 
   <div class="section-title">— 天 气 与 穿 衣 —</div>
   <div class="wx">
