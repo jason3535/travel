@@ -132,6 +132,35 @@
   .mapscroll svg{display:block;width:100%}
   .maphint{display:none;text-align:center;font-size:11.5px;color:#A9A597;padding:8px 0 2px}
 
+  /* ===== 视觉精修 ===== */
+  header .kicker{color:#9A968A;font-size:11px;letter-spacing:4px}
+  header h1{letter-spacing:2px}
+  .stats{gap:0;margin-top:24px}
+  .stat{background:transparent;border:0;border-left:1px solid var(--line);border-radius:0;min-width:86px;padding:2px 20px}
+  .stat:first-child{border-left:0}
+  .badge{background:transparent;border:1.5px solid var(--forest);color:var(--forest)}
+  .badge small{opacity:.55}
+  .chip{background:transparent;border:1px solid var(--line);color:#6E6B62}
+  .chip.drive{background:transparent;border-color:#E2D4BC;color:#8a5a1e}
+  .chip.date{border-color:#C8DACB;color:#3E6E52;font-weight:700}
+  .chip.ok{border-color:#C8DACB;color:#3E6E52}
+  .rows{border-top:1px solid var(--line)}
+  .row .k{color:#9A968A;font-weight:600;letter-spacing:1px}
+  .tip .k{color:#B07A3A}
+  .row .v .hl{color:var(--ink);font-weight:700}
+  .rb .st .t{color:#55524a}
+  .rb .nav,a.nav{background:transparent;border:1px solid #D9E2E8;color:#5B7C93}
+  .section-title{display:flex;align-items:center;gap:16px;margin:52px 0 18px}
+  .section-title::before,.section-title::after{content:"";flex:1;height:1px;background:var(--line)}
+  .mapcard,.tips,.budget,.pit,.day{border-radius:16px}
+  .b-row{border-top:1px solid var(--line)}
+  .b-row input{border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;padding:4px 2px}
+  .b-row input:focus{outline:none;border-bottom:2px solid var(--forest)}
+  .b-total{border-top:1px solid var(--ink)}
+  .wx-item,.wx-hero{border-radius:14px}
+  .legend{opacity:.85}
+  footer{margin-top:48px;letter-spacing:.4px;line-height:2}
+
   /* ===== 移动端适配 ===== */
   @media (max-width:640px){
     .wrap{padding:0 14px 64px}
@@ -352,137 +381,23 @@
     </div>
   </div>
 
-  <div class="section-title">— 逐 日 行 程 —</div>
+  <div class="section-title">逐日行程</div>
 
-  <!-- D1 -->
-  <div class="day">
-    <div class="day-head">
-      <div class="badge"><small>DAY</small><b>1</b></div>
-      <div class="day-title">
-        <h3>抵达海拉尔 · 取车热身</h3>
-        <div class="meta"><span class="chip" style="background:#EAF1E7;color:#3E6E52;font-weight:700">7/25 六</span><span class="chip drive">机场→市区 ~5km</span><span class="chip" style="background:#EAF1E7;color:#3E6E52">宿·维也纳智好 ¥388 ✓已订</span></div>
-      </div>
-    </div>
-    <div class="rows">
-      <div class="row"><div class="k">⏱ 路书</div><div class="v"><div class="rb"><div class="st"><div class="t">~14:00</div><div class="d">落地取车：验车拍视频、看胎/备胎、加满油<a class="nav" href="https://uri.amap.com/search?keyword=%E6%B5%B7%E6%8B%89%E5%B0%94%E6%9C%BA%E5%9C%BA%E7%A7%9F%E8%BD%A6%E4%B8%AD%E5%BF%83&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍海拉尔机场租车中心</a></div></div><div class="st"><div class="t">15:00</div><div class="d">酒店放行李（✓维也纳智好·火车站店，离机场 ~10min）</div></div><div class="st"><div class="t">15:30</div><div class="d">超市采买——照下方清单逐项勾选<a class="nav" href="https://uri.amap.com/search?keyword=%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%28%E6%B5%B7%E6%8B%89%E5%B0%94%29&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍万达广场(海拉尔)</a></div></div><div class="st"><div class="t">17:00</div><div class="d">出发去草原（~40km·50min）<a class="nav" href="https://uri.amap.com/search?keyword=%E9%87%91%E5%B8%90%E6%B1%97%E8%92%99%E5%8F%A4%E9%83%A8%E8%90%BD&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍金帐汗蒙古部落</a></div></div><div class="st"><div class="t">18:00–19:50</div><div class="d"><b>莫日格勒河畔第一场日落</b> 📷 派芝的"第一眼草原"（7月底日落 ~19:50）</div></div><div class="st"><div class="t">20:30</div><div class="d">回城晚饭：手把肉 + 锅茶<a class="nav" href="https://uri.amap.com/search?keyword=%E8%AF%BA%E6%95%8F%E5%A1%94%E6%8B%89%E5%A5%B6%E8%8C%B6%E9%A6%86&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍诺敏塔拉奶茶馆</a></div></div></div></div></div>
-      <div class="row"><div class="k">住</div><div class="v"><span class="hl">✓ 已订</span> 维也纳智好（火车站店）¥388 —— 先放行李，再采买。</div></div>
-      <div class="row tip"><div class="k">贴士</div><div class="v">落地三件事：验车拍视频 · 加满油 · 按清单买齐。</div></div>
-      <div class="row"><div class="k">🛒 采买</div><div class="v">
-        <div style="font-size:12.5px;color:var(--sub);margin-bottom:4px">城区大超市一次买齐（点击勾选，自动保存在手机里）：</div>
-        <div class="todo" id="supplies">
-          <label><input type="checkbox" data-k="s1"><span><b>整箱矿泉水</b>（车上放一箱，林区水贵）</span></label>
-          <label><input type="checkbox" data-k="s2"><span><b>驱蚊液</b>（派卡瑞丁/避蚊胺）+ 止痒膏——7月蚊虫高峰，头等大事</span></label>
-          <label><input type="checkbox" data-k="s3"><span><b>路餐零食</b>：面包、牛肉干、坚果、士力架（D5 长途午饭不准点）</span></label>
-          <label><input type="checkbox" data-k="s4"><span><b>水果</b>：苹果/黄瓜/西红柿（耐放不用洗手也能吃的）</span></label>
-          <label><input type="checkbox" data-k="s5"><span><b>小药包</b>：晕车药、肠胃药(蒙脱石/藿香)、退烧药、创可贴——北线药店稀少</span></label>
-          <label><input type="checkbox" data-k="s6"><span><b>湿巾 + 卷纸</b>（蒙古包那晚和路上厕所全靠它）</span></label>
-          <label><input type="checkbox" data-k="s7"><span><b>车充 + 手机支架</b>（租车未必带，导航命脉；顺便检查数据线）</span></label>
-          <label><input type="checkbox" data-k="s8"><span><b>现金 ~¥300</b>（骑马/老加油站/小卖部偶尔扫码不灵）</span></label>
-          <label><input type="checkbox" data-k="s9"><span><b>垃圾袋一卷</b>（车内 + 草原自己的垃圾自己带走）</span></label>
-          <label><input type="checkbox" data-k="s10"><span><b>防晒补货</b>：若深圳带的 SPF50+ 不够一周用量，这里补</span></label>
-        </div>
-      </div></div>
-    </div>
-  </div>
+  <div class="day"><div class="day-head"><div class="badge"><small>DAY</small><b>1</b></div><div class="day-title"><h3>抵达海拉尔 · 取车热身</h3><div class="meta"><span class="chip date">7/25 六</span><span class="chip drive">机场→市区 ~5km</span><span class="chip ok">宿·维也纳智好 ¥388 ✓已订</span></div></div></div><div class="rows"><div class="row"><div class="k">路书</div><div class="v"><div class="rb"><div class="st"><div class="t">~14:00</div><div class="d">落地取车：验车拍视频、看胎/备胎、加满油<a class="nav" href="https://uri.amap.com/search?keyword=%E6%B5%B7%E6%8B%89%E5%B0%94%E6%9C%BA%E5%9C%BA%E7%A7%9F%E8%BD%A6%E4%B8%AD%E5%BF%83&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍海拉尔机场租车中心</a></div></div><div class="st"><div class="t">15:00</div><div class="d">酒店放行李（离机场 ~10min）</div></div><div class="st"><div class="t">15:30</div><div class="d">超市采买——照下方清单逐项勾选<a class="nav" href="https://uri.amap.com/search?keyword=%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%28%E6%B5%B7%E6%8B%89%E5%B0%94%29&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍万达广场(海拉尔)</a></div></div><div class="st"><div class="t">17:00</div><div class="d">出发去草原（~40km·50min）<a class="nav" href="https://uri.amap.com/search?keyword=%E9%87%91%E5%B8%90%E6%B1%97%E8%92%99%E5%8F%A4%E9%83%A8%E8%90%BD&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍金帐汗蒙古部落</a></div></div><div class="st"><div class="t">18:00–19:50</div><div class="d"><b>莫日格勒河畔第一场日落</b> 📷 派芝的"第一眼草原"（日落 ~19:50）</div></div><div class="st"><div class="t">20:30</div><div class="d">回城晚饭：手把肉 + 锅茶<a class="nav" href="https://uri.amap.com/search?keyword=%E8%AF%BA%E6%95%8F%E5%A1%94%E6%8B%89%E5%A5%B6%E8%8C%B6%E9%A6%86&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍诺敏塔拉奶茶馆</a></div></div></div></div></div><div class="row"><div class="k">住</div><div class="v"><span class="hl">✓ 已订</span> 维也纳智好（火车站店）¥388 —— 先放行李，再采买。</div></div><div class="row"><div class="k">吃</div><div class="v">第一顿手把肉 / 涮羊肉，市区老字号。</div></div><div class="row tip"><div class="k">贴士</div><div class="v">落地三件事：验车拍视频 · 加满油 · 按清单买齐。</div></div><div class="row"><div class="k">采买</div><div class="v"><div style="font-size:12.5px;color:var(--sub);margin-bottom:4px">城区大超市一次买齐（点击勾选，自动保存在手机里）：</div><div class="todo" id="supplies"><label><input type="checkbox" data-k="s1"><span><b>整箱矿泉水</b>（车上放一箱，林区水贵）</span></label><label><input type="checkbox" data-k="s2"><span><b>驱蚊液</b>（派卡瑞丁/避蚊胺）+ 止痒膏——7月蚊虫高峰，头等大事</span></label><label><input type="checkbox" data-k="s3"><span><b>路餐零食</b>：面包、牛肉干、坚果、士力架（D5 长途午饭不准点）</span></label><label><input type="checkbox" data-k="s4"><span><b>水果</b>：苹果/黄瓜/西红柿（耐放不用洗手也能吃的）</span></label><label><input type="checkbox" data-k="s5"><span><b>小药包</b>：晕车药、肠胃药、退烧药、创可贴——北线药店稀少</span></label><label><input type="checkbox" data-k="s6"><span><b>湿巾 + 卷纸</b>（蒙古包那晚和路上厕所全靠它）</span></label><label><input type="checkbox" data-k="s7"><span><b>车充 + 手机支架</b>（租车未必带，导航命脉）</span></label><label><input type="checkbox" data-k="s8"><span><b>现金 ~¥300</b>（骑马/老加油站偶尔扫码不灵）</span></label><label><input type="checkbox" data-k="s9"><span><b>垃圾袋一卷</b>（车内 + 草原垃圾自己带走）</span></label><label><input type="checkbox" data-k="s10"><span><b>防晒补货</b>：SPF50+ 不够一周用量就在这补</span></label></div></div></div></div></div>
 
-  <!-- D2 -->
-  <div class="day">
-    <div class="day-head">
-      <div class="badge"><small>DAY</small><b>2</b></div>
-      <div class="day-title">
-        <h3>海拉尔 → 额尔古纳</h3>
-        <div class="meta"><span class="chip" style="background:#EAF1E7;color:#3E6E52;font-weight:700">7/26 日</span><span class="chip drive">~130km · 2h</span><span class="chip" style="background:#EAF1E7;color:#3E6E52">宿·人生Life南之北 ¥480 ✓已订</span></div>
-      </div>
-    </div>
-    <div class="rows">
-      <div class="row"><div class="k">⏱ 路书</div><div class="v"><div class="rb"><div class="st"><div class="t">07:30</div><div class="d">出发——早出发=斜光好看+旅行团(9点半后)还没到</div></div><div class="st"><div class="t">08:15–10:30</div><div class="d"><b>莫日格勒河制高点拍 S 弯</b> 📷 全程头号名片照，区间车上观景台<a class="nav" href="https://uri.amap.com/search?keyword=%E5%91%BC%E4%BC%A6%E8%B4%9D%E5%B0%94%E5%A4%A7%E8%8D%89%E5%8E%9F%C2%B7%E8%8E%AB%E6%97%A5%E6%A0%BC%E5%8B%92%E6%B2%B3%E6%99%AF%E5%8C%BA&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍呼伦贝尔大草原·莫日格勒河景区</a></div></div><div class="st"><div class="t">11:00–12:30</div><div class="d">S201 草原段随走随停：牛羊群/草垛逆光 📷（停稳路肩再拍，勿下草场）</div></div><div class="st"><div class="t">13:00</div><div class="d">额尔古纳市区午餐（铁锅炖/俄式简餐）</div></div><div class="st"><div class="t">14:00</div><div class="d">入住 ✓人生Life南之北，午休 1h 躲正午平光</div></div><div class="st"><div class="t">15:30–19:00</div><div class="d"><b>额尔古纳湿地(根河湿地)</b>：观景栈道走全程 1.5–2h，黄昏光最佳 📷 马蹄岛 S 湾<a class="nav" href="https://uri.amap.com/search?keyword=%E9%A2%9D%E5%B0%94%E5%8F%A4%E7%BA%B3%E6%B9%BF%E5%9C%B0%E6%99%AF%E5%8C%BA&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍额尔古纳湿地景区</a></div></div><div class="st"><div class="t">19:30</div><div class="d">市区晚饭</div></div></div></div></div>
-      <div class="row"><div class="k">住</div><div class="v"><span class="hl">✓ 已订</span> 人生Life南之北 ¥480 —— 导航直接搜店名。</div></div>
-      <div class="row"><div class="k">吃</div><div class="v">俄式列巴、当季蓝莓、草原羊肉。</div></div>
-      <div class="row tip"><div class="k">贴士</div><div class="v">车不下草场（罚款）；湿地留到黄昏再进。</div></div>
-    </div>
-  </div>
+  <div class="day"><div class="day-head"><div class="badge"><small>DAY</small><b>2</b></div><div class="day-title"><h3>海拉尔 → 额尔古纳</h3><div class="meta"><span class="chip date">7/26 日</span><span class="chip drive">~130km · 2h</span><span class="chip ok">宿·人生Life南之北 ¥480 ✓已订</span></div></div></div><div class="rows"><div class="row"><div class="k">路书</div><div class="v"><div class="rb"><div class="st"><div class="t">07:30</div><div class="d">出发——早出发=斜光好看+旅行团(9点半后)还没到</div></div><div class="st"><div class="t">08:15–10:30</div><div class="d"><b>莫日格勒河制高点拍 S 弯</b> 📷 全程头号名片照，区间车上观景台<a class="nav" href="https://uri.amap.com/search?keyword=%E5%91%BC%E4%BC%A6%E8%B4%9D%E5%B0%94%E5%A4%A7%E8%8D%89%E5%8E%9F%C2%B7%E8%8E%AB%E6%97%A5%E6%A0%BC%E5%8B%92%E6%B2%B3%E6%99%AF%E5%8C%BA&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍呼伦贝尔大草原·莫日格勒河景区</a></div></div><div class="st"><div class="t">11:00–12:30</div><div class="d">S201 草原段随走随停：牛羊群/草垛逆光 📷（停稳路肩再拍，勿下草场）</div></div><div class="st"><div class="t">13:00</div><div class="d">额尔古纳市区午餐（铁锅炖/俄式简餐）</div></div><div class="st"><div class="t">14:00</div><div class="d">入住放行李，午休 1h 躲正午平光</div></div><div class="st"><div class="t">15:30–19:00</div><div class="d"><b>额尔古纳湿地(根河湿地)</b>：观景栈道走全程 1.5–2h，黄昏光最佳 📷 马蹄岛 S 湾<a class="nav" href="https://uri.amap.com/search?keyword=%E9%A2%9D%E5%B0%94%E5%8F%A4%E7%BA%B3%E6%B9%BF%E5%9C%B0%E6%99%AF%E5%8C%BA&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍额尔古纳湿地景区</a></div></div><div class="st"><div class="t">19:30</div><div class="d">市区晚饭</div></div></div></div></div><div class="row"><div class="k">出片</div><div class="v">全天在<span class="hl">陈巴尔虎旗</span>——全程最出片的一段。黄金光 = 日出后 1h / 日落前 1.5h，正午光平；无人机此段可飞，明天起近边境禁飞。</div></div><div class="row"><div class="k">住</div><div class="v"><span class="hl">✓ 已订</span> 人生Life南之北 ¥480 —— 导航直接搜店名。</div></div><div class="row"><div class="k">吃</div><div class="v">俄式列巴、当季蓝莓、草原羊肉。</div></div><div class="row tip"><div class="k">贴士</div><div class="v">车不下草场（罚款）；湿地留到黄昏再进。</div></div></div></div>
 
-  <!-- D3 -->
-  <div class="day">
-    <div class="day-head">
-      <div class="badge"><small>DAY</small><b>3</b></div>
-      <div class="day-title">
-        <h3>额尔古纳 → 恩和 → 临江</h3>
-        <div class="meta"><span class="chip" style="background:#EAF1E7;color:#3E6E52;font-weight:700">7/27 一</span><span class="chip drive">~150km · 3h</span><span class="chip">宿·临江 ~¥400</span></div>
-      </div>
-    </div>
-    <div class="rows">
-      <div class="row"><div class="k">⏱ 路书</div><div class="v"><div class="rb"><div class="st"><div class="t">08:30</div><div class="d">出发</div></div><div class="st"><div class="t">09:30–10:30</div><div class="d"><b>白桦林景区</b>：栈道+小火车，派芝会喜欢 📷<a class="nav" href="https://uri.amap.com/search?keyword=%E9%A2%9D%E5%B0%94%E5%8F%A4%E7%BA%B3%E7%99%BD%E6%A1%A6%E6%9E%97%E6%99%AF%E5%8C%BA&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍额尔古纳白桦林景区</a></div></div><div class="st"><div class="t">11:30–13:30</div><div class="d"><b>恩和</b>：俄餐午饭（苏泊汤/列巴蘸蓝莓酱）+ 木刻楞街道遛弯 📷<a class="nav" href="https://uri.amap.com/search?keyword=%E6%81%A9%E5%92%8C%E4%BF%84%E7%BD%97%E6%96%AF%E6%97%8F%E6%B0%91%E6%97%8F%E4%B9%A1&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍恩和俄罗斯族民族乡</a></div></div><div class="st opt"><div class="t">14:30–15:30</div><div class="d">哈乌尔河景区：登高看河谷（体力富余再去）<a class="nav" href="https://uri.amap.com/search?keyword=%E5%93%88%E4%B9%8C%E5%B0%94%E6%B2%B3%E6%99%AF%E5%8C%BA&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍哈乌尔河景区</a></div></div><div class="st"><div class="t">16:00–16:40</div><div class="d">室韦：口岸广场远观友谊桥即可，不必久留<a class="nav" href="https://uri.amap.com/search?keyword=%E5%AE%A4%E9%9F%A6%E5%8F%A3%E5%B2%B8&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍室韦口岸</a></div></div><div class="st"><div class="t">17:00</div><div class="d">临江屯入住木刻楞（订房/导航都搜「临江屯」带屯字）<a class="nav" href="https://uri.amap.com/search?keyword=%E4%B8%B4%E6%B1%9F%E5%B1%AF&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍临江屯</a></div></div><div class="st"><div class="t">18:30–19:50</div><div class="d"><b>神仙坡看额尔古纳河日落</b> 📷 临江王牌机位，问民宿老板方向步行可达</div></div></div></div></div>
-      <div class="row"><div class="k">住</div><div class="v">临江木刻楞民宿 ~¥400 —— <span class="hl">全程最紧俏，最先订</span>；搜「临江屯」。</div></div>
-      <div class="row tip"><div class="k">贴士</div><div class="v">边境沿线勿越界拍照、无人机禁飞。</div></div>
-    </div>
-  </div>
+  <div class="day"><div class="day-head"><div class="badge"><small>DAY</small><b>3</b></div><div class="day-title"><h3>额尔古纳 → 恩和 → 临江</h3><div class="meta"><span class="chip date">7/27 一</span><span class="chip drive">~150km · 3h</span><span class="chip">宿·临江 ~¥400</span></div></div></div><div class="rows"><div class="row"><div class="k">路书</div><div class="v"><div class="rb"><div class="st"><div class="t">08:30</div><div class="d">出发</div></div><div class="st"><div class="t">09:30–10:30</div><div class="d"><b>白桦林景区</b>：栈道+小火车，派芝会喜欢 📷<a class="nav" href="https://uri.amap.com/search?keyword=%E9%A2%9D%E5%B0%94%E5%8F%A4%E7%BA%B3%E7%99%BD%E6%A1%A6%E6%9E%97%E6%99%AF%E5%8C%BA&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍额尔古纳白桦林景区</a></div></div><div class="st"><div class="t">11:30–13:30</div><div class="d"><b>恩和</b>：俄餐午饭（苏泊汤/列巴蘸蓝莓酱）+ 木刻楞街道遛弯 📷<a class="nav" href="https://uri.amap.com/search?keyword=%E6%81%A9%E5%92%8C%E4%BF%84%E7%BD%97%E6%96%AF%E6%97%8F%E6%B0%91%E6%97%8F%E4%B9%A1&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍恩和俄罗斯族民族乡</a></div></div><div class="st opt"><div class="t">14:30–15:30</div><div class="d">哈乌尔河景区：登高看河谷（体力富余再去）<a class="nav" href="https://uri.amap.com/search?keyword=%E5%93%88%E4%B9%8C%E5%B0%94%E6%B2%B3%E6%99%AF%E5%8C%BA&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍哈乌尔河景区</a></div></div><div class="st"><div class="t">16:00–16:40</div><div class="d">室韦：口岸广场远观友谊桥即可，不必久留<a class="nav" href="https://uri.amap.com/search?keyword=%E5%AE%A4%E9%9F%A6%E5%8F%A3%E5%B2%B8&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍室韦口岸</a></div></div><div class="st"><div class="t">17:00</div><div class="d">临江屯入住木刻楞（订房/导航都搜「临江屯」带屯字）<a class="nav" href="https://uri.amap.com/search?keyword=%E4%B8%B4%E6%B1%9F%E5%B1%AF&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍临江屯</a></div></div><div class="st"><div class="t">18:30–19:50</div><div class="d"><b>神仙坡看额尔古纳河日落</b> 📷 临江王牌机位，问民宿老板方向步行可达</div></div></div></div></div><div class="row"><div class="k">住</div><div class="v">临江木刻楞民宿 ~¥400 —— <span class="hl">全程最紧俏，最先订</span>；搜「临江屯」。</div></div><div class="row"><div class="k">吃</div><div class="v">俄式家庭餐、自制列巴、蓝莓酱。</div></div><div class="row tip"><div class="k">贴士</div><div class="v">边境沿线勿越界拍照、无人机禁飞。</div></div></div></div>
 
-  <!-- D4 -->
-  <div class="day">
-    <div class="day-head">
-      <div class="badge" style="background:#2F5D46"><small>DAY</small><b>4</b></div>
-      <div class="day-title">
-        <h3>临江 → 老鹰嘴 → 太平 → 莫尔道嘎<span style="color:var(--forest)"> · 进大兴安岭</span></h3>
-        <div class="meta"><span class="chip" style="background:#EAF1E7;color:#3E6E52;font-weight:700">7/28 二</span><span class="chip drive">~120km · 3h</span><span class="chip">宿·莫尔道嘎 ~¥300</span></div>
-      </div>
-    </div>
-    <div class="rows">
-      <div class="row"><div class="k">⏱ 路书</div><div class="v"><div class="rb"><div class="st opt"><div class="t">05:30</div><div class="d">神仙坡日出+额尔古纳河晨雾 📷 摄影党值得早起，家人可继续睡</div></div><div class="st"><div class="t">09:00</div><div class="d">出发——临江→老鹰嘴段多砂石土路，慢开</div></div><div class="st"><div class="t">10:00–10:40</div><div class="d"><b>老鹰嘴</b>：河湾巨岩+田野 📷<a class="nav" href="https://uri.amap.com/search?keyword=%E8%80%81%E9%B9%B0%E5%98%B4&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍老鹰嘴</a></div></div><div class="st"><div class="t">11:20–13:00</div><div class="d"><b>太平屯</b>：百年老木屋原始村落 📷 + 午餐（农家菜或车上路餐）<a class="nav" href="https://uri.amap.com/search?keyword=%E5%A4%AA%E5%B9%B3%E5%B1%AF&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍太平屯</a></div></div><div class="st"><div class="t">14:30</div><div class="d">莫尔道嘎镇入住放行李</div></div><div class="st opt"><div class="t">15:30–17:00</div><div class="d">森林公园浅玩（深处白鹿岛单程太远，带娃不必进深）<a class="nav" href="https://uri.amap.com/search?keyword=%E8%8E%AB%E5%B0%94%E9%81%93%E5%98%8E%E5%9B%BD%E5%AE%B6%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9B%AD&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍莫尔道嘎国家森林公园</a></div></div><div class="st"><div class="t">17:30–19:30</div><div class="d"><b>龙岩山登顶看林海日落</b> 📷 今天的主菜，就在镇边<a class="nav" href="https://uri.amap.com/search?keyword=%E9%BE%99%E5%B2%A9%E5%B1%B1%E6%99%AF%E5%8C%BA&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍龙岩山景区</a></div></div></div></div></div>
-      <div class="row"><div class="k">住</div><div class="v">镇上评分最高的标间即可 ~¥300，就睡一晚。</div></div>
-      <div class="row tip"><div class="k">贴士</div><div class="v">森林公园门票与观光车分开收费；想更野可延伸满归/奇乾（+1 天）。</div></div>
-    </div>
-  </div>
+  <div class="day"><div class="day-head"><div class="badge"><small>DAY</small><b>4</b></div><div class="day-title"><h3>临江 → 老鹰嘴 → 太平 → 莫尔道嘎 · 进大兴安岭</h3><div class="meta"><span class="chip date">7/28 二</span><span class="chip drive">~120km · 3h</span><span class="chip">宿·莫尔道嘎 ~¥300</span></div></div></div><div class="rows"><div class="row"><div class="k">路书</div><div class="v"><div class="rb"><div class="st opt"><div class="t">05:30</div><div class="d">神仙坡日出+额尔古纳河晨雾 📷 摄影党值得早起，家人可继续睡</div></div><div class="st"><div class="t">09:00</div><div class="d">出发——临江→老鹰嘴段多砂石土路，慢开</div></div><div class="st"><div class="t">10:00–10:40</div><div class="d"><b>老鹰嘴</b>：河湾巨岩+田野 📷<a class="nav" href="https://uri.amap.com/search?keyword=%E8%80%81%E9%B9%B0%E5%98%B4&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍老鹰嘴</a></div></div><div class="st"><div class="t">11:20–13:00</div><div class="d"><b>太平屯</b>：百年老木屋原始村落 📷 + 午餐（农家菜或车上路餐）<a class="nav" href="https://uri.amap.com/search?keyword=%E5%A4%AA%E5%B9%B3%E5%B1%AF&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍太平屯</a></div></div><div class="st"><div class="t">14:30</div><div class="d">莫尔道嘎镇入住放行李</div></div><div class="st opt"><div class="t">15:30–17:00</div><div class="d">森林公园浅玩（深处白鹿岛单程太远，带娃不必进深）<a class="nav" href="https://uri.amap.com/search?keyword=%E8%8E%AB%E5%B0%94%E9%81%93%E5%98%8E%E5%9B%BD%E5%AE%B6%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9B%AD&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍莫尔道嘎国家森林公园</a></div></div><div class="st"><div class="t">17:30–19:30</div><div class="d"><b>龙岩山登顶看林海日落</b> 📷 今天的主菜，就在镇边<a class="nav" href="https://uri.amap.com/search?keyword=%E9%BE%99%E5%B2%A9%E5%B1%B1%E6%99%AF%E5%8C%BA&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍龙岩山景区</a></div></div></div></div></div><div class="row"><div class="k">住</div><div class="v">镇上评分最高的标间即可 ~¥300，就睡一晚。</div></div><div class="row"><div class="k">吃</div><div class="v">林区蘑菇、大兴安岭蓝莓。</div></div><div class="row tip"><div class="k">贴士</div><div class="v">森林公园门票与观光车分开收费；想更野可延伸满归/奇乾（+1 天）。</div></div></div></div>
 
-  <!-- D5 -->
-  <div class="day">
-    <div class="day-head">
-      <div class="badge"><small>DAY</small><b>5</b></div>
-      <div class="day-title">
-        <h3>莫尔道嘎 → 根河·敖鲁古雅 → 黑山头</h3>
-        <div class="meta"><span class="chip" style="background:#EAF1E7;color:#3E6E52;font-weight:700">7/29 三</span><span class="chip drive" style="background:#F3D9C0;color:#8a4e14">~380km · 今日最长</span><span class="chip">宿·黑山头 ~¥500</span></div>
-      </div>
-    </div>
-    <div class="rows">
-      <div class="row"><div class="k">⏱ 路书</div><div class="v"><div class="rb"><div class="st"><div class="t">08:00</div><div class="d">出发——今天 380km 全程最长，别赖床</div></div><div class="st"><div class="t">10:00–12:00</div><div class="d"><b>敖鲁古雅使鹿部落：亲手喂驯鹿</b> 📷 全程亮点、派芝专场<a class="nav" href="https://uri.amap.com/search?keyword=%E6%95%96%E9%B2%81%E5%8F%A4%E9%9B%85%E4%BD%BF%E9%B9%BF%E9%83%A8%E8%90%BD%E6%99%AF%E5%8C%BA&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍敖鲁古雅使鹿部落景区</a></div></div><div class="st"><div class="t">12:30</div><div class="d">根河市区午餐</div></div><div class="st"><div class="t">15:30</div><div class="d">额尔古纳：加满油 + 补给 + 歇 30min</div></div><div class="st"><div class="t">17:30</div><div class="d">黑山头入住蒙古包</div></div><div class="st"><div class="t">18:00–19:50</div><div class="d"><b>骑马（上马前谈定总价）+ 日落山看草原落日</b> 📷<a class="nav" href="https://uri.amap.com/search?keyword=%E9%BB%91%E5%B1%B1%E5%A4%B4%E6%97%A5%E8%90%BD%E5%B1%B1&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍黑山头日落山</a></div></div></div></div></div>
-      <div class="row"><div class="k">⛽ 加油</div><div class="v"><span class="hl">① 出莫尔道嘎前加满</span>（镇上中石油，此后 130km 林区无站）；<span class="hl">② 根河市区可补</span>；<span class="hl">③ 额尔古纳必加满</span>（黑山头镇站小、油品选择少）。原则：见站就加，油箱不下半格。</div></div>
-      <div class="row"><div class="k">住</div><div class="v">全程唯一一晚蒙古包 —— <span class="hl">必选带独立卫浴的升级包</span> ~¥500。</div></div>
-      <div class="row tip"><div class="k">贴士</div><div class="v">最长的一天，08:00 前出发；骑马上马前谈定总价。</div></div>
-    </div>
-  </div>
+  <div class="day"><div class="day-head"><div class="badge"><small>DAY</small><b>5</b></div><div class="day-title"><h3>莫尔道嘎 → 根河·敖鲁古雅 → 黑山头</h3><div class="meta"><span class="chip date">7/29 三</span><span class="chip drive">~380km · 今日最长</span><span class="chip">宿·黑山头蒙古包 ~¥500</span></div></div></div><div class="rows"><div class="row"><div class="k">路书</div><div class="v"><div class="rb"><div class="st"><div class="t">08:00</div><div class="d">出发——今天 380km 全程最长，别赖床</div></div><div class="st"><div class="t">10:00–12:00</div><div class="d"><b>敖鲁古雅使鹿部落：亲手喂驯鹿</b> 📷 全程亮点、派芝专场<a class="nav" href="https://uri.amap.com/search?keyword=%E6%95%96%E9%B2%81%E5%8F%A4%E9%9B%85%E4%BD%BF%E9%B9%BF%E9%83%A8%E8%90%BD%E6%99%AF%E5%8C%BA&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍敖鲁古雅使鹿部落景区</a></div></div><div class="st"><div class="t">12:30</div><div class="d">根河市区午餐</div></div><div class="st"><div class="t">15:30</div><div class="d">额尔古纳：加满油 + 补给 + 歇 30min</div></div><div class="st"><div class="t">17:30</div><div class="d">黑山头入住蒙古包</div></div><div class="st"><div class="t">18:00–19:50</div><div class="d"><b>骑马（上马前谈定总价）+ 日落山看草原落日</b> 📷<a class="nav" href="https://uri.amap.com/search?keyword=%E9%BB%91%E5%B1%B1%E5%A4%B4%E6%97%A5%E8%90%BD%E5%B1%B1&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍黑山头日落山</a></div></div></div></div></div><div class="row"><div class="k">加油</div><div class="v"><span class="hl">① 出莫尔道嘎前加满</span>（此后 130km 林区无站）；② 根河可补；<span class="hl">③ 额尔古纳必加满</span>（黑山头站小）。原则：见站就加。</div></div><div class="row"><div class="k">住</div><div class="v">全程唯一一晚蒙古包 —— <span class="hl">必选带独立卫浴的升级包</span> ~¥500。</div></div><div class="row"><div class="k">吃</div><div class="v">烤羊排、手把肉。</div></div><div class="row tip"><div class="k">贴士</div><div class="v">最长的一天，08:00 前出发；骑马上马前谈定总价。</div></div></div></div>
 
-  <!-- D6 -->
-  <div class="day">
-    <div class="day-head">
-      <div class="badge"><small>DAY</small><b>6</b></div>
-      <div class="day-title">
-        <h3>黑山头 → 满洲里</h3>
-        <div class="meta"><span class="chip" style="background:#EAF1E7;color:#3E6E52;font-weight:700">7/30 四</span><span class="chip drive">~140km · 2.5h</span><span class="chip" style="background:#EAF1E7;color:#3E6E52">宿·布拉格夏宫 ¥574 ✓已订</span></div>
-      </div>
-    </div>
-    <div class="rows">
-      <div class="row"><div class="k">⏱ 路书</div><div class="v"><div class="rb"><div class="st"><div class="t">09:30</div><div class="d">出发，走 904 边防公路——中俄边境线，呼伦贝尔最美公路之一</div></div><div class="st"><div class="t">10:00–11:00</div><div class="d"><b>彩带河</b>：观景台看额尔古纳河九曲 📷 + 滑草（娃）<a class="nav" href="https://uri.amap.com/search?keyword=%E5%BD%A9%E5%B8%A6%E6%B2%B3%E6%99%AF%E5%8C%BA&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍彩带河景区</a></div></div><div class="st"><div class="t">11:40–12:10</div><div class="d">三十三湿地：路边观景台快拍 📷<a class="nav" href="https://uri.amap.com/search?keyword=%E4%B8%89%E5%8D%81%E4%B8%89%E6%B9%BF%E5%9C%B0&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍三十三湿地</a></div></div><div class="st"><div class="t">13:00</div><div class="d">满洲里午餐</div></div><div class="st"><div class="t">14:00</div><div class="d">入住 ✓布拉格夏宫，午休躲正午</div></div><div class="st"><div class="t">16:00–17:30</div><div class="d"><b>套娃广场</b>：外围建筑群拍照即可，不必买门票进园 📷<a class="nav" href="https://uri.amap.com/search?keyword=%E5%A5%97%E5%A8%83%E5%B9%BF%E5%9C%BA&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍套娃广场</a></div></div><div class="st"><div class="t">18:00</div><div class="d">俄式晚餐（老店旺季要排队，早点去）<a class="nav" href="https://uri.amap.com/search?keyword=%E5%8D%A2%E5%B8%83%E9%87%8C%E8%A5%BF%E9%A4%90%E5%8E%85&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍卢布里西餐厅</a></div></div><div class="st"><div class="t">20:00–21:30</div><div class="d"><b>夜景双打卡：婚礼宫山顶俯瞰全城灯火 + 中苏金街</b> 📷<a class="nav" href="https://uri.amap.com/search?keyword=%E6%BB%A1%E6%B4%B2%E9%87%8C%E5%A9%9A%E7%A4%BC%E5%AE%AB&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍满洲里婚礼宫</a></div></div></div></div></div>
-      <div class="row"><div class="k">住</div><div class="v"><span class="hl">✓ 已订</span> 布拉格夏宫 ¥574 —— 欧式风格正配夜景。</div></div>
-      <div class="row"><div class="k">吃</div><div class="v">正宗俄式西餐、大列巴、红菜汤。</div></div>
-      
-    </div>
-  </div>
+  <div class="day"><div class="day-head"><div class="badge"><small>DAY</small><b>6</b></div><div class="day-title"><h3>黑山头 → 满洲里</h3><div class="meta"><span class="chip date">7/30 四</span><span class="chip drive">~140km · 2.5h</span><span class="chip ok">宿·布拉格夏宫 ¥574 ✓已订</span></div></div></div><div class="rows"><div class="row"><div class="k">路书</div><div class="v"><div class="rb"><div class="st"><div class="t">09:30</div><div class="d">出发，走 904 边防公路——中俄边境线，呼伦贝尔最美公路之一</div></div><div class="st"><div class="t">10:00–11:00</div><div class="d"><b>彩带河</b>：观景台看额尔古纳河九曲 📷 + 滑草（娃）<a class="nav" href="https://uri.amap.com/search?keyword=%E5%BD%A9%E5%B8%A6%E6%B2%B3%E6%99%AF%E5%8C%BA&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍彩带河景区</a></div></div><div class="st"><div class="t">11:40–12:10</div><div class="d">三十三湿地：路边观景台快拍 📷<a class="nav" href="https://uri.amap.com/search?keyword=%E4%B8%89%E5%8D%81%E4%B8%89%E6%B9%BF%E5%9C%B0&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍三十三湿地</a></div></div><div class="st"><div class="t">13:00</div><div class="d">满洲里午餐</div></div><div class="st"><div class="t">14:00</div><div class="d">入住布拉格夏宫，午休躲正午</div></div><div class="st"><div class="t">16:00–17:30</div><div class="d"><b>套娃广场</b>：外围建筑群拍照即可，不必买门票进园 📷<a class="nav" href="https://uri.amap.com/search?keyword=%E5%A5%97%E5%A8%83%E5%B9%BF%E5%9C%BA&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍套娃广场</a></div></div><div class="st"><div class="t">18:00</div><div class="d">俄式晚餐（老店旺季要排队，早点去）<a class="nav" href="https://uri.amap.com/search?keyword=%E5%8D%A2%E5%B8%83%E9%87%8C%E8%A5%BF%E9%A4%90%E5%8E%85&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍卢布里西餐厅</a></div></div><div class="st"><div class="t">20:00–21:30</div><div class="d"><b>夜景双打卡：婚礼宫山顶俯瞰全城灯火 + 中苏金街</b> 📷<a class="nav" href="https://uri.amap.com/search?keyword=%E6%BB%A1%E6%B4%B2%E9%87%8C%E5%A9%9A%E7%A4%BC%E5%AE%AB&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍满洲里婚礼宫</a></div></div></div></div></div><div class="row"><div class="k">住</div><div class="v"><span class="hl">✓ 已订</span> 布拉格夏宫 ¥574 —— 欧式风格正配夜景。</div></div><div class="row"><div class="k">吃</div><div class="v">正宗俄式西餐、大列巴、红菜汤。</div></div></div></div>
 
-  <!-- D7 -->
-  <div class="day">
-    <div class="day-head">
-      <div class="badge" style="background:#C1762C"><small>DAY</small><b>7</b></div>
-      <div class="day-title">
-        <h3>满洲里 → 呼伦湖 → 海拉尔 · 还车飞返</h3>
-        <div class="meta"><span class="chip" style="background:#EAF1E7;color:#3E6E52;font-weight:700">7/31 五</span><span class="chip drive">~200km · 3h</span><span class="chip">23:05 飞返</span></div>
-      </div>
-    </div>
-    <div class="rows">
-      <div class="row tip"><div class="k">贴士</div><div class="v">呼伦湖→海拉尔 ~2h：19:30 回城晚饭+还车，20:30 到机场。</div></div>
-    </div>
-  </div>
+  <div class="day"><div class="day-head"><div class="badge"><small>DAY</small><b>7</b></div><div class="day-title"><h3>满洲里 → 呼伦湖 → 海拉尔 · 还车飞返</h3><div class="meta"><span class="chip date">7/31 五</span><span class="chip drive">~200km · 3h</span><span class="chip">23:05 飞返</span></div></div></div><div class="rows"><div class="row"><div class="k">路书</div><div class="v"><div class="rb"><div class="st"><div class="t">09:30</div><div class="d">睡到自然醒，退房出发</div></div><div class="st"><div class="t">10:00–11:00</div><div class="d"><b>扎赉诺尔博物馆</b>：猛犸化石+恐龙，免费，派芝专场 📷<a class="nav" href="https://uri.amap.com/search?keyword=%E6%89%8E%E8%B5%89%E8%AF%BA%E5%B0%94%E5%8D%9A%E7%89%A9%E9%A6%86&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍扎赉诺尔博物馆</a></div></div><div class="st opt"><div class="t">11:10–11:40</div><div class="d">猛犸象公园：巨型猛犸雕塑群快拍<a class="nav" href="https://uri.amap.com/search?keyword=%E6%89%8E%E8%B5%89%E8%AF%BA%E5%B0%94%E7%8C%9B%E7%8A%B8%E8%B1%A1%E5%85%AC%E5%9B%AD&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍扎赉诺尔猛犸象公园</a></div></div><div class="st"><div class="t">12:00–13:00</div><div class="d"><b>呼伦湖</b>：打卡 40min 即走 📷 别买深度项目<a class="nav" href="https://uri.amap.com/search?keyword=%E5%91%BC%E4%BC%A6%E6%B9%96%E6%97%85%E6%B8%B8%E6%99%AF%E5%8C%BA&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍呼伦湖旅游景区</a></div></div><div class="st opt"><div class="t">15:30–16:45</div><div class="d">时间富余则民族博物院（免费，16:30 停止入场）<a class="nav" href="https://uri.amap.com/search?keyword=%E5%91%BC%E4%BC%A6%E8%B4%9D%E5%B0%94%E6%B0%91%E6%97%8F%E5%8D%9A%E7%89%A9%E9%99%A2&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍呼伦贝尔民族博物院</a></div></div><div class="st"><div class="t">17:30</div><div class="d">晚饭 + 超市买特产（蓝莓干/奶制品带回深圳）</div></div><div class="st"><div class="t">19:30</div><div class="d">加满油 → 机场还车验车</div></div><div class="st"><div class="t">20:30</div><div class="d">值机，<b>23:05 CA1130</b> 起飞</div></div></div></div></div><div class="row tip"><div class="k">贴士</div><div class="v">呼伦湖→海拉尔 ~2h：19:30 回城晚饭+还车，20:30 到机场。</div></div></div></div>
 
-  <div class="section-title">— 高 性 价 比 要 点 —</div>
+  <div class="section-title">实用要点</div>
   <div class="tips">
     <details class="grp"><summary>🚗 租车</summary><p><b style="color:var(--grass)">已选定：哈弗大狗 ✓</b>（对比 Jeep 自由侠：大狗轴距 2738mm vs 2570mm，后备箱大一圈装得下三人 7 天行李；离地间隙 ~200mm 走老鹰嘴/太平土路从容；哈弗在内蒙网点密，Jeep 已退出国产、租赁车源车龄老，林区出问题配件难找——差价买不来这些）。<br>取车三件事：<b style="color:var(--amber)">①看轮胎胎纹+确认有备胎 ②绕车拍视频存证 ③买全险</b>（草原/林区碎石易崩漆刮底）。环线回海拉尔还车＝免异地费。</p></details>
     <details class="grp"><summary>🏠 住宿</summary><p>六晚清单：<b>7/25 海拉尔</b>·<span style="color:var(--grass)">✓已订 维也纳智好(火车站店) ¥388</span> → <b>7/26 额尔古纳</b>·<span style="color:var(--grass)">✓已订 人生Life南之北 ¥480</span> → <b>7/27 临江</b>·木刻楞(⚠最紧俏,最先订) → <b>7/28 莫尔道嘎</b>·评分最高标间 → <b>7/29 黑山头</b>·带卫浴蒙古包(全程唯一一晚包) → <b>7/30 满洲里</b>·<span style="color:var(--grass)">✓已订 布拉格夏宫 ¥574</span>。旺季合计约 <b>¥2,500–3,500</b>。距出发仅 2 周，<b style="color:var(--amber)">今天就把 6 晚全订掉，优先顺序：临江→黑山头蒙古包→套娃酒店→其余</b>。</p></details>
@@ -499,7 +414,7 @@
     <details class="grp"><summary>🍖 吃</summary><p>手把肉、烤羊排、涮羊肉；满洲里/恩和俄式西餐；<b>大兴安岭蓝莓</b>当季，便宜新鲜。</p></details>
   </div>
 
-  <div class="section-title">— 预 算 统 计（一家三口 · 可点数字改成实付，自动重算）—</div>
+  <div class="section-title">预算统计 · 一家三口</div>
   <div class="budget">
     <div class="b-row"><div class="bi">✈️</div><div class="bn"><b>机票（实付 ✓）</b><small>3 人往返 ZH9137 / CA1130 · 含机场餐饮券</small></div><input type="number" id="b1" value="8500" inputmode="numeric"></div>
     <div class="b-row"><div class="bi">🚗</div><div class="bn"><b>租车 · 哈弗大狗 7 天（实付 ✓）</b><small>机场取还 · ~¥214/天，这价拿下大狗很划算</small></div><input type="number" id="b2" value="1500" inputmode="numeric"></div>
@@ -542,7 +457,7 @@
   })();
   </script>
 
-  <div class="section-title">— 天 气 与 穿 衣 —</div>
+  <div class="section-title">天气与穿衣</div>
   <div class="wx">
     <div class="wx-hero">
       <div class="big">26–28°C<small>白天 · 短袖舒适</small></div>
@@ -558,7 +473,7 @@
     <div class="wx-item"><div class="wt">🎒 易漏清单</div><p>抓绒/薄羽绒 · 驱蚊液 · 雨衣 · 防晒帽 · 保温杯（草原早晚喝热水）· 湿巾（蒙古包那晚洗漱简陋）。</p></div>
   </div>
 
-  <div class="section-title">— 避 雷 防 坑 清 单 —</div>
+  <div class="section-title">避雷防坑</div>
   <div class="pit">
     <details class="p-item"><summary>🐴 骑马 —— 全程最大坑，没有之一</summary><p><span class="no">✘ 别</span>被路边"50 元骑马"招牌拉进去：上马后加收牵马费/上山费/拍照费，中途要价、不给就让你在草原中间下马。<br><span class="yes">✔ 要</span>选正规马场，<b>上马前谈定总价+时长+路线</b>，拍下价目表；黑山头马场相对规范，也贵不了多少。</p></details>
     <details class="p-item"><summary>🍖 吃饭 —— 上秤前问单价</summary><p><span class="no">✘ 别</span>直接说"来个手把肉"：按斤称的菜（手把肉/烤羊排/鱼）不问价就下单，结账翻倍。"免费篝火晚会/下马酒"多半捆绑消费。<br><span class="yes">✔ 要</span>点单时问清<b>单价和大概几斤</b>；连锁/高评分店优先，出租车司机推荐的店一律不去（有回扣）。</p></details>
