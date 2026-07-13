@@ -126,6 +126,47 @@
   .pit details.p-item[open] summary{margin-bottom:8px}
   .pit details.p-item p{line-height:1.75}
   footer{text-align:center;color:var(--sub);font-size:12.5px;margin-top:36px}
+  html{-webkit-text-size-adjust:100%}
+  body{-webkit-tap-highlight-color:rgba(0,0,0,0)}
+  .mapscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:12px}
+  .mapscroll svg{display:block;width:100%}
+  .maphint{display:none;text-align:center;font-size:11.5px;color:#A9A597;padding:8px 0 2px}
+
+  /* ===== 移动端适配 ===== */
+  @media (max-width:640px){
+    .wrap{padding:0 14px 64px}
+    header{padding:32px 0 18px}
+    header h1{font-size:23px}
+    header .sub{font-size:13px;padding:0 6px}
+    .stat{min-width:calc(50% - 5px);padding:9px 12px}
+    .stat b{font-size:17px}
+    .mapcard{padding:10px}
+    .mapscroll svg{min-width:680px}
+    .maphint{display:block}
+    .section-title{margin:38px 0 14px}
+    .day{padding:18px 15px 16px;border-radius:16px;margin-bottom:14px}
+    .badge{width:44px;height:44px;border-radius:12px}
+    .badge b{font-size:18px}
+    .day-title h3{font-size:16px}
+    .row{gap:9px;padding:8px 0}
+    .row .k{width:50px;font-size:12px}
+    .row .v{font-size:13.5px}
+    .rb .st{gap:8px;font-size:13.5px;padding:6px 0}
+    .rb .st .t{width:76px;font-size:11.5px}
+    .rb .nav,a.nav{white-space:normal;margin-left:4px;line-height:1.5;padding:1px 7px}
+    .tips{padding:15px 16px}
+    .pit{padding:4px 16px 8px}
+    .budget{padding:16px}
+    .b-row{gap:9px}
+    .b-row .bn small{font-size:11px}
+    .b-row input{width:82px;font-size:14px;padding:6px 7px}
+    .b-total .tv{font-size:24px}
+    .wx{grid-template-columns:1fr}
+    .wx-hero{gap:12px 18px;padding:14px 15px}
+    .wx-hero .big{font-size:21px}
+    .todo{grid-template-columns:1fr;gap:2px}
+    .legend{gap:10px;font-size:11px}
+  }
 </style>
 </head>
 <body>
@@ -143,6 +184,7 @@
   </header>
 
   <div class="mapcard">
+    <div class="mapscroll">
     <svg viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg" font-family="PingFang SC, sans-serif">
       <!-- ===== 底图 ===== -->
       <rect x="0" y="0" width="900" height="700" fill="#FBFAF6"/>
@@ -297,6 +339,8 @@
       </g>
       <text x="24" y="682" font-size="10.5" fill="#A9A597">* 手绘示意图,方位按真实相对位置排布,非精确比例</text>
     </svg>
+    </div>
+    <div class="maphint">↔ 手机上地图可左右滑动查看</div>
     <div class="legend">
       <span><i style="background:#C1762C"></i>自驾环线(箭头=行进方向)</span>
       <span><i class="dash"></i>备选延伸</span>
