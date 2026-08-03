@@ -88,7 +88,6 @@
   .todo input:checked + span{color:#A9A597;text-decoration:line-through}
   .todo b{color:var(--amber)}
 
-    border:1px solid var(--line);border-radius:9px;padding:6px 9px;background:#FBFAF6;font-family:inherit}
 
   /* 避雷防坑 */
   .pit{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:6px 22px 10px}
@@ -143,6 +142,23 @@
   .legend{opacity:.85}
   footer{margin-top:48px;letter-spacing:.4px;line-height:2}
 
+  /* ===== 赠言卡 ===== */
+  .gift{display:flex;gap:22px;align-items:center;background:var(--card);border:1px solid var(--line);
+    border-radius:16px;padding:20px 22px;margin:28px 0 2px}
+  .gift-ph{flex:none;width:132px}
+  .gift-ph img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--line)}
+  .gift-tx{flex:1;min-width:0}
+  .gift-tx .kick{font-size:10.5px;letter-spacing:4px;color:#9A968A;font-weight:700;margin-bottom:7px}
+  .gift-tx h2{font-size:19px;font-weight:800;letter-spacing:1px;margin-bottom:9px}
+  .gift-tx p{font-size:13.5px;color:#4c4a42;line-height:1.75}
+  .gift-tx .fine{font-size:12.5px;color:var(--sub);margin-top:7px}
+  .gift-tx .sign{font-size:12.5px;color:#B07A3A;margin-top:11px;padding-top:10px;border-top:1px dashed var(--line)}
+
+  /* ===== 禁止整页左右滑动 ===== */
+  html,body{max-width:100%;overflow-x:hidden}
+  .wrap{width:100%}
+  img,svg,table{max-width:100%}
+
   /* ===== 移动端适配 ===== */
   @media (max-width:640px){
     .wrap{padding:0 14px 64px}
@@ -172,6 +188,11 @@
     .wx-hero .big{font-size:21px}
     .todo{grid-template-columns:1fr;gap:2px}
     .legend{gap:10px;font-size:11px}
+    .gift{flex-direction:column;text-align:center;gap:15px;padding:20px 16px;margin:22px 0 2px}
+    .gift-ph{width:150px}
+    .gift-tx h2{font-size:17px}
+    .gift-tx p,.gift-tx .fine{text-align:left}
+    .gift-tx .sign{text-align:center}
   }
 </style>
 </head>
@@ -188,6 +209,17 @@
       <div class="stat"><b>0</b><span>回头路</span></div>
     </div>
   </header>
+
+  <div class="gift">
+    <div class="gift-ph"><img src="friend.jpg" alt="" loading="lazy"></div>
+    <div class="gift-tx">
+      <div class="kick">FOR YOU</div>
+      <h2>这份攻略，给你</h2>
+      <p>路线、每天的时间表、出片机位、加油点、避坑——下面全都有，照着走就行。</p>
+      <p class="fine">行程按 7 月下旬实走整理；天气和逐小时雨窗是当时的预报，出发前按你自己的日期再刷一遍。</p>
+      <p class="sign">华尔街的牛都合过影了，这回换草原上的牛羊 🐮</p>
+    </div>
+  </div>
 
   <div class="mapcard">
     <div class="mapscroll">
