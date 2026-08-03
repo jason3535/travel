@@ -60,16 +60,6 @@
   .tips .grp b{display:block;font-size:14px;margin-bottom:4px}
   .tips .grp p{font-size:13.5px;color:#4c4a42}
 
-  /* 天气与穿衣:底部展开网格 */
-  .wx{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
-  .wx-item{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 16px 14px}
-  .wx-item .wt{font-size:14px;font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:7px}
-  .wx-item p{font-size:13.5px;color:#4c4a42}
-  .wx-hero{grid-column:1/-1;background:linear-gradient(135deg,#EAF1E7,#F4F8F3);border:1px solid #D8E5DA;border-radius:16px;padding:16px 18px;display:flex;gap:22px;flex-wrap:wrap;align-items:center}
-  .wx-hero .big{font-size:26px;font-weight:800;color:#2F5D46;line-height:1.2}
-  .wx-hero .big small{display:block;font-size:12px;font-weight:600;color:#6E8A76;letter-spacing:1px}
-  .wx-hero .note{flex:1;min-width:200px;font-size:13.5px;color:#3E5B49}
-
   /* 路书时间轴 */
   .rb .st{display:flex;gap:10px;padding:7px 0;font-size:14px;align-items:baseline;line-height:1.65}
   .rb .st .t{flex:none;width:92px;font-weight:800;color:var(--forest);font-size:13px;font-variant-numeric:tabular-nums}
@@ -138,7 +128,6 @@
   .section-title{display:flex;align-items:center;gap:16px;margin:52px 0 18px}
   .section-title::before,.section-title::after{content:"";flex:1;height:1px;background:var(--line)}
   .mapcard,.tips,.pit,.day{border-radius:16px}
-  .wx-item,.wx-hero{border-radius:14px}
   .legend{opacity:.85}
   footer{margin-top:48px;letter-spacing:.4px;line-height:2}
 
@@ -183,9 +172,6 @@
     .rb .nav,a.nav{white-space:normal;margin-left:4px;line-height:1.5;padding:1px 7px}
     .tips{padding:15px 16px}
     .pit{padding:4px 16px 8px}
-    .wx{grid-template-columns:1fr}
-    .wx-hero{gap:12px 18px;padding:14px 15px}
-    .wx-hero .big{font-size:21px}
     .todo{grid-template-columns:1fr;gap:2px}
     .legend{gap:10px;font-size:11px}
     .gift{flex-direction:column;text-align:center;gap:15px;padding:20px 16px;margin:22px 0 2px}
@@ -443,32 +429,6 @@
     });
   })();
   </script>
-
-  <div class="section-title">天气与穿衣</div>
-  <div class="wx">
-    <div class="wx-hero">
-      <div class="big">24–30°C<small>白天 · 短袖舒适</small></div>
-      <div class="big" style="color:#557089">15–20°C<small>早晚 · 要加外套</small></div>
-      <div class="big" style="color:#8a5a1e">雨在前段<small>7/26–27 是雨窗</small></div>
-      <div class="note"><b>预报已按新路线刷新（7/25 出发日更新）</b>：这一周的雨集中在前两天——<b>7/26 额尔古纳 90%</b>、7/27 根河/莫尔道嘎 60–68% 且带雷阵雨，这两天<b>雨披随身</b>；7/28 起转好，<b>7/29 黑山头 21% 是全周最好的一天</b>。<b style="color:#8a5a1e">7/27 已按午后型降雨重排</b>：上午干、13 点后暴涨到 83%，所以敖鲁古雅抢上午、最烂的三小时全用来开车。<b style="color:#8a5a1e">7/26 已按逐小时雨窗重排</b>：全线干燥窗口都在 <b>07–09 点</b>（崖山 35%、莫日格勒 27%），15–17 点最烂（额尔古纳 90%），19 点后回落——所以那天两个户外机位塞上午、下午躲雨、湿地放 18:30 之后接日落。<b style="color:#8a5a1e">逆时针换线在天气上白赚了一笔</b>：两个雨天正好落在「开车 + 林区」的 D2/D3，而两件必须晴的事——D4 临江神仙坡日落、D5 边境线+黑山头骑马——全排进了好天。紫外线远强于南方城市、昼夜温差 10°C+ 不变。</div>
-    </div>
-    <div class="wx-item" style="grid-column:1/-1">
-      <div class="wt">📅 逐日预报（按<b>新路线</b>的当晚落脚点 · 7/25 更新）</div>
-      <div style="overflow-x:auto">
-      <table style="width:100%;border-collapse:collapse;font-size:13px;min-width:430px">
-        <tr style="color:var(--sub);text-align:left"><th style="padding:4px 8px 6px 0;font-weight:600">日期</th><th style="padding:4px 8px 6px 0;font-weight:600">落脚点</th><th style="padding:4px 8px 6px 0;font-weight:600">天气</th><th style="padding:4px 8px 6px 0;font-weight:600">气温</th><th style="padding:4px 0 6px 0;font-weight:600">降水概率</th></tr>
-        <tr style="border-top:1px solid var(--line)"><td style="padding:6px 8px 6px 0">7/25 六</td><td style="padding:6px 8px 6px 0">海拉尔</td><td style="padding:6px 8px 6px 0">⛅ 多云转毛毛雨</td><td style="padding:6px 8px 6px 0;white-space:nowrap">18–30°</td><td style="padding:6px 0">20%</td></tr><tr style="border-top:1px solid var(--line)"><td style="padding:6px 8px 6px 0">7/26 日</td><td style="padding:6px 8px 6px 0">哈克崖山→额尔古纳</td><td style="padding:6px 8px 6px 0">🌧 阵雨</td><td style="padding:6px 8px 6px 0;white-space:nowrap">18–26°</td><td style="padding:6px 0"><b style="color:#B0453A">90% ⚠最湿</b></td></tr><tr style="border-top:1px solid var(--line)"><td style="padding:6px 8px 6px 0">7/27 一</td><td style="padding:6px 8px 6px 0">莫尔道嘎</td><td style="padding:6px 8px 6px 0">🌧 午后阵雨</td><td style="padding:6px 8px 6px 0;white-space:nowrap">14–23°</td><td style="padding:6px 0"><b style="color:#B0453A">83% 午后</b></td></tr><tr style="border-top:1px solid var(--line)"><td style="padding:6px 8px 6px 0">7/28 二</td><td style="padding:6px 8px 6px 0">临江 · 室韦</td><td style="padding:6px 8px 6px 0">⛅ 多云</td><td style="padding:6px 8px 6px 0;white-space:nowrap">16–26°</td><td style="padding:6px 0"><b style="color:var(--grass)">25% ✓日落日</b></td></tr><tr style="border-top:1px solid var(--line)"><td style="padding:6px 8px 6px 0">7/29 三</td><td style="padding:6px 8px 6px 0">黑山头</td><td style="padding:6px 8px 6px 0">☀️ 晴到多云</td><td style="padding:6px 8px 6px 0;white-space:nowrap">19–26°</td><td style="padding:6px 0"><b style="color:var(--grass)">21% ✓边境线+骑马</b></td></tr><tr style="border-top:1px solid var(--line)"><td style="padding:6px 8px 6px 0">7/30 四</td><td style="padding:6px 8px 6px 0">满洲里</td><td style="padding:6px 8px 6px 0">⛅ 白天干·夜里雨</td><td style="padding:6px 8px 6px 0;white-space:nowrap">20–27°</td><td style="padding:6px 0">日间 0–20%</td></tr><tr style="border-top:1px solid var(--line)"><td style="padding:6px 8px 6px 0">7/31 五</td><td style="padding:6px 8px 6px 0">海拉尔</td><td style="padding:6px 8px 6px 0">☀️ 晴</td><td style="padding:6px 8px 6px 0;white-space:nowrap">22–29°</td><td style="padding:6px 0"><b style="color:var(--grass)">7–24% ✓</b></td></tr>
-      </table>
-      </div>
-      <p style="margin-top:8px;font-size:12px;color:var(--sub)">* 来源 Open-Meteo，7/25 当天拉取，7/30 之后置信度递减；雨多≠玩不了——这里的雨多是阵性小雨，下完就晴，正是出彩虹和通透光的时候。7/27 的雨是午后型（上午 1–22%、13 点后 75–83%），所以那天行程全部压到上午。</p>
-    </div>
-    <div class="wx-item"><div class="wt">🧅 穿法 · 洋葱三层</div><p>短袖 T + 长袖防晒衣/薄外套 + <b>每人一件抓绒或薄羽绒</b>。下装长裤为主（骑马/进林区必须），运动鞋 + 备一双拖鞋。</p></div>
-    <div class="wx-item"><div class="wt">🌧 雨具</div><p><b>可重复用的轻便雨披（每人一件）优于伞</b>（EVA/涤纶材质，草原风大伞会翻，雨披还能罩住背包），出发前买好；车里再备一把伞。阵雨过后天最通透，<b>正是拍 S 弯和彩虹的窗口，别窝在车里</b>。</p></div>
-    <div class="wx-item"><div class="wt">☀️ 防晒</div><p>SPF50+ 每 2–3 小时补一次、防晒帽、墨镜。小朋友的防晒更要抓紧，晒伤当天就红。</p></div>
-    <div class="wx-item"><div class="wt">🦟 防蚊（7 月高峰）</div><p>傍晚河边、根河湿地、黑山头草原营地最凶。<b>派卡瑞丁或避蚊胺驱蚊液必带</b>（南方出发最容易漏的就是它），傍晚长袖长裤。</p></div>
-    <div class="wx-item"><div class="wt">📷 穿搭彩蛋</div><p>女生和小朋友各带一条<b>红色或白色连衣裙</b>，绿草原上最出片；外套选亮色，一行人全黑灰在草原上就是"丢了"。</p></div>
-    <div class="wx-item"><div class="wt">🎒 易漏清单</div><p>抓绒/薄羽绒 · 驱蚊液 · <b>雨披（每人一件，可重复用）</b> · 防晒帽 · 保温杯（草原早晚喝热水）· 湿巾（路上厕所简陋）· 《额尔古纳河右岸》（纸书或微信读书，飞机上的功课）。</p></div>
-  </div>
 
   <div class="section-title">避雷防坑</div>
   <div class="pit">
