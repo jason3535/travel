@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>江西 · 莆田 7 日国庆自驾</title>
+<style>
+  :root{
+    --bg:#F6F4EF; --ink:#26261F; --sub:#6E6B62; --line:#E4E0D6;
+    --card:#FFFFFF; --grass:#4A8B63; --forest:#2F5D46; --amber:#C1762C;
+    --blue:#6C93AF; --amber-soft:#F5E9D8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px 80px}
+  header{padding:48px 0 28px;text-align:center}
+  header .kicker{font-size:13px;letter-spacing:3px;color:var(--grass);font-weight:600}
+  header h1{font-size:30px;font-weight:800;margin:10px 0 6px;letter-spacing:1px}
+  header .sub{color:var(--sub);font-size:15px}
+  .stats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 16px;min-width:96px}
+  .stat b{display:block;font-size:19px;font-weight:800}
+  .stat span{font-size:12px;color:var(--sub)}
+
+  .mapcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;margin:26px 0 8px;overflow:hidden}
+  .mapcard svg{width:100%;height:auto;display:block}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;padding:12px 6px 4px;font-size:12px;color:var(--sub)}
+  .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+  .legend .dash{width:18px;height:0;border-top:2.5px dashed #9BA79E;border-radius:0;vertical-align:3px}
+
+  .section-title{font-size:13px;letter-spacing:3px;color:var(--sub);font-weight:700;margin:48px 0 18px;text-align:center}
+
+  .day{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 22px 20px;margin-bottom:20px;position:relative}
+  .day-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
+  .badge{flex:none;width:52px;height:52px;border-radius:14px;background:var(--forest);color:#fff;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+  .badge small{font-size:10px;opacity:.8;letter-spacing:1px}
+  .badge b{font-size:22px;font-weight:800;margin-top:2px}
+  .day-title{flex:1}
+  .day-title h3{font-size:18px;font-weight:800;letter-spacing:.3px}
+  .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .chip{font-size:12px;background:#F1EEE6;border-radius:999px;padding:3px 10px;color:#55524a}
+  .chip.drive{background:var(--amber-soft);color:#8a5a1e}
+  .rows{border-top:1px dashed var(--line);padding-top:12px}
+  .row{display:flex;gap:12px;padding:9px 0;align-items:baseline}
+  .row .k{flex:none;width:60px;font-size:13px;font-weight:700;color:var(--grass)}
+  .row .v{flex:1;font-size:14px;color:#45443c;line-height:1.7}
+  .row .v .hl{color:var(--amber);font-weight:700}
+  .tip .k{color:var(--amber)}
+
+  .tips{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+  .tips h4{font-size:16px;margin-bottom:4px}
+  .tips .grp{padding:12px 0;border-top:1px solid var(--line)}
+  .tips .grp:first-of-type{border-top:0}
+  .tips .grp b{display:block;font-size:14px;margin-bottom:4px}
+  .tips .grp p{font-size:13.5px;color:#4c4a42}
+
+  .wx{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+  .wx-item{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 16px 14px}
+  .wx-item .wt{font-size:14px;font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:7px}
+  .wx-item p{font-size:13.5px;color:#4c4a42}
+  .wx-hero{grid-column:1/-1;background:linear-gradient(135deg,#EAF1E7,#F4F8F3);border:1px solid #D8E5DA;border-radius:16px;padding:16px 18px;display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+  .wx-hero .big{font-size:26px;font-weight:800;color:#2F5D46;line-height:1.2}
+  .wx-hero .big small{display:block;font-size:12px;font-weight:600;color:#6E8A76;letter-spacing:1px}
+  .wx-hero .note{flex:1;min-width:200px;font-size:13.5px;color:#3E5B49}
+
+  .rb .st{display:flex;gap:10px;padding:7px 0;font-size:14px;align-items:baseline;line-height:1.65}
+  .rb .st .t{flex:none;width:92px;font-weight:800;color:var(--forest);font-size:13px;font-variant-numeric:tabular-nums}
+  .rb .st .d{flex:1;color:#33322b}
+  .rb .st .d b{color:var(--ink)}
+  .rb .nav,a.nav{font-size:12px;color:#4E6E85;background:#EEF4F8;border-radius:6px;padding:1px 8px;margin-left:6px;white-space:nowrap;display:inline-block;text-decoration:none}
+  a.nav:active{background:#DCE9F2}
+  .rb .st.opt .t{color:#B8B3A6}
+  .rb .st.opt .d{color:#8f8b80}
+  .dog{font-size:11.5px;color:#7A5A2E;background:#FBF3E6;border:1px solid #EAD9BE;border-radius:6px;padding:1px 7px;margin-left:6px;white-space:nowrap;display:inline-block}
+  .dog.no{color:#8E3F36;background:#FBEAE7;border-color:#EFCBC5}
+
+  .todo{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:6px 14px;margin-top:4px}
+  .todo label{display:flex;align-items:flex-start;gap:9px;font-size:14px;color:#33322b;padding:6px 2px;cursor:pointer;border-radius:8px}
+  .todo label:active{background:#F1EEE6}
+  .todo input{flex:none;width:19px;height:19px;margin-top:2px;accent-color:var(--grass);cursor:pointer}
+  .todo input:checked + span{color:#A9A597;text-decoration:line-through}
+  .todo b{color:var(--amber)}
+
+  .budget{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 22px}
+  .b-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px dashed var(--line)}
+  .b-row:first-of-type{border-top:0}
+  .b-row .bi{flex:none;width:26px;text-align:center;font-size:16px}
+  .b-row .bn{flex:1;min-width:0}
+  .b-row .bn b{font-size:14.5px;display:block}
+  .b-row .bn small{font-size:12px;color:var(--sub);display:block;margin-top:1px}
+  .b-row input{flex:none;width:92px;text-align:right;font-size:15px;font-weight:700;color:var(--ink);
+    border:1px solid var(--line);border-radius:9px;padding:6px 9px;background:#FBFAF6;font-family:inherit}
+  .b-row input:focus{outline:2px solid var(--grass);border-color:var(--grass)}
+  .b-total{display:flex;align-items:baseline;justify-content:space-between;margin-top:14px;padding-top:14px;border-top:2px solid var(--ink)}
+  .b-total .tl{font-size:15px;font-weight:800}
+  .b-total .tv{font-size:28px;font-weight:800;color:var(--forest)}
+  .b-sub{display:flex;justify-content:space-between;font-size:12.5px;color:var(--sub);margin-top:6px}
+  .b-note{font-size:12px;color:#A9A597;margin-top:12px}
+
+  .pit{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:6px 22px 10px}
+  .pit .p-item{padding:14px 0;border-top:1px solid var(--line)}
+  .pit .p-item:first-of-type{border-top:0}
+  .pit .p-item b{display:block;font-size:14.5px;margin-bottom:4px}
+  .pit .p-item p{font-size:13.5px;color:#4c4a42}
+  .pit .no{color:#B0453A;font-weight:700}
+  .pit .yes{color:var(--grass);font-weight:700}
+  summary{list-style:none}
+  summary::-webkit-details-marker{display:none}
+  .tips details.grp summary{cursor:pointer;padding:13px 0;font-weight:800;font-size:14px;display:flex;justify-content:space-between;align-items:center}
+  .tips details.grp summary::after{content:"＋";color:#B8B3A6;font-weight:400;margin-left:10px}
+  .tips details.grp[open] summary::after{content:"－"}
+  .tips details.grp{padding:0}
+  .tips details.grp p{padding:2px 0 13px;line-height:1.75}
+  .pit details.p-item summary{cursor:pointer;font-weight:800;font-size:14.5px;display:flex;justify-content:space-between;align-items:center}
+  .pit details.p-item summary::after{content:"＋";color:#B8B3A6;font-weight:400;margin-left:10px}
+  .pit details.p-item[open] summary::after{content:"－"}
+  .pit details.p-item[open] summary{margin-bottom:8px}
+  .pit details.p-item p{line-height:1.75}
+  footer{text-align:center;color:var(--sub);font-size:12.5px;margin-top:36px}
+  html{-webkit-text-size-adjust:100%}
+  body{-webkit-tap-highlight-color:rgba(0,0,0,0)}
+  .mapscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:12px}
+  .mapscroll svg{display:block;width:100%}
+  .maphint{display:none;text-align:center;font-size:11.5px;color:#A9A597;padding:8px 0 2px}
+
+  /* 待办横幅 */
+  .now{background:linear-gradient(135deg,#FBF3E6,#FDF8F0);border:1px solid #EAD9BE;border-radius:16px;padding:16px 18px;margin:18px 0 0}
+  .now b{display:block;font-size:14px;color:#8a5a1e;margin-bottom:6px;letter-spacing:.5px}
+  .now .todo label{font-size:13.5px}
+
+  /* ===== 视觉精修 ===== */
+  header .kicker{color:#9A968A;font-size:11px;letter-spacing:4px}
+  header h1{letter-spacing:2px}
+  .stats{gap:0;margin-top:24px}
+  .stat{background:transparent;border:0;border-left:1px solid var(--line);border-radius:0;min-width:86px;padding:2px 20px}
+  .stat:first-child{border-left:0}
+  .badge{background:transparent;border:1.5px solid var(--forest);color:var(--forest)}
+  .badge small{opacity:.55}
+  .chip{background:transparent;border:1px solid var(--line);color:#6E6B62}
+  .chip.drive{background:transparent;border-color:#E2D4BC;color:#8a5a1e}
+  .chip.date{border-color:#C8DACB;color:#3E6E52;font-weight:700}
+  .chip.ok{border-color:#C8DACB;color:#3E6E52}
+  .chip.wait{border-color:#E2D4BC;color:#8a5a1e}
+  .rows{border-top:1px solid var(--line)}
+  .row .k{color:#9A968A;font-weight:600;letter-spacing:1px}
+  .tip .k{color:#B07A3A}
+  .row .v .hl{color:var(--ink);font-weight:700}
+  .rb .st .t{color:#55524a}
+  .rb .nav,a.nav{background:transparent;border:1px solid #D9E2E8;color:#5B7C93}
+  .section-title{display:flex;align-items:center;gap:16px;margin:52px 0 18px}
+  .section-title::before,.section-title::after{content:"";flex:1;height:1px;background:var(--line)}
+  .mapcard,.tips,.budget,.pit,.day{border-radius:16px}
+  .b-row{border-top:1px solid var(--line)}
+  .b-row input{border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;padding:4px 2px}
+  .b-row input:focus{outline:none;border-bottom:2px solid var(--forest)}
+  .b-total{border-top:1px solid var(--ink)}
+  .wx-item,.wx-hero{border-radius:14px}
+  .legend{opacity:.85}
+  footer{margin-top:48px;letter-spacing:.4px;line-height:2}
+
+  /* ===== 移动端适配 ===== */
+  @media (max-width:640px){
+    .wrap{padding:0 14px 64px}
+    header{padding:32px 0 18px}
+    header h1{font-size:23px}
+    header .sub{font-size:13px;padding:0 6px}
+    .stat{min-width:calc(50% - 5px);padding:9px 12px}
+    .stat b{font-size:17px}
+    .mapcard{padding:10px}
+    .mapscroll svg{min-width:680px}
+    .maphint{display:block}
+    .section-title{margin:38px 0 14px}
+    .day{padding:18px 15px 16px;border-radius:16px;margin-bottom:14px}
+    .badge{width:44px;height:44px;border-radius:12px}
+    .badge b{font-size:18px}
+    .day-title h3{font-size:16px}
+    .row{gap:9px;padding:8px 0}
+    .row .k{width:50px;font-size:12px}
+    .row .v{font-size:13.5px}
+    .rb .st{gap:8px;font-size:13.5px;padding:6px 0}
+    .rb .st .t{width:76px;font-size:11.5px}
+    .rb .nav,a.nav,.dog{white-space:normal;margin-left:4px;line-height:1.5;padding:1px 7px}
+    .tips{padding:15px 16px}
+    .pit{padding:4px 16px 8px}
+    .budget{padding:16px}
+    .b-row{gap:9px}
+    .b-row .bn small{font-size:11px}
+    .b-row input{width:82px;font-size:14px;padding:6px 7px}
+    .b-total .tv{font-size:24px}
+    .wx{grid-template-columns:1fr}
+    .wx-hero{gap:12px 18px;padding:14px 15px}
+    .wx-hero .big{font-size:21px}
+    .todo{grid-template-columns:1fr;gap:2px}
+    .legend{gap:10px;font-size:11px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">SELF-DRIVE · JIANGXI → PUTIAN</div>
+    <h1>江西 · 莆田 7 日国庆自驾</h1>
+    <div class="sub">2026/9/30 下午 – 10/6 · 深圳出发 · 赣州 → 南昌 → 景德镇 → 婺源 → 莆田老家 → 深圳 · <b>顺时针大环线，零回头路</b></div>
+    <div class="stats">
+      <div class="stat"><b>9/30–10/6</b><span>6.5 天</span></div>
+      <div class="stat"><b>~2300</b><span>公里 · 自家车</span></div>
+      <div class="stat"><b>6</b><span>落脚点 · 4 晚酒店</span></div>
+      <div class="stat"><b>3+1</b><span>人 · 一家 + 小狗</span></div>
+    </div>
+  </header>
+
+  <div class="mapcard">
+    <div class="mapscroll">
+    <svg viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg" font-family="PingFang SC, sans-serif">
+      <rect x="0" y="0" width="900" height="700" fill="#FBFAF6"/>
+
+      <!-- 江西省(示意) -->
+      <path d="M215,90 Q330,60 470,70 Q560,80 640,110 Q680,150 665,200 Q640,260 600,300 Q540,340 470,330 Q400,350 330,380 Q290,430 260,470 Q220,440 210,380 Q180,300 175,220 Q185,150 215,90 Z" fill="#EAF1E7"/>
+      <text x="300" y="235" fill="#7CA189" font-size="22" font-weight="800" letter-spacing="6" opacity=".7">江 西</text>
+      <!-- 福建省(示意) -->
+      <path d="M600,300 Q640,260 665,200 Q720,230 800,300 Q830,370 800,440 Q760,500 690,540 Q620,560 560,540 Q500,500 470,430 Q470,380 520,350 Q560,330 600,300 Z" fill="#F0EDE4"/>
+      <text x="640" y="430" fill="#A89E8C" font-size="20" font-weight="800" letter-spacing="6" opacity=".75">福 建</text>
+      <!-- 广东省(示意) -->
+      <path d="M30,540 Q120,470 210,470 Q260,470 330,420 Q400,460 470,430 Q520,500 560,540 Q500,600 420,610 Q330,640 250,650 Q150,660 60,640 Q20,600 30,540 Z" fill="#F1EFE8"/>
+      <text x="270" y="648" fill="#A89E8C" font-size="18" font-weight="800" letter-spacing="6" opacity=".7">广 东</text>
+      <!-- 海(东南) -->
+      <path d="M900,300 Q860,380 810,450 Q770,520 700,570 Q620,610 560,640 Q480,670 400,700 L900,700 Z" fill="#E4EDF3"/>
+      <text x="720" y="620" fill="#8FB2CB" font-size="13" letter-spacing="3" opacity=".9">台 湾 海 峡</text>
+      <!-- 鄱阳湖 -->
+      <path d="M405,120 Q435,105 455,125 Q470,150 450,175 Q430,190 415,170 Q395,150 405,120 Z" fill="#BFD6E6"/>
+      <text x="432" y="152" fill="#4E6E85" font-size="11" font-weight="700" text-anchor="middle">鄱阳湖</text>
+      <!-- 武夷山脉(赣闽界) -->
+      <g stroke="#B9C7B3" stroke-width="2" stroke-linecap="round" fill="none" opacity=".8">
+        <path d="M615,215 l10,-14 l10,14"/><path d="M628,250 l10,-14 l10,14"/><path d="M600,275 l10,-14 l10,14"/>
+        <path d="M560,320 l10,-14 l10,14"/><path d="M520,345 l10,-14 l10,14"/>
+      </g>
+      <text x="752" y="182" fill="#8AA592" font-size="10.5" transform="rotate(62 752 182)">武夷山脉 · 赣闽界</text>
+
+      <!-- ===== 环线(顺时针) ===== -->
+      <path d="M164,629 L206,586 L239,538 L250,450 L266,380
+               L273,284 L375,165
+               Q450,120 530,120 L609,122
+               L619,182 L629,234 L647,319 Q700,345 744,409
+               L705,453 L636,482 Q560,520 471,568 Q330,600 206,586"
+            fill="none" stroke="#C1762C" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" opacity=".92"/>
+      <!-- 方向箭头 -->
+      <g fill="#C1762C">
+        <g transform="translate(245,490) rotate(-84)"><path d="M7,0 L-6,-5 L-6,5 Z"/></g>
+        <g transform="translate(270,330) rotate(-86)"><path d="M7,0 L-6,-5 L-6,5 Z"/></g>
+        <g transform="translate(330,218) rotate(-50)"><path d="M7,0 L-6,-5 L-6,5 Z"/></g>
+        <g transform="translate(470,121) rotate(0)"><path d="M7,0 L-6,-5 L-6,5 Z"/></g>
+        <g transform="translate(638,275) rotate(78)"><path d="M7,0 L-6,-5 L-6,5 Z"/></g>
+        <g transform="translate(715,375) rotate(48)"><path d="M7,0 L-6,-5 L-6,5 Z"/></g>
+        <g transform="translate(560,521) rotate(157)"><path d="M7,0 L-6,-5 L-6,5 Z"/></g>
+        <g transform="translate(340,596) rotate(188)"><path d="M7,0 L-6,-5 L-6,5 Z"/></g>
+      </g>
+
+      <!-- 备选支线:莆田→湄洲岛 / 婺源→三清山 / 赣州→井冈山 -->
+      <path d="M744,409 L755,438" fill="none" stroke="#9BA79E" stroke-width="2.5" stroke-dasharray="5 5" stroke-linecap="round"/>
+      <circle cx="755" cy="438" r="3.5" fill="#B4AEA0"/>
+      <text x="764" y="464" fill="#8B948C" font-size="10.5">湄洲岛(D6 备选·狗留老家)</text>
+      <path d="M609,122 L633,148" fill="none" stroke="#9BA79E" stroke-width="2.5" stroke-dasharray="5 5" stroke-linecap="round"/>
+      <circle cx="633" cy="148" r="3.5" fill="#B4AEA0"/>
+      <text x="641" y="152" fill="#8B948C" font-size="10.5">三清山(这次不去)</text>
+
+      <!-- 每段里程 -->
+      <g font-size="11" fill="#A5713A" font-weight="600">
+        <text x="150" y="500">D1 ~440km · 9/30 下午</text>
+        <text x="150" y="514">⚠ 深圳出城 + 惠州段最堵</text>
+        <text x="282" y="330">D2 ~420km</text>
+        <text x="282" y="344">国庆首日 · 免费通行</text>
+        <text x="420" y="105">D3 ~230km</text>
+        <text x="562" y="105">D4 ~85km</text>
+        <text x="668" y="292">D5 ~540km ⚠ 最长</text>
+        <text x="668" y="306">京台→沈海 · 翻武夷山</text>
+        <text x="470" y="596">D7 ~610km · 06:00 出发</text>
+        <text x="470" y="610">⚠ 潮汕/惠州段返程高峰</text>
+      </g>
+
+      <!-- 途经点 -->
+      <g>
+        <circle cx="206" cy="586" r="4" fill="#8a8578"/>
+        <text x="214" y="580" font-size="11" fill="#6E6B62">惠州</text>
+        <circle cx="239" cy="538" r="4" fill="#8a8578"/>
+        <text x="248" y="542" font-size="11" fill="#6E6B62">河源 · 遛狗加油</text>
+        <circle cx="250" cy="450" r="4" fill="#8a8578"/>
+        <text x="258" y="454" font-size="11" fill="#6E6B62">龙南 · 进江西</text>
+        <circle cx="273" cy="284" r="4" fill="#8a8578"/>
+        <text x="282" y="288" font-size="11" fill="#6E6B62">吉安 · 午饭</text>
+        <circle cx="619" cy="182" r="4" fill="#8a8578"/>
+        <text x="628" y="186" font-size="11" fill="#6E6B62">上饶</text>
+        <circle cx="629" cy="234" r="4" fill="#8a8578"/>
+        <text x="560" y="238" font-size="11" fill="#6E6B62">武夷山 · 午饭</text>
+        <circle cx="647" cy="319" r="4" fill="#8a8578"/>
+        <text x="610" y="335" font-size="11" fill="#6E6B62">南平</text>
+        <circle cx="778" cy="362" r="4" fill="#8a8578"/>
+        <text x="786" y="366" font-size="11" fill="#6E6B62">福州</text>
+        <circle cx="705" cy="453" r="4" fill="#8a8578"/>
+        <text x="713" y="466" font-size="11" fill="#6E6B62">泉州</text>
+        <circle cx="636" cy="482" r="4" fill="#8a8578"/>
+        <text x="644" y="496" font-size="11" fill="#6E6B62">厦门</text>
+        <circle cx="471" cy="568" r="4" fill="#8a8578"/>
+        <text x="478" y="562" font-size="11" fill="#6E6B62">潮州/汕头 · 早饭</text>
+      </g>
+
+      <!-- 过夜站 -->
+      <g font-size="13.5" font-weight="800" fill="#26261F">
+        <!-- 深圳 -->
+        <circle cx="164" cy="629" r="10" fill="#2F5D46"/>
+        <circle cx="164" cy="629" r="4" fill="#fff"/>
+        <rect x="100" y="619" width="52" height="21" rx="7" fill="#C1762C"/>
+        <text x="126" y="634" font-size="12" fill="#fff" text-anchor="middle">起·终</text>
+        <text x="164" y="660" text-anchor="middle">深圳</text>
+        <text x="164" y="675" text-anchor="middle" font-size="10.5" font-weight="500" fill="#6E6B62">9/30 出发 · 10/6 回家</text>
+
+        <!-- 赣州 -->
+        <circle cx="266" cy="380" r="8.5" fill="#4A8B63"/>
+        <rect x="207" y="368" width="27" height="21" rx="7" fill="#C1762C"/>
+        <text x="220" y="383" font-size="12" fill="#fff" text-anchor="middle">D1</text>
+        <text x="281" y="384">赣州</text>
+        <text x="281" y="399" font-size="10.5" font-weight="500" fill="#6E6B62">郁孤台 · 古浮桥 · 客家菜</text>
+
+        <!-- 南昌 -->
+        <circle cx="375" cy="165" r="8.5" fill="#4A8B63"/>
+        <rect x="316" y="153" width="27" height="21" rx="7" fill="#C1762C"/>
+        <text x="329" y="168" font-size="12" fill="#fff" text-anchor="middle">D2</text>
+        <text x="375" y="196" text-anchor="middle">南昌</text>
+        <text x="375" y="211" text-anchor="middle" font-size="10.5" font-weight="500" fill="#6E6B62">滕王阁 · 一江两岸灯光</text>
+
+        <!-- 景德镇 -->
+        <circle cx="530" cy="120" r="8.5" fill="#4A8B63"/>
+        <rect x="503" y="86" width="27" height="21" rx="7" fill="#C1762C"/>
+        <text x="516" y="101" font-size="12" fill="#fff" text-anchor="middle">D3</text>
+        <text x="530" y="150" text-anchor="middle">景德镇</text>
+        <text x="530" y="165" text-anchor="middle" font-size="10.5" font-weight="500" fill="#6E6B62">陶艺 DIY · 陶溪川</text>
+
+        <!-- 婺源 -->
+        <circle cx="609" cy="122" r="9" fill="#2F5D46"/>
+        <circle cx="609" cy="122" r="3.5" fill="#fff"/>
+        <rect x="622" y="88" width="27" height="21" rx="7" fill="#C1762C"/>
+        <text x="635" y="103" font-size="12" fill="#fff" text-anchor="middle">D4</text>
+        <text x="612" y="72" text-anchor="middle" font-size="13.5">婺源</text>
+        <text x="612" y="60" text-anchor="middle" font-size="10.5" font-weight="500" fill="#6E6B62">篁岭晒秋 · 徽派古村</text>
+
+        <!-- 莆田 -->
+        <circle cx="744" cy="409" r="10" fill="#2F5D46"/>
+        <circle cx="744" cy="409" r="4" fill="#fff"/>
+        <rect x="758" y="393" width="46" height="21" rx="7" fill="#C1762C"/>
+        <text x="781" y="408" font-size="12" fill="#fff" text-anchor="middle">D5·D6</text>
+        <text x="760" y="426">莆田老家</text>
+        <text x="760" y="441" font-size="10.5" font-weight="500" fill="#6E6B62">2 晚 · 木兰陂 · 家宴</text>
+      </g>
+
+      <g transform="translate(846,52)">
+        <circle r="20" fill="#FFFFFF" stroke="#E4E0D6"/>
+        <path d="M0,-13 L5,7 L0,3 L-5,7 Z" fill="#C1762C"/>
+        <text y="-26" text-anchor="middle" font-size="12" font-weight="800" fill="#55524a">N</text>
+      </g>
+      <text x="330" y="690" font-size="10.5" fill="#A9A597">* 手绘示意图，城市按真实经纬度排布，省界为示意，非精确比例</text>
+    </svg>
+    </div>
+    <div class="maphint">↔ 手机上地图可左右滑动查看</div>
+    <div class="legend">
+      <span><i style="background:#C1762C"></i>自驾环线 · 顺时针(箭头=行进方向)</span>
+      <span><i class="dash"></i>备选支线</span>
+      <span><i style="background:#2F5D46"></i>过夜站</span>
+      <span><i style="background:#8a8578;border-radius:50%"></i>途经点</span>
+      <span><i style="background:#EAF1E7"></i>江西</span>
+      <span><i style="background:#BFD6E6"></i>鄱阳湖 / 海</span>
+    </div>
+  </div>
+
+  <div class="now">
+    <b>📌 出发前这几天必须办完（点击勾选，自动记在手机里）</b>
+    <div class="todo" id="prep">
+      <label><input type="checkbox" data-k="p1"><span><b>篁岭门票</b>：国庆全部线上预约限流，官方小程序搜「篁岭景区」，订 <b>10/4 上午场</b>，¥145/人含索道（派芝按儿童票核价）。售罄就改订 10/3 下午场并做好雨天备案</span></label>
+      <label><input type="checkbox" data-k="p2"><span><b>4 晚宠物友好酒店</b>（赣州 / 南昌 / 景德镇 / 婺源）：携程或美团筛「可携带宠物」，<b>下单后逐家打电话确认</b>体型、押金、能否进房——不打电话国庆到店被拒是最常见事故</span></label>
+      <label><input type="checkbox" data-k="p3"><span><b>滕王阁门票</b>：官方购票平台 cntwg.com 或现场，¥48–50，10/1 晚上场；阁内<b>不能带狗</b>，按「分工制」走</span></label>
+      <label><input type="checkbox" data-k="p4"><span><b>中国陶瓷博物馆预约</b>（免费，微信公众号预约，10/2 下午）；御窑博物馆同理</span></label>
+      <label><input type="checkbox" data-k="p5"><span><b>狗的证件</b>：免疫证 + 狗牌随身；<b>狗粮带足 7 天不换粮</b>、折叠水碗、尿垫、航空箱或车用安全带</span></label>
+      <label><input type="checkbox" data-k="p6"><span><b>车</b>：胎压/机油/玻璃水、ETC 余额（免费期也要走 ETC 车道）、9/30 出发前加满</span></label>
+      <label><input type="checkbox" data-k="p7"><span><b>跟莆田家里打招呼</b>：10/4 傍晚到、住两晚、10/6 一早走；问一句家里能不能收留狗（10/5 去湄洲岛/南少林的前提）</span></label>
+    </div>
+  </div>
+
+  <div class="section-title">逐日行程</div>
+
+  <!-- D1 -->
+  <div class="day"><div class="day-head"><div class="badge"><small>DAY</small><b>1</b></div><div class="day-title"><h3>深圳 → 河源 → 赣州 · 半天赶路进江西</h3><div class="meta"><span class="chip date">9/30 三 · 下午</span><span class="chip">🌦 27–35° · 闷热</span><span class="chip drive">~440km · 5h+ · G25 长深高速</span><span class="chip wait">宿·赣州 宠物友好酒店 待订</span></div></div></div><div class="rows"><div class="row"><div class="k">路书</div><div class="v"><div class="rb">
+    <div class="st"><div class="t">12:30–13:00</div><div class="d"><b>出发，越早越好</b>。出发前遛狗 30 分钟排空、上车前 2 小时不喂饱（防晕车）。16 点后惠州段就开始堵，13 点前上高速是分水岭</div></div>
+    <div class="st"><div class="t">15:00</div><div class="d">河源服务区：加油 + 遛狗 5 分钟 + 派芝上厕所。<b>今天还没免费</b>（10/1 零点起才免），过路费正常交，全程约 ¥200<a class="nav" href="https://uri.amap.com/search?keyword=河源服务区&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍河源服务区</a></div></div>
+    <div class="st"><div class="t">17:00</div><div class="d">龙南——进江西。这一段山多、区间测速密，跟导航限速走</div></div>
+    <div class="st"><div class="t">18:30</div><div class="d">抵赣州，入住（选老城章贡区、离郁孤台 2km 内的），先把狗安顿好<a class="nav" href="https://uri.amap.com/search?keyword=郁孤台历史文化街区&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍郁孤台历史文化街区</a></div></div>
+    <div class="st"><div class="t">19:30</div><div class="d">晚饭客家菜：<b>赣南小炒鱼、三杯鸡、酿豆腐、艾米果</b>——江西第一顿要吃辣一点的（派芝可点不辣的酿豆腐）</div></div>
+    <div class="st"><div class="t">20:30</div><div class="d"><b>郁孤台历史文化街区 + 古城墙夜游</b> <span class="dog">🐕 开放街区 · 牵绳可带</span> 免费，宋代城墙上走一段看章江贡江汇成赣江，「郁孤台下清江水」就是这里，给派芝念一遍辛弃疾</div></div>
+    <div class="st opt"><div class="t">备选</div><div class="d">如果下班晚、16 点后才能走：宁可在深圳吃完晚饭 19:30 再出发，惠州段 20 点后就松了，23 点到赣州；别卡在 16–19 点这一段硬堵</div></div>
+  </div></div></div>
+  <div class="row"><div class="k">住</div><div class="v"><span class="hl">待订</span> 赣州老城区宠物友好酒店 1 晚（连锁里亚朵/部分桔子水晶接受宠物，但<b>每家店政策不同，必须电话确认</b>）。</div></div>
+  <div class="row tip"><div class="k">贴士</div><div class="v">今天是全程最热的一天（赣州 35°），<span class="hl">狗全程不能留在车里</span>，每次下车谁都可以走、狗必须有人带着。车里空调对着后座吹一点。</div></div>
+  </div></div>
+
+  <!-- D2 -->
+  <div class="day"><div class="day-head"><div class="badge"><small>DAY</small><b>2</b></div><div class="day-title"><h3>赣州 → 吉安 → 南昌 · 滕王阁与一江两岸</h3><div class="meta"><span class="chip date">10/1 四 · 国庆首日</span><span class="chip">⛅ 24–28° · 南昌全周最好天</span><span class="chip drive">~420km · 4.5h · G45 大广高速</span><span class="chip wait">宿·南昌 宠物友好酒店 待订</span></div></div></div><div class="rows"><div class="row"><div class="k">路书</div><div class="v"><div class="rb">
+    <div class="st"><div class="t">07:30</div><div class="d">早餐：赣州拌粉 / 黄元米果。今天起高速免费</div></div>
+    <div class="st"><div class="t">08:00–09:00</div><div class="d"><b>建春门古浮桥 + 宋城墙晨间散步</b> <span class="dog">🐕 免费 · 可带</span> 900 年的浮桥至今每天开合放船，派芝会喜欢在上面走。赣州早上 78% 有小雨，带伞走 40 分钟够了<a class="nav" href="https://uri.amap.com/search?keyword=赣州古浮桥&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍建春门浮桥</a></div></div>
+    <div class="st"><div class="t">09:15</div><div class="d">出城前加满油（国庆服务区加油要排队，半箱以下就加）→ 上 G45 大广高速北上</div></div>
+    <div class="st"><div class="t">12:30</div><div class="d">吉安附近服务区午饭 + 遛狗。想吃正经饭就下吉安出口，多花 40 分钟</div></div>
+    <div class="st"><div class="t">15:00</div><div class="d">抵南昌入住，狗休息。酒店选<b>滕王阁/万寿宫 3km 内</b>，晚上不开车</div></div>
+    <div class="st"><div class="t">16:30–18:30</div><div class="d"><b>万寿宫历史文化街区</b> <span class="dog">🐕 开放街区 · 牵绳（人多抱着走）</span> 晚饭在这解决：<b>瓦罐汤 + 藜蒿炒腊肉 + 南昌炒粉</b>，辣度提前跟店里说「微辣」<a class="nav" href="https://uri.amap.com/search?keyword=万寿宫历史文化街区&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍万寿宫历史文化街区</a></div></div>
+    <div class="st"><div class="t">19:00–20:00</div><div class="d"><b>滕王阁登阁</b> <span class="dog no">🐕 禁入 · 分工制</span> 一个大人带派芝上阁（¥48–50，开到 22:00，21:00 停止入园），另一个带狗在滕王阁外沿赣江江滩走——江滩本身就是南昌最好的散步道<a class="nav" href="https://uri.amap.com/search?keyword=滕王阁&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍滕王阁</a></div></div>
+    <div class="st"><div class="t">20:00–21:00</div><div class="d"><b>一江两岸灯光秀</b> <span class="dog">🐕 露天 · 可带</span> 国庆期间每晚都放（具体场次看当天南昌文旅公告）。<b>最佳机位在对岸秋水广场</b>，全家带狗一起看，免费——比在阁里看强，阁本身是灯光的主角<a class="nav" href="https://uri.amap.com/search?keyword=秋水广场&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍秋水广场</a></div></div>
+  </div></div></div>
+  <div class="row"><div class="k">今日逻辑</div><div class="v">南昌 10/1 降水概率只有 31%，是这座城全周最好的一天，所以把「一定要露天」的灯光秀放今晚。<span class="hl">派芝的功课</span>：滕王阁有「全文背诵《滕王阁序》免门票」的活动，773 字对 10 岁不强求，但车上背下「落霞与孤鹜齐飞，秋水共长天一色」那一段，登阁时对着赣江念出来，这趟就值了。</div></div>
+  <div class="row"><div class="k">住</div><div class="v"><span class="hl">待订</span> 南昌宠物友好酒店 1 晚，红谷滩或滕王阁周边。</div></div>
+  <div class="row tip"><div class="k">贴士</div><div class="v">10/1 上午 G45 江西段是广东北上车流主通道，<span class="hl">9:15 前上高速</span>，晚一小时可能多堵一小时。灯光秀人多，狗用短绳或抱着，秋水广场喷泉区狗会怕水声，站外围。</div></div>
+  </div></div>
+
+  <!-- D3 -->
+  <div class="day"><div class="day-head"><div class="badge"><small>DAY</small><b>3</b></div><div class="day-title"><h3>南昌 → 景德镇 · 雨天泡在瓷器里</h3><div class="meta"><span class="chip date">10/2 五</span><span class="chip">🌧 20–24° · 雨 76% · 26mm</span><span class="chip drive">~230km · 2.5h · 昌景高速</span><span class="chip wait">宿·景德镇 宠物友好酒店 待订</span></div></div></div><div class="rows"><div class="row"><div class="k">路书</div><div class="v"><div class="rb">
+    <div class="st"><div class="t">08:00</div><div class="d">早餐必吃<b>南昌拌粉 + 瓦罐汤</b>（¥10 上下，街边老店比酒店好）</div></div>
+    <div class="st"><div class="t">08:45</div><div class="d">出发东行。今天下雨且开始降温（南昌 20–27°，景德镇 20–24°），派芝和狗都加件衣服</div></div>
+    <div class="st"><div class="t">11:30</div><div class="d">抵景德镇，午饭：<b>冷粉、饺子粑、碱水粑</b>，都是本地小吃</div></div>
+    <div class="st"><div class="t">13:00–14:30</div><div class="d"><b>中国陶瓷博物馆</b> <span class="dog no">🐕 禁入 · 分工制</span> 免费需预约，室内躲雨最合适。派芝看一遍从唐到明清的瓷，再去做 DIY 才有感觉<a class="nav" href="https://uri.amap.com/search?keyword=中国陶瓷博物馆&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍中国陶瓷博物馆</a></div></div>
+    <div class="st"><div class="t">15:00–17:00</div><div class="d"><b>陶艺 DIY 拉坯 + 画瓷</b> ★今天的主项 <span class="dog">🐕 很多工作室允许 · 进门先问</span> 陶溪川周边和雕塑瓷厂一带遍地是体验店，¥60–120/人，<b>作品烧好后 2–3 周快递到深圳</b>——派芝这趟带回家的纪念品就是它<a class="nav" href="https://uri.amap.com/search?keyword=陶溪川陶艺体验&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍陶溪川陶艺体验</a></div></div>
+    <div class="st"><div class="t">17:30–21:00</div><div class="d"><b>陶溪川文创街区</b> <span class="dog">🐕 开放街区 · 可带</span> 老瓷厂改的园区，国庆晚上有创意集市，年轻陶艺人摆摊，晚饭在园区里解决。雨天人也会少一点<a class="nav" href="https://uri.amap.com/search?keyword=陶溪川文创街区&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍陶溪川文创街区</a></div></div>
+  </div></div></div>
+  <div class="row"><div class="k">今日逻辑</div><div class="v">10/2–10/3 是这趟江西段<span class="hl">雨最大的两天</span>（婺源 10/2 预报 50mm），所以把全程唯一「越下雨越合适」的城市排在这——景德镇的内容本来就都在屋里。DIY 放在博物馆之后而不是之前，是为了让派芝先看再做。</div></div>
+  <div class="row"><div class="k">住</div><div class="v"><span class="hl">待订</span> 景德镇宠物友好酒店 1 晚，陶溪川或雕塑瓷厂周边，晚上步行回。</div></div>
+  <div class="row tip"><div class="k">贴士</div><div class="v">博物馆那 1.5 小时是分工的：建议<span class="hl">妈妈带派芝进馆、爸爸带狗在附近咖啡馆等</span>；晚上陶溪川人挤，狗全程短绳。雨天记得给狗备一条擦脚毛巾，酒店地毯弄脏会扣押金。</div></div>
+  </div></div>
+
+  <!-- D4 -->
+  <div class="day"><div class="day-head"><div class="badge"><small>DAY</small><b>4</b></div><div class="day-title"><h3>景德镇 → 婺源 · 烟雨里的徽派古村</h3><div class="meta"><span class="chip date">10/3 六</span><span class="chip">🌧 20–24° · 雨 82% · 18mm</span><span class="chip drive">~85km · 1.2h</span><span class="chip wait">宿·婺源 宠物友好民宿 待订</span></div></div></div><div class="rows"><div class="row"><div class="k">路书</div><div class="v"><div class="rb">
+    <div class="st"><div class="t">08:30–10:30</div><div class="d"><b>三宝国际瓷谷（三宝村）</b> <span class="dog">🐕 开放村落 · 可带</span> 山谷里一条路两边全是陶艺工作室和小咖啡馆，免费随便逛，比古窑更松弛也更适合带狗；雨小就走走，雨大就找家店坐着看窑<a class="nav" href="https://uri.amap.com/search?keyword=三宝国际瓷谷&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍三宝国际瓷谷</a></div></div>
+    <div class="st opt"><div class="t">备选</div><div class="d">古窑民俗博览区（5A，约 ¥95/人，有手工制瓷全流程表演和明清老窑）——内容更硬核但狗禁入、雨天露天部分体验差，天气好再考虑<a class="nav" href="https://uri.amap.com/search?keyword=古窑民俗博览区&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍古窑民俗博览区</a></div></div>
+    <div class="st"><div class="t">11:00</div><div class="d">出发去婺源，一路乡道，油在景德镇加满</div></div>
+    <div class="st"><div class="t">12:30</div><div class="d">婺源县城或李坑村口午饭：<b>粉蒸肉、糊豆腐、荷包红鲤鱼</b>（鱼按斤，上秤前问价）</div></div>
+    <div class="st"><div class="t">13:30–15:30</div><div class="d"><b>李坑</b> <span class="dog no">🐕 售票景区 · 分工或轮换</span> 小桥流水人家的代表，¥60 单票。雨中的徽派村落反而最像画（青瓦白墙 + 雨雾），带伞慢走 1.5 小时<a class="nav" href="https://uri.amap.com/search?keyword=婺源李坑景区&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍李坑景区</a></div></div>
+    <div class="st"><div class="t">16:00</div><div class="d"><b>月亮湾</b> <span class="dog">🐕 公路边观景台 · 免费</span> 顺路停 15 分钟，河湾像一弯月，全家带狗拍一张<a class="nav" href="https://uri.amap.com/search?keyword=婺源月亮湾&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍月亮湾</a></div></div>
+    <div class="st"><div class="t">16:45</div><div class="d">入住民宿——<b>选江湾镇或篁岭山脚 20 分钟车程内的</b>，为明早 6:30 出发服务；晚饭在民宿吃农家菜</div></div>
+    <div class="st"><div class="t">21:00</div><div class="d">全家早睡，明天是全程最早的一天</div></div>
+  </div></div></div>
+  <div class="row"><div class="k">今日逻辑</div><div class="v">婺源今天 82% 有雨、明天 73% 但<span class="hl">预报降水量 0mm、转阴</span>，篁岭下雨时晒匾会收起来，所以晒秋压到明早，今天专走「下雨也不吃亏」的：三宝村、李坑、月亮湾。婺源通票 ¥210（5 天 12 个景点，篁岭不含）——我们只进李坑一个，<b>买单票不买通票</b>。</div></div>
+  <div class="row"><div class="k">住</div><div class="v"><span class="hl">待订</span> 婺源宠物友好民宿 1 晚。国庆篁岭山脚房价翻三倍，<b>江湾镇 / 晓起一带性价比高得多</b>，离篁岭停车场都在 15–25 分钟。</div></div>
+  <div class="row tip"><div class="k">贴士</div><div class="v">婺源村里土狗多且散养，<span class="hl">自家狗全程牵绳</span>，别让它跟村狗照面。李坑那 1.5 小时如果不想分开，可以让派芝和妈妈先进、爸爸带狗在村口茶馆等半小时后换人（单票可以协商二次进入，进门时问一句）。</div></div>
+  </div></div>
+
+  <!-- D5 -->
+  <div class="day"><div class="day-head"><div class="badge"><small>DAY</small><b>5</b></div><div class="day-title"><h3>篁岭晒秋 → 翻武夷山 → 莆田老家</h3><div class="meta"><span class="chip date">10/4 日</span><span class="chip">☁️ 15–26° · 转阴降温 · 0mm</span><span class="chip drive">~540km · 6.5h ⚠ 最长</span><span class="chip ok">宿·莆田老家</span></div></div></div><div class="rows"><div class="row"><div class="k">路书</div><div class="v"><div class="rb">
+    <div class="st"><div class="t">06:30</div><div class="d">出发。<b>篁岭 7:30 开门，国庆索道排队 1–2 小时，7:15 前到停车场是唯一解</b>。早餐民宿打包<a class="nav" href="https://uri.amap.com/search?keyword=篁岭景区停车场&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍篁岭停车场</a></div></div>
+    <div class="st"><div class="t">07:30–10:30</div><div class="d"><b>篁岭晒秋</b> ★全程头号名片 <span class="dog no">🐕 禁入 · 分工制</span> 国庆看到的是「头折·丰收色」：辣椒红、玉米黄、南瓜橙晒在徽派屋顶的晒匾上，10 月上旬正是密度最高的时候（红叶要 11 月）。索道上山 → 晒秋台 → 天街 → 索桥/玻璃栈道，3 小时够。<b>今天派芝和爸爸上山</b>（昨天李坑妈妈带的），妈妈带狗在山脚村里走</div></div>
+    <div class="st"><div class="t">10:45</div><div class="d">出发。婺源 → 上饶 → 武夷山（G3 京台高速）→ 南平 → 福州 → 莆田（G15 沈海）。这段翻武夷山脉，隧道多、弯多，别赶</div></div>
+    <div class="st"><div class="t">13:00</div><div class="d">武夷山服务区午饭 + 遛狗 10 分钟（狗在山路上容易晕，提前一站放风）</div></div>
+    <div class="st"><div class="t">15:30</div><div class="d">南平/福州段换人开。福州附近 10/4 有雷阵雨（莆田 70%），慢一点</div></div>
+    <div class="st"><div class="t">17:30</div><div class="d">抵莆田老家。狗先安顿，晚上<b>家宴</b>：卤面、焖豆腐、荔枝肉、海蛎饼——把江西的辣冲淡</div></div>
+  </div></div></div>
+  <div class="row"><div class="k">今日逻辑</div><div class="v">篁岭放今天而不是昨天，是因为今天是婺源<span class="hl">全周唯一「有云无雨」的上午</span>，晒匾会摆出来；代价是 6:30 起床 + 540km，所以下午的车程按「三个服务区、两次换人」拆开。如果篁岭门票只订到了 10/3 下午场，就把今天上午改成睡到自然醒、9 点出发、14:30 到莆田——也不亏。</div></div>
+  <div class="row tip"><div class="k">贴士</div><div class="v"><span class="hl">篁岭下雨就不上山</span>：雨一大晒匾全收、索道排队淋雨，¥435 门票白花，直接改走月亮湾→出发去莆田。到莆田那晚是全程狗最累的一天（山路 + 换环境），给它固定的窝和自己的粮，别让亲戚喂人吃的。</div></div>
+  </div></div>
+
+  <!-- D6 -->
+  <div class="day"><div class="day-head"><div class="badge"><small>DAY</small><b>6</b></div><div class="day-title"><h3>莆田 · 家庭日，带派芝认一认老家</h3><div class="meta"><span class="chip date">10/5 一</span><span class="chip">☁️ 19–25° · 阴凉 · 全周最舒服</span><span class="chip drive">市内 · 少开车</span><span class="chip ok">宿·莆田老家</span></div></div></div><div class="rows"><div class="row"><div class="k">路书</div><div class="v"><div class="rb">
+    <div class="st"><div class="t">上午</div><div class="d"><b>木兰陂</b> <span class="dog">🐕 露天 · 免费 · 可带</span> 北宋的水利工程，世界灌溉工程遗产，就在城边。带派芝走一遍陂身，讲一遍钱四娘的故事——「老家不只是亲戚，还有一千年的东西」<a class="nav" href="https://uri.amap.com/search?keyword=木兰陂&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍木兰陂</a></div></div>
+    <div class="st"><div class="t">中午</div><div class="d">回家吃或市区老店：<b>兴化米粉、扁食、红团</b>，红团派芝会喜欢</div></div>
+    <div class="st"><div class="t">下午 · 二选一</div><div class="d"><b>A 湄洲岛</b>（狗留老家）：文甲码头轮渡 20 分钟上岛，妈祖祖庙 + 黄金沙滩，国庆码头排队久，13:00 前到码头，17:00 前回。派芝没去过就值得这一次。<br><b>B 南少林寺 + 九华山脚</b>（轻松版）：车程 40 分钟，山上凉快，狗可以在寺外山道走。<br>两个都不想跑：就在村里待着，陪老人、让派芝跟亲戚的孩子玩一下午，这也是这两天的意义<a class="nav" href="https://uri.amap.com/search?keyword=文甲码头&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍文甲码头</a><a class="nav" href="https://uri.amap.com/search?keyword=莆田南少林寺&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍南少林寺</a></div></div>
+    <div class="st"><div class="t">19:00–21:00</div><div class="d"><b>兴化府历史文化街区 + 古谯楼</b> <span class="dog">🐕 开放街区 · 可带</span> 莆田老城新修的古街，晚上有灯，吃夜宵、买点特产带回深圳（桂圆干、莆田荔枝肉的酱料）<a class="nav" href="https://uri.amap.com/search?keyword=兴化府历史文化街区&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍兴化府历史文化街区</a></div></div>
+    <div class="st"><div class="t">21:30</div><div class="d">早睡，明天 6 点出发。今晚把车加满油、行李装好</div></div>
+  </div></div></div>
+  <div class="row"><div class="k">今日逻辑</div><div class="v">这两天是「顺便经过」，节奏故意放松：一个上午的硬项目（木兰陂）+ 一个下午的可选项 + 一个晚上的散步，其余时间留给家人。狗有了「留在家」的选项，全家才能第一次一起进景区。</div></div>
+  <div class="row tip"><div class="k">贴士</div><div class="v">10/5 莆田 19–25° 阴天，是全周体感最舒服的一天，湄洲岛不晒。轮渡<span class="hl">不能带狗</span>，选 A 的前提是家里有人肯看狗。</div></div>
+  </div></div>
+
+  <!-- D7 -->
+  <div class="day"><div class="day-head"><div class="badge"><small>DAY</small><b>7</b></div><div class="day-title"><h3>莆田 → 沿海回深圳 · 抢在返程高峰前</h3><div class="meta"><span class="chip date">10/6 二</span><span class="chip">☁️ 18–26° · 无雨 · 好开车</span><span class="chip drive">~610km · 7h · G15 沈海高速</span><span class="chip ok">到家</span></div></div></div><div class="rows"><div class="row"><div class="k">路书</div><div class="v"><div class="rb">
+    <div class="st"><div class="t">06:00</div><div class="d"><b>出发</b>。10/6 是国庆返程次高峰（10/7 是最高峰），沈海高速<b>潮汕段和惠州段下午必堵</b>：6 点走中午 13:30 到家，9 点走可能要 17 点后</div></div>
+    <div class="st"><div class="t">08:30</div><div class="d">厦门/漳州服务区早饭 + 遛狗（狗早上不喂饱，到服务区再给一半）</div></div>
+    <div class="st"><div class="t">10:30–11:30</div><div class="d">潮州出口午饭（可选）：<b>潮州牛肉火锅 / 粿条</b>，多花 1 小时但这一带 11 点还不堵，比服务区吃强<a class="nav" href="https://uri.amap.com/search?keyword=潮州官塘牛肉火锅&src=travel_jasonlin&callnative=1" target="_blank" rel="noopener">📍潮州牛肉火锅</a></div></div>
+    <div class="st"><div class="t">13:00</div><div class="d">惠州段——如果导航显示深汕段红了，走深汕西/惠盐替代线，跟导航实时改</div></div>
+    <div class="st"><div class="t">13:30–15:00</div><div class="d">到家。狗回窝，派芝的陶艺作品 2–3 周后到</div></div>
+  </div></div></div>
+  <div class="row tip"><div class="k">贴士</div><div class="v">免费期最后一天多的是不熟悉 ETC 通道的车，<span class="hl">全程走 ETC 车道</span>，别跟人工通道排。10/7 24 点免费截止，我们 10/6 到家不受影响。</div></div>
+  </div></div>
+
+  <div class="section-title">实用要点</div>
+  <div class="tips">
+    <details class="grp" open><summary>🐕 带狗自驾 —— 这趟行程真正的约束条件</summary><p>
+      <b>不能进的地方</b>：滕王阁、中国陶瓷博物馆、古窑、李坑、篁岭、湄洲岛轮渡——凡是售票景区和室内馆一律默认禁入。<b>能去的地方</b>：郁孤台街区、古浮桥、万寿宫街区、秋水广场、陶溪川、三宝村、月亮湾、木兰陂、兴化府街——全是免费的开放街区/村落/露天，<b>而且恰好是这趟最出片、最松弛的部分</b>。<br>
+      <b>分工制</b>：每个禁狗景点一个大人带派芝进、一个大人带狗在外，轮着来（D4 李坑妈妈进 / D5 篁岭爸爸进 / D2 滕王阁 D3 博物馆再对调）。外面的人不是「在等」，江滩、山脚村、陶溪川都有得逛。<br>
+      <b>车上</b>：航空箱或车用安全带固定在后座；每 2 小时进一次服务区放风 5 分钟；上车前不喂饱；前三天 30°+，<b>任何情况下不留狗在车里</b>。<br>
+      <b>随身</b>：免疫证 + 狗牌、7 天不换粮、折叠水碗、尿垫、擦脚毛巾、拾便袋、常用药（止泻/驱虫）。
+    </p></details>
+    <details class="grp"><summary>🏨 宠物友好酒店 —— 怎么订才不会到店被拒</summary><p>
+      携程 / 美团筛「可携带宠物」→ 下单前<b>逐家打电话</b>问三句：接受多大体型？押金多少（通常 ¥200–500）？狗能进房间还是只能放前台？→ 订单备注写清「携带 1 只 X kg 的狗」→ 把电话确认截图存好。国庆酒店满房时前台最容易「没听说过可以带狗」，截图就是证据。婺源民宿对狗普遍友好，赣州/南昌/景德镇优先看亚朵、桔子、部分华住系（每店不同）。<b>四晚都要在 9/28 前订完</b>，国庆临时找宠物友好房基本无解。
+    </p></details>
+    <details class="grp"><summary>🚗 国庆高速三条铁律</summary><p>
+      ① 10/1 0:00 – 10/7 24:00 七座以下免费，<b>9/30 那段照常收费</b>（~¥200），别为了等零点在收费站前排队。② 免费期<b>走 ETC 车道</b>，人工通道全是不熟悉规则的车。③ 出发时段决定一切：9/30 13 点前离开深圳、10/1 9:15 前离开赣州、10/6 6 点前离开莆田——三个时间点错一个就多堵一两个小时。江西段区间测速密，跟导航限速。
+    </p></details>
+    <details class="grp"><summary>🧒 派芝的四件事</summary><p>
+      ① <b>陶艺拉坯</b>（D3）：作品烧好邮寄到家，这趟唯一能「带走」的纪念。② <b>滕王阁</b>（D2）：车上把「落霞与孤鹜齐飞」那段背下来，登阁时念。③ <b>篁岭晒秋</b>（D5）：站在晒匾前拍一张，这是全程的封面照。④ <b>木兰陂</b>（D6）：一千年前的工程今天还在用，讲给她听，老家不只是亲戚。路上的 2300km 安排她当「副驾报站员」——每到一个服务区报里程和到达时间，比塞平板强。
+    </p></details>
+    <details class="grp"><summary>🍽 一路吃什么</summary><p>
+      <b>赣州</b>：赣南小炒鱼、三杯鸡、酿豆腐、艾米果、拌粉（客家系，偏辣偏咸）。<b>南昌</b>：拌粉 + 瓦罐汤是早餐标配，藜蒿炒腊肉、南昌炒粉。<b>景德镇</b>：冷粉、饺子粑、碱水粑。<b>婺源</b>：粉蒸肉、糊豆腐、荷包红鲤鱼、清明粿。<b>莆田</b>：卤面、焖豆腐、荔枝肉、海蛎饼、兴化米粉、扁食、红团。江西全程偏辣，点菜先说「微辣」，派芝另点一两个不辣的。
+    </p></details>
+  </div>
+
+  <div class="section-title">预算统计 · 一家三口 + 狗</div>
+  <div class="budget">
+    <div class="b-row"><div class="bi">⛽</div><div class="bn"><b>油费</b><small>~2300km · 按 8L/100km · ¥7.6/L 估</small></div><input id="b1" type="number" value="1400"></div>
+    <div class="b-row"><div class="bi">🛣</div><div class="bn"><b>过路费</b><small>只有 9/30 深圳→赣州那段收费，其余在免费期</small></div><input id="b2" type="number" value="220"></div>
+    <div class="b-row"><div class="bi">🏨</div><div class="bn"><b>住宿 4 晚</b><small>赣州/南昌/景德镇/婺源 宠物友好 · 国庆价 ¥450–700/晚 · 莆田住家</small></div><input id="b3" type="number" value="2400"></div>
+    <div class="b-row"><div class="bi">🍜</div><div class="bn"><b>餐饮</b><small>6.5 天 · 大部分在小吃和家常馆子，莆田两天家里吃</small></div><input id="b4" type="number" value="2000"></div>
+    <div class="b-row"><div class="bi">🎫</div><div class="bn"><b>门票 · 活动</b><small>篁岭 ¥145×3 · 滕王阁 ~¥100 · 李坑 ~¥150 · 陶艺 DIY ~¥250 · 湄洲岛轮渡（可选）</small></div><input id="b5" type="number" value="1000"></div>
+    <div class="b-row"><div class="bi">🐕</div><div class="bn"><b>狗 + 杂项</b><small>酒店宠物押金/清洁费、寄快递陶艺作品、零食特产</small></div><input id="b6" type="number" value="500"></div>
+    <div class="b-total"><div class="tl">合计</div><div class="tv" id="bt">¥0</div></div>
+    <div class="b-sub"><span>硬性开销（油+路+住+餐）<b id="bc"></b></span><span>人均（按 3 人）<b id="bp"></b></span></div>
+    <div class="b-note">* 全部是估算，数字可以直接改，合计自动算。比呼伦贝尔那趟便宜一半以上——没有机票和租车。</div>
+  </div>
+  <script>
+  (function(){
+    var ids=["b1","b2","b3","b4","b5","b6"];
+    function fmt(n){return "¥"+Math.round(n).toLocaleString("zh-CN")}
+    function calc(){
+      var v=ids.map(function(i){return parseFloat(document.getElementById(i).value)||0});
+      var total=v.reduce(function(a,b){return a+b},0);
+      var core=v[0]+v[1]+v[2]+v[3];
+      document.getElementById("bt").textContent=fmt(total);
+      document.getElementById("bc").textContent=fmt(core);
+      document.getElementById("bp").textContent=fmt(total/3);
+    }
+    ids.forEach(function(i){document.getElementById(i).addEventListener("input",calc)});
+    calc();
+  })();
+  (function(){
+    var KEY="jx-prep";
+    var saved={};
+    try{saved=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+    var boxes=document.querySelectorAll("#prep input[type=checkbox]");
+    boxes.forEach(function(b){
+      if(saved[b.dataset.k]) b.checked=true;
+      b.addEventListener("change",function(){
+        saved[b.dataset.k]=b.checked;
+        try{localStorage.setItem(KEY,JSON.stringify(saved))}catch(e){}
+      });
+    });
+  })();
+  </script>
+
+  <div class="section-title">天气与穿衣</div>
+  <div class="wx">
+    <div class="wx-hero">
+      <div class="big">31–35°C<small>前两天 · 深圳/赣州 闷热</small></div>
+      <div class="big" style="color:#557089">12–24°C<small>10/5 起 · 冷空气到</small></div>
+      <div class="big" style="color:#8a5a1e">雨在中段<small>10/2–10/3 景德镇/婺源</small></div>
+      <div class="note"><b>预报 9/26 拉取，越靠后置信度越低，10/3 再刷一次</b>：这趟是<b>从夏天开到秋天</b>——9/30 赣州 35°，10/5 婺源早上 13°，一周之内温差 20 度，行李要按两季装。雨集中在 10/2–10/3 的江西东北部（<b>婺源 10/2 预报 50mm</b>，是全程最湿的一天），所以景德镇的室内项目和婺源古村的「雨中也能看」压在这两天，篁岭晒秋放在 10/4 转阴无雨的上午。10/5–10/6 莆田和回程全线无雨，返程好开车。</div>
+    </div>
+    <div class="wx-item" style="grid-column:1/-1">
+      <div class="wt">📅 逐日预报（按当晚落脚点 · 9/26 拉取）</div>
+      <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;min-width:430px">
+        <tr style="color:var(--sub);text-align:left"><th style="padding:4px 8px 6px 0;font-weight:600">日期</th><th style="padding:4px 8px 6px 0;font-weight:600">落脚点</th><th style="padding:4px 8px 6px 0;font-weight:600">天气</th><th style="padding:4px 8px 6px 0;font-weight:600">气温</th><th style="padding:4px 0 6px 0;font-weight:600">降水概率 · 雨量</th></tr>
+        <tr style="border-top:1px solid var(--line)"><td style="padding:6px 8px 6px 0">9/30 三</td><td style="padding:6px 8px 6px 0">深圳→赣州</td><td style="padding:6px 8px 6px 0">🌦 闷热 · 局部毛毛雨</td><td style="padding:6px 8px 6px 0;white-space:nowrap">26–35°</td><td style="padding:6px 0">47% · 3mm</td></tr>
+        <tr style="border-top:1px solid var(--line)"><td style="padding:6px 8px 6px 0">10/1 四</td><td style="padding:6px 8px 6px 0">赣州→南昌</td><td style="padding:6px 8px 6px 0">⛅ 赣州小雨 · 南昌多云</td><td style="padding:6px 8px 6px 0;white-space:nowrap">24–28°</td><td style="padding:6px 0"><b style="color:var(--grass)">南昌 31% ✓灯光秀</b></td></tr>
+        <tr style="border-top:1px solid var(--line)"><td style="padding:6px 8px 6px 0">10/2 五</td><td style="padding:6px 8px 6px 0">景德镇</td><td style="padding:6px 8px 6px 0">🌧 阵雨</td><td style="padding:6px 8px 6px 0;white-space:nowrap">20–24°</td><td style="padding:6px 0"><b style="color:#B0453A">76% · 26mm</b> 室内日</td></tr>
+        <tr style="border-top:1px solid var(--line)"><td style="padding:6px 8px 6px 0">10/3 六</td><td style="padding:6px 8px 6px 0">婺源</td><td style="padding:6px 8px 6px 0">🌧 阵雨</td><td style="padding:6px 8px 6px 0;white-space:nowrap">20–24°</td><td style="padding:6px 0"><b style="color:#B0453A">82% · 18mm</b> 雨中古村</td></tr>
+        <tr style="border-top:1px solid var(--line)"><td style="padding:6px 8px 6px 0">10/4 日</td><td style="padding:6px 8px 6px 0">婺源→莆田</td><td style="padding:6px 8px 6px 0">☁️ 婺源转阴 · 莆田雷阵雨</td><td style="padding:6px 8px 6px 0;white-space:nowrap">15–26°</td><td style="padding:6px 0">婺源 73% 但 <b style="color:var(--grass)">0mm ✓篁岭</b> · 莆田 70%</td></tr>
+        <tr style="border-top:1px solid var(--line)"><td style="padding:6px 8px 6px 0">10/5 一</td><td style="padding:6px 8px 6px 0">莆田</td><td style="padding:6px 8px 6px 0">☁️ 阴凉</td><td style="padding:6px 8px 6px 0;white-space:nowrap">19–25°</td><td style="padding:6px 0"><b style="color:var(--grass)">44% · 0mm ✓</b></td></tr>
+        <tr style="border-top:1px solid var(--line)"><td style="padding:6px 8px 6px 0">10/6 二</td><td style="padding:6px 8px 6px 0">莆田→深圳</td><td style="padding:6px 8px 6px 0">☁️ 阴到多云</td><td style="padding:6px 8px 6px 0;white-space:nowrap">18–26°</td><td style="padding:6px 0"><b style="color:var(--grass)">10% ✓返程</b></td></tr>
+      </table>
+      </div>
+      <p style="margin-top:8px;font-size:12px;color:var(--sub)">* 来源 Open-Meteo，9/26 拉取，六个落脚点逐城查。10/3 以后的数字是趋势而非承诺，出发前一天再刷一遍——尤其盯 10/4 婺源上午的雨量，它决定篁岭去不去。</p>
+    </div>
+    <div class="wx-item"><div class="wt">🧅 两季装法</div><p>前三天短袖 + 薄长袖防晒衣；10/4 起每人加<b>一件抓绒或薄外套</b>（婺源/莆田早晚 13–19°）；长裤为主，一双好走的运动鞋 + 拖鞋。狗：一条毯子铺后座，降温后夜里盖。</p></div>
+    <div class="wx-item"><div class="wt">🌧 雨具</div><p>三件轻便雨披 + 车里一把大伞。婺源古村巷子窄，伞比雨披好用；篁岭山上风大，雨披好用。狗一件雨衣（没有就带两条擦脚毛巾）。</p></div>
+    <div class="wx-item"><div class="wt">🦟 防蚊 · 防晒</div><p>江西 10 月初蚊子还在，傍晚村里和江边最凶，驱蚊液照带。前两天紫外线仍强，防晒帽 + SPF50。</p></div>
+    <div class="wx-item"><div class="wt">📷 穿搭彩蛋</div><p>篁岭晒匾是红黄橙，妈妈和派芝穿<b>白色或浅蓝</b>最跳；徽派村落白墙黑瓦，穿一点红。狗别戴太花的，牵绳选亮色（人多时容易找）。</p></div>
+    <div class="wx-item"><div class="wt">🎒 易漏清单</div><p>抓绒外套 ×3 · 雨披 ×3 · 狗免疫证 · 狗粮 7 天 · 折叠水碗 · 尿垫 · 擦脚毛巾 · 车充 + 支架 · 晕车药（人和狗）· 保温杯 · 一本《滕王阁序》（或手机里存好）。</p></div>
+  </div>
+
+  <div class="section-title">避雷防坑</div>
+  <div class="pit">
+    <details class="p-item"><summary>🐕 带狗被拒入住 —— 这趟最可能翻车的地方</summary><p><span class="no">✘ 别</span>只看平台上「可携带宠物」标签就下单，也别偷偷带进去（国庆查房严、押金直接没收）。<br><span class="yes">✔ 要</span>下单前打电话、订单备注写体重、截图留证；到店被拒先打平台客服，让平台协调换房而不是自己认栽。9/28 前订完四晚。</p></details>
+    <details class="p-item"><summary>🏔 篁岭 —— 不预约进不去，下雨白去</summary><p><span class="no">✘ 别</span>指望现场买票：国庆全部线上预约限流，售罄就真进不去；<span class="no">✘ 别</span>雨天硬上：晒匾一下雨就收，剩下就是排队淋雨。<br><span class="yes">✔ 要</span>今天就在官方小程序订 10/4 上午场；7:15 前到停车场；出发前一晚看预报，雨量 &gt;3mm 就放弃改走月亮湾。山脚民宿国庆翻三倍，住江湾镇。</p></details>
+    <details class="p-item"><summary>🎫 婺源通票 —— 我们不需要</summary><p>通票 ¥210/人 5 天 12 个景点听起来划算，但<span class="no">篁岭不含在内</span>，我们在婺源只进李坑一个村。<span class="yes">✔ 买单票</span>（李坑 ~¥60），派芝按学生/儿童票核价。</p></details>
+    <details class="p-item"><summary>🛣 国庆高速 —— 免费不等于好走</summary><p><span class="no">✘ 别</span>为了等 10/1 零点免费在收费站前排队（9/30 那 ¥200 值得花）；<span class="no">✘ 别</span>走人工通道；<span class="no">✘ 别</span>让油箱低于 1/3（服务区加油排队 30 分钟起）；<span class="no">✘ 别</span>信导航「省 10 分钟」的乡道，带狗带娃求稳。江西段区间测速密，跟限速。</p></details>
+    <details class="p-item"><summary>🍊 赣南脐橙 —— 国庆还没熟</summary><p>正季是 11 月，国庆路边卖的「赣南脐橙」多是早熟或外地果。<span class="no">✘ 别</span>在服务区和景区买，<span class="yes">✔ 要</span>买就回深圳等 11 月网购。莆田的桂圆干、兴化米粉倒是正季，D6 晚上在兴化府街买。</p></details>
+    <details class="p-item"><summary>🍖 吃饭 —— 上秤前问价，辣度先说</summary><p>荷包红鲤鱼、赣江鱼这类按斤称的，<span class="yes">✔ 上秤前问单价和几斤</span>；景区内餐馆（篁岭天街、李坑村内）贵一倍，尽量在村口或县城吃；江西默认辣度对派芝偏高，点菜先说「微辣 / 不辣」。</p></details>
+    <details class="p-item"><summary>🚗 狗留车里 —— 前三天绝对不行</summary><p>9/30–10/1 赣州 35°、南昌 28°，太阳下的车 10 分钟就 50°+。<span class="no">✘ 别</span>「就进去买个东西」。凡是狗不能进的地方走分工制，两个大人永远有一个和狗在一起。</p></details>
+  </div>
+
+  <footer>
+    江西 · 莆田 7 日国庆自驾　·　2026/9/30–10/6　·　林正 · 敖杏林 · 林派芝 · 小狗<br>
+    深圳 → 赣州 → 南昌 → 景德镇 → 婺源 → 莆田 → 深圳　·　攻略生成 9/26（天气 9/26 拉取，出发前再刷）
+  </footer>
+</div>
+</body>
+</html>
