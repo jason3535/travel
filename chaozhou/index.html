@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light dark">
+<title>潮州三日 · 国庆自驾</title>
+<style>
+/* Layout: single phone-first column; sticky day switcher; each day is a vertical timeline of 时刻 rows, tagged by 腿/狗/雨 constraints */
+:root{
+  --bg:#f2f3f0;          /* 牌坊石 */
+  --surface:#ffffff;
+  --ink:#1d2321;
+  --muted:#5d6763;
+  --line:#d9ddd8;
+  --lacquer:#a3302a;     /* 木雕漆红 */
+  --gold:#a57a1f;        /* 金漆 */
+  --river:#2f6f73;       /* 韩江 */
+  --rain:#4b6fa8;
+  --chip:#e9ece7;
+  --ok:#2f7a4a;
+  --font-display:"Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC",serif;
+  --font-body:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141817;--surface:#1c2120;--ink:#e8ebe7;--muted:#9aa4a0;--line:#2e3533;
+  --lacquer:#e0675e;--gold:#d6aa4c;--river:#6fb3b6;--rain:#7f9fd6;--chip:#262c2b;--ok:#6cc08b;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141817;--surface:#1c2120;--ink:#e8ebe7;--muted:#9aa4a0;--line:#2e3533;
+  --lacquer:#e0675e;--gold:#d6aa4c;--river:#6fb3b6;--rain:#7f9fd6;--chip:#262c2b;--ok:#6cc08b;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.65 var(--font-body);margin:0}
+.wrap{max-width:640px;margin:0 auto;padding-inline:16px;padding-block:calc(20px + env(safe-area-inset-top,0px)) calc(56px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0}
+a{color:var(--river)}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted)}
+
+header{display:flex;flex-direction:column;gap:10px}
+header h1{font-size:34px;font-weight:800;line-height:1.15}
+header h1 span{color:var(--lacquer)}
+.who{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12.5px;padding:3px 10px;border-radius:999px;background:var(--chip);color:var(--ink);white-space:nowrap}
+.chip.warn{background:color-mix(in srgb,var(--lacquer) 14%,transparent);color:var(--lacquer)}
+.lede{color:var(--muted);margin:0}
+
+nav.days{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:8px;margin-inline:-16px;padding-inline:16px;border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto}
+nav.days a{flex:0 0 auto;text-decoration:none;color:var(--ink);font-size:13.5px;padding:6px 12px;border-radius:8px;background:var(--surface);border:1px solid var(--line)}
+nav.days a:focus-visible,button:focus-visible{outline:2px solid var(--river);outline-offset:2px}
+
+section{display:flex;flex-direction:column;gap:14px;scroll-margin-top:64px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.sec-head h2{font-size:22px}
+.today{font-size:12px;color:#fff;background:var(--lacquer);padding:2px 8px;border-radius:4px;font-family:var(--font-body)}
+
+/* rain strip */
+.rain{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+.rain-top{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);gap:8px;flex-wrap:wrap}
+.bars{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;align-items:end;height:44px}
+.bar{background:var(--rain);border-radius:3px 3px 0 0;min-height:2px}
+.bar.dry{background:color-mix(in srgb,var(--rain) 30%,transparent)}
+.hours{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;font-size:11px;color:var(--muted);text-align:center;font-variant-numeric:tabular-nums}
+
+/* timeline */
+.tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.tl li{display:grid;grid-template-columns:56px 1fr;gap:12px;padding-block:12px;border-top:1px solid var(--line)}
+.tl li:first-child{border-top:0}
+.t{font-variant-numeric:tabular-nums;font-weight:600;color:var(--gold);font-size:14px}
+.body{min-width:0;display:flex;flex-direction:column;gap:5px}
+.body b{font-size:15.5px}
+.body p{margin:0;color:var(--muted);font-size:14px}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-size:11.5px;padding:1px 7px;border-radius:4px;border:1px solid var(--line);color:var(--muted)}
+.tag.leg{border-color:var(--lacquer);color:var(--lacquer)}
+.tag.dog{border-color:var(--river);color:var(--river)}
+.tag.rain{border-color:var(--rain);color:var(--rain)}
+.go{font-size:13px;text-decoration:none;align-self:flex-start}
+.go::after{content:" →"}
+
+/* rules */
+.rules{display:flex;flex-direction:column;gap:10px}
+.rule{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.rule h3{font-size:16.5px}
+.rule ul{margin:0;padding-left:1.1em;color:var(--ink);font-size:14px}
+.rule li+li{margin-top:4px}
+.rule.leg{border-left:3px solid var(--lacquer)}
+.rule.dog{border-left:3px solid var(--river)}
+
+/* hotels */
+.hotel{display:flex;flex-direction:column;gap:3px;padding-block:10px;border-top:1px solid var(--line)}
+.hotel:first-of-type{border-top:0}
+.hotel b{font-size:15px}
+.hotel p{margin:0;font-size:13.5px;color:var(--muted)}
+
+/* checklist */
+.check{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.check label{display:flex;gap:10px;align-items:flex-start;padding:8px 2px;cursor:pointer;font-size:14.5px}
+.check input{width:18px;height:18px;margin-top:3px;accent-color:var(--ok);flex:0 0 auto}
+.check input:checked+span{color:var(--muted);text-decoration:line-through}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:4px 14px}
+.note{font-size:13px;color:var(--muted)}
+footer{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+footer a{color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">国庆自驾 · 深圳 → 潮州 · 两晚</div>
+    <h1>潮州三日<br><span>10/3 — 10/5</span></h1>
+    <div class="who">
+      <span class="chip">两个大人</span><span class="chip">两位老人</span>
+      <span class="chip warn">派芝 · 腿伤少走路</span><span class="chip">小狗</span><span class="chip">特斯拉</span>
+    </div>
+    <p class="lede">三天都是<strong>下午 1 点到 7 点有雷阵雨</strong>，上午基本没雨。所以安排成上午出门玩，下午回室内休息。</p>
+  </header>
+
+  <nav class="days" aria-label="跳转">
+    <a href="#d1">10/3 周六</a><a href="#d2">10/4 周日</a><a href="#d3">10/5 周一</a>
+    <a href="#rules">三条原则</a><a href="#hotel">住宿</a><a href="#road">路上</a><a href="#todo">出发前</a>
+  </nav>
+
+  <section id="d1" data-date="2026-10-03">
+    <div class="sec-head"><h2>10/3 周六 · 开车去潮州</h2></div>
+    <div class="rain" data-p="23,25,31,72,98,100,91,59"></div>
+    <ol class="tl">
+      <li><span class="t">前一晚</span><div class="body"><b>把车充满</b><p>单程约 400 km，路上不用充电。服务区充电桩今年特别紧张。</p></div></li>
+      <li><span class="t">07:00</span><div class="body"><b>从深圳出发</b><p>赶在淡水段 10–12 点的高峰前开过去。中途在汕尾一带的服务区停一次，上厕所、遛狗。</p><div class="tags"><span class="tag dog">狗下车活动</span></div></div></li>
+      <li><span class="t">11:30</span><div class="body"><b>到潮州，办入住，吃午饭</b><p>牛肉粿条或卤鹅饭，在酒店附近吃就好。</p></div></li>
+      <li><span class="t">13:00</span><div class="body"><b>回酒店午休</b><p>派芝休息腿，老人睡午觉。下雨的话就在酒店泡工夫茶，可以尝尝凤凰单丛。</p><div class="tags"><span class="tag rain">雷阵雨时段</span><span class="tag leg">休息腿</span></div></div></li>
+      <li><span class="t">晚上</span><div class="body"><b>吃潮州菜，雨停了逛一小段牌坊街</b><p>派芝坐三轮车，其他人走路跟着。人多就早点回。</p><div class="tags"><span class="tag leg">坐三轮车</span><span class="tag dog">可牵绳带狗</span></div><a class="go" href="https://uri.amap.com/search?keyword=%E6%BD%AE%E5%B7%9E%E7%89%8C%E5%9D%8A%E8%A1%97&city=%E6%BD%AE%E5%B7%9E">导航 · 牌坊街</a></div></li>
+    </ol>
+  </section>
+
+  <section id="d2" data-date="2026-10-04">
+    <div class="sec-head"><h2>10/4 周日 · 广济桥和古城</h2></div>
+    <div class="rain" data-p="3,3,8,64,99,100,83,56"></div>
+    <ol class="tl">
+      <li><span class="t">09:00</span><div class="body"><b>一开门就上广济桥</b><p>这是整个行程最好的时间段：人少、不下雨，浮桥也还连着。派芝从西岸上桥，走到中间浮桥就往回走（来回约 400 米），走不动就在滨江长廊坐着看桥。</p><div class="tags"><span class="tag leg">只走半座桥</span><span class="tag dog">狗：一个大人在滨江长廊陪</span></div><a class="go" href="https://uri.amap.com/search?keyword=%E5%B9%BF%E6%B5%8E%E6%A1%A5&city=%E6%BD%AE%E5%B7%9E">导航 · 广济桥</a></div></li>
+      <li><span class="t">10:30</span><div class="body"><b>坐三轮车逛古城</b><p>叫两辆车，坐着经过甲第巷、许驸马府外面，师傅一般会边走边讲。价格 10–30 元，叫价超过 20 元就讲价。</p><div class="tags"><span class="tag leg">全程坐车</span><span class="tag dog">狗可同车</span></div></div></li>
+      <li><span class="t">12:00</span><div class="body"><b>吃午饭</b><p>下雨前吃完。</p></div></li>
+      <li><span class="t">12:45</span><div class="body"><b>开元寺，看半小时</b><p>大殿有屋顶，地面平。狗留在车里，开狗狗模式，车停阴凉处。</p><div class="tags"><span class="tag dog">狗：狗狗模式</span><span class="tag leg">地面平</span></div><a class="go" href="https://uri.amap.com/search?keyword=%E6%BD%AE%E5%B7%9E%E5%BC%80%E5%85%83%E5%AF%BA&city=%E6%BD%AE%E5%B7%9E">导航 · 开元寺</a></div></li>
+      <li><span class="t">13:30</span><div class="body"><b>回酒店休息</b><p>下午雷阵雨。想出门的话，可以去己略黄公祠看木雕（地方小、路短）。</p><div class="tags"><span class="tag rain">雷阵雨时段</span></div></div></li>
+      <li><span class="t">晚上</span><div class="body"><b>潮州菜，再吃碗鸭母捻</b><p>雨停了可以去江边坐着看广济桥灯光秀，提前半小时去占位。</p><div class="tags"><span class="tag leg">坐着看</span></div></div></li>
+    </ol>
+  </section>
+
+  <section id="d3" data-date="2026-10-05">
+    <div class="sec-head"><h2>10/5 周一 · 回深圳</h2></div>
+    <div class="rain" data-p="9,13,35,74,91,82,66,43"></div>
+    <ol class="tl">
+      <li><span class="t">07:00</span><div class="body"><b>早餐吃牛肉粿条</b></div></li>
+      <li><span class="t">08:00</span><div class="body"><b>出发回深圳</b><p>潮汕环线预计 5 号前后潮州这一段有个当地的回程小高峰，下午还有雷雨，早上走最稳。大约 13:00 到家。</p><div class="tags"><span class="tag dog">中途遛狗一次</span></div></div></li>
+    </ol>
+  </section>
+
+  <section id="rules">
+    <div class="sec-head"><h2>三条原则</h2></div>
+    <div class="rules">
+      <div class="rule leg"><h3>派芝的腿：能坐车就坐车，能坐着看就坐着看</h3><ul>
+        <li>古城里车开不进去，用三轮车，派芝和老人坐车。</li>
+        <li>不去台阶多的地方：韩文公祠、城门楼，还有西湖公园台阶多的那半边。</li>
+        <li>伤得比较明显的话，后备箱带一个折叠轮椅或者能坐人的推车。</li>
+      </ul></div>
+      <div class="rule dog"><h3>小狗：大人轮流陪，用好狗狗模式</h3><ul>
+        <li>收门票的景点没查到宠物规定，先按不能带狗来安排，一个大人陪狗在外面，轮流进去。</li>
+        <li>牌坊街、滨江长廊是开放街区，牵绳可以带狗，人多时抱着或短绳牵着。</li>
+        <li>车里留狗 30 分钟以内，开狗狗模式，车停阴凉处。这几天约 30°C，不开空调绝对不能把狗留在车里。</li>
+      </ul></div>
+      <div class="rule"><h3>老人：两小时一歇</h3><ul>
+        <li>开车每两小时进一次服务区。</li>
+        <li>每天下午都回酒店午休，正好避开雷雨。</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <section id="hotel">
+    <div class="sec-head"><h2>住宿</h2></div>
+    <div class="card">
+      <div class="hotel"><b>伍舍精品客栈（广济桥牌坊街店）</b><p>携程上写着可带宠物、免费停车，离牌坊街约 150 米，派芝走过去最近。</p><a class="go" href="https://hotels.ctrip.com/hotels/66794894.html">携程页面</a></div>
+      <div class="hotel"><b>潮州古城牌坊街漫心酒店</b><p>有充电桩和免费停车，能不能带狗待确认。</p><a class="go" href="https://m.ctrip.com/html5/hotel/hoteldetail/126903373.html">携程页面</a></div>
+      <div class="hotel"><b>柏曼酒店（潮州古城牌坊街店）</b><p>有充电桩，离牌坊街约 290 米，能不能带狗待确认。</p><a class="go" href="https://hotels.ctrip.com/hotels/716036.html">携程页面</a></div>
+    </div>
+    <p class="note">订之前打电话问清三件事：能不能带狗？有没有电梯（或者有没有一楼的房间）？国庆期间停车位要不要预留？</p>
+  </section>
+
+  <section id="road">
+    <div class="sec-head"><h2>路上</h2></div>
+    <div class="rules">
+      <div class="rule"><h3>深圳 → 淡水 → 汕尾 → 揭阳 → 潮州</h3><ul>
+        <li>深汕高速淡水段：1 号 10–12 点最堵，3 号走就避开了。</li>
+        <li>甬莞高速惠来附近在施工，封了超车道，限速 80，导航走那条的话会慢一点。</li>
+        <li>出发前在「粤通行」小程序看一眼实时路况。</li>
+        <li>高速 10/1–10/7 免费。</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <section id="rainplan">
+    <div class="sec-head"><h2>如果上午也下雨</h2></div>
+    <div class="card"><ol class="tl">
+      <li><span class="t">改去</span><div class="body"><b>己略黄公祠</b><p>看潮州木雕，地方不大，路很短。</p><a class="go" href="https://uri.amap.com/search?keyword=%E5%B7%B1%E7%95%A5%E9%BB%84%E5%85%AC%E7%A5%A0&city=%E6%BD%AE%E5%B7%9E">导航</a></div></li>
+      <li><span class="t">或者</span><div class="body"><b>手拉壶或木雕工坊体验</b><p>坐着就能做，孩子和老人都适合。</p></div></li>
+    </ol></div>
+  </section>
+
+  <section id="todo">
+    <div class="sec-head"><h2>出发前</h2></div>
+    <div class="card">
+      <ul class="check" id="checklist">
+        <li><label><input type="checkbox" id="c1"><span>打电话给酒店：问能不能带狗、有没有电梯、停车位</span></label></li>
+        <li><label><input type="checkbox" id="c2"><span>今晚把车充满</span></label></li>
+        <li><label><input type="checkbox" id="c3"><span>派芝的药和护具，要的话带折叠轮椅</span></label></li>
+        <li><label><input type="checkbox" id="c4"><span>狗：牵绳、水碗、拾便袋、狗粮、尿垫</span></label></li>
+        <li><label><input type="checkbox" id="c5"><span>雨伞和雨衣，每人一把</span></label></li>
+        <li><label><input type="checkbox" id="c6"><span>老人常用药</span></label></li>
+        <li><label><input type="checkbox" id="c7"><span>出发前在「粤通行」看路况</span></label></li>
+      </ul>
+    </div>
+    <p class="note">勾选只保存在这台手机上。</p>
+  </section>
+
+  <footer>
+    <span>天气：Open-Meteo 10 月 2 日预报，出发前一天再看一次。景点的宠物规定没查到，按不能带狗安排。</span>
+    <span>来源：<a href="https://m.21jingji.com/article/20260930/herald/5de28dee276affe22fd2f66abf8ba028.html">惠州交警避堵指南</a> · <a href="https://www.sohu.com/a/1081899521_122066679">潮汕环线国庆指引</a> · <a href="https://zhuanlan.zhihu.com/p/701327019">古城三轮车价格</a> · <a href="https://you.ctrip.com/travels/Chaozhou467/4135825.html">推轮椅游潮州</a></span>
+  </footer>
+</div>
+
+<script>
+const HOURS=["07","09","11","13","15","17","19","21"];
+document.querySelectorAll(".rain").forEach(el=>{
+  const p=el.dataset.p.split(",").map(Number);
+  const wet=p.filter(v=>v>=60).length;
+  el.innerHTML=`<div class="rain-top"><span>降雨概率（每两小时）</span><span>${p[0]<40&&p[1]<40?"上午基本没雨":"上午可能有雨"} · 午后雷阵雨</span></div>
+  <div class="bars">${p.map(v=>`<div class="bar${v<40?" dry":""}" style="height:${Math.max(v,4)}%" title="${v}%"></div>`).join("")}</div>
+  <div class="hours">${HOURS.map((h,i)=>`<span>${h}</span>`).join("")}</div>`;
+  el.setAttribute("aria-label","降雨概率 "+p.map((v,i)=>HOURS[i]+"点"+v+"%").join("，"));
+});
+// 当天标记
+try{
+  const d=new Date(),k=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+  const s=document.querySelector(`section[data-date="${k}"]`);
+  if(s){s.querySelector(".sec-head").insertAdjacentHTML("beforeend",'<span class="today">今天</span>');}
+}catch(e){}
+// 勾选清单（只存本机）
+document.querySelectorAll("#checklist input").forEach(cb=>{
+  try{cb.checked=localStorage.getItem("cz-"+cb.id)==="1";}catch(e){}
+  cb.addEventListener("change",()=>{try{localStorage.setItem("cz-"+cb.id,cb.checked?"1":"0");}catch(e){}});
+});
+</script>
+</body>
+</html>
