@@ -33,7 +33,7 @@
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font:15px/1.65 var(--font-body);margin:0}
 .wrap{max-width:640px;margin:0 auto;padding-inline:16px;padding-block:calc(20px + env(safe-area-inset-top,0px)) calc(56px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:28px}
-h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0}
+h1,h2,h3{font-family:var(--font-display);text-wrap:pretty;margin:0}
 a{color:var(--river)}
 .eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted)}
 
@@ -64,8 +64,8 @@ section{display:flex;flex-direction:column;gap:14px;scroll-margin-top:64px}
 
 /* timeline */
 .tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
-.tl li{display:grid;grid-template-columns:56px 1fr;gap:12px;padding-block:12px;border-top:1px solid var(--line)}
-.tl li:first-child{border-top:0}
+.tl>li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:10px;padding-block:12px;border-top:1px solid var(--line)}
+.tl>li:first-child{border-top:0}
 .t{font-variant-numeric:tabular-nums;font-weight:600;color:var(--gold);font-size:14px}
 .body{min-width:0;display:flex;flex-direction:column;gap:5px}
 .body b{font-size:15.5px}
@@ -74,7 +74,7 @@ section{display:flex;flex-direction:column;gap:14px;scroll-margin-top:64px}
 .tag{font-size:11.5px;padding:1px 7px;border-radius:4px;border:1px solid var(--line);color:var(--muted)}
 .tag.leg{border-color:var(--lacquer);color:var(--lacquer)}
 .tag.dog{border-color:var(--river);color:var(--river)}
-.tag.rain{border-color:var(--rain);color:var(--rain)}
+.tag.wet{border-color:var(--rain);color:var(--rain)}
 .go{font-size:13px;text-decoration:none;align-self:flex-start}
 .go::after{content:" →"}
 
@@ -105,11 +105,11 @@ footer{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:
 footer a{color:var(--muted)}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 .intro{margin:0;color:var(--ink)}
-.see{margin:2px 0 0;padding-left:1.1em;font-size:13.5px;color:var(--ink)}
+.see{margin:2px 0 0;padding-left:1.2em;list-style:disc;font-size:13.5px;color:var(--ink)}
 .see li+li{margin-top:2px}
 .tag.warn{border-color:var(--lacquer);color:var(--lacquer)}
 .cmp{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:2px 14px}
-.cmp-row{display:grid;grid-template-columns:64px 1fr;gap:12px;padding-block:11px;border-top:1px solid var(--line)}
+.cmp-row{display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;padding-block:11px;border-top:1px solid var(--line)}
 .cmp-row:first-child{border-top:0}
 .cmp-row b{font-family:var(--font-display);color:var(--lacquer);font-size:15px}
 .cmp-row p{margin:0;font-size:14px;min-width:0}
@@ -152,10 +152,10 @@ footer a{color:var(--muted)}
       <li><span class="t">11:30</span><div class="body"><b>到潮州，办入住，吃午饭</b><p>午饭吃牛肉粿条或卤鹅饭，吃完回房间稍微歇一下。</p></div></li>
       <li><span class="t">14:30</span><div class="body"><b>许驸马府</b><p>北宋英宗的女儿德安公主嫁给了潮州人许珏，这就是驸马的府第。历代修过，但宋代的平面格局一直留着，是潮州现存最早的府第式民居。</p>
         <ul class="see"><li>看格局：「驷马拖车」式的中轴对称、前厅后堂、两侧从厝，后来潮汕大宅都照这个套路盖</li><li>看地面和柱础，有些石构件是早期留下来的</li></ul>
-        <div class="tags"><span class="tag rain">有屋顶，下雨也能看</span><span class="tag">20 元 · 周一闭馆</span></div><a class="go" href="https://uri.amap.com/search?keyword=%E8%AE%B8%E9%A9%B8%E9%A9%AC%E5%BA%9C&city=%E6%BD%AE%E5%B7%9E">导航</a></div></li>
+        <div class="tags"><span class="tag wet">有屋顶，下雨也能看</span><span class="tag">20 元 · 周一闭馆</span></div><a class="go" href="https://uri.amap.com/search?keyword=%E8%AE%B8%E9%A9%B8%E9%A9%AC%E5%BA%9C&city=%E6%BD%AE%E5%B7%9E">导航</a></div></li>
       <li><span class="t">15:30</span><div class="body"><b>己略黄公祠</b><p>清光绪十三年（1887 年）建的黄氏宗祠，被称作「潮州木雕艺术的殿堂」。祠堂不大，但梁架上几乎每一寸都雕满了，很多还贴着金。</p>
         <ul class="see"><li>找梁上的戏文木雕：「张羽煮海」「铜雀台」</li><li>潮州木雕的绝活是镂通雕，一块木头雕出好几层，从侧面看层次最清楚</li><li>抬头看屋脊上的嵌瓷</li></ul>
-        <div class="tags"><span class="tag rain">有屋顶</span><span class="tag">约 20 元 · 周一闭馆</span></div><a class="go" href="https://uri.amap.com/search?keyword=%E5%B7%B1%E7%95%A5%E9%BB%84%E5%85%AC%E7%A5%A0&city=%E6%BD%AE%E5%B7%9E">导航</a></div></li>
+        <div class="tags"><span class="tag wet">有屋顶</span><span class="tag">约 20 元 · 周一闭馆</span></div><a class="go" href="https://uri.amap.com/search?keyword=%E5%B7%B1%E7%95%A5%E9%BB%84%E5%85%AC%E7%A5%A0&city=%E6%BD%AE%E5%B7%9E">导航</a></div></li>
       <li><span class="t">晚上</span><div class="body"><b>牌坊街，加上城墙集市</b><p>牌坊街上有 23 座石牌坊，记的是潮州历代的进士、状元和名臣。原物大多在上世纪被拆，现在看到的多是近年按原样复建的。国庆期间广济门到下水门一段城墙上有集市，2025 年国庆时就有过。</p>
         <ul class="see"><li>外江梨园公所里有潮剧、潮绣、木雕展示，到了现场问当晚有没有演出</li></ul>
         <div class="tags"><span class="tag dog">开放街区，牵绳可带狗</span></div><a class="go" href="https://uri.amap.com/search?keyword=%E6%BD%AE%E5%B7%9E%E7%89%8C%E5%9D%8A%E8%A1%97&city=%E6%BD%AE%E5%B7%9E">导航</a></div></li>
@@ -178,7 +178,7 @@ footer a{color:var(--muted)}
         <div class="tags"><span class="tag dog">狗：留车里开狗狗模式</span></div><a class="go" href="https://uri.amap.com/search?keyword=%E6%BD%AE%E5%B7%9E%E5%BC%80%E5%85%83%E5%AF%BA&city=%E6%BD%AE%E5%B7%9E">导航</a></div></li>
       <li><span class="t">12:00</span><div class="body"><b>午饭，回酒店躲雨</b></div></li>
       <li><span class="t">15:00</span><div class="body"><b>潮州府署「工夫雅集」</b><p>潮州市文化馆 10 月 4、5 日在潮州府署办工夫茶活动。下雨天坐着喝茶最合适，可以对比单丛和你熟悉的岩茶。具体时间到现场或文化馆公众号确认。</p>
-        <div class="tags"><span class="tag rain">室内</span></div></div></li>
+        <div class="tags"><span class="tag wet">室内</span></div></div></li>
       <li><span class="t">晚上</span><div class="body"><b>潮州菜，再去江边看广济桥灯光秀</b><p>傍晚 5 点半浮桥拆开放船，晚上桥上亮灯。江边找个能坐的位置，提前半小时去。</p></div></li>
     </ol>
   </section>
@@ -269,7 +269,7 @@ footer a{color:var(--muted)}
 
 <script>
 const HOURS=["07","09","11","13","15","17","19","21"];
-document.querySelectorAll(".rain").forEach(el=>{
+document.querySelectorAll("div.rain[data-p]").forEach(el=>{
   const p=el.dataset.p.split(",").map(Number);
   const wet=p.filter(v=>v>=60).length;
   el.innerHTML=`<div class="rain-top"><span>降雨概率（每两小时）</span><span>${p[0]<40&&p[1]<40?"上午基本没雨":"上午可能有雨"} · 午后雷阵雨</span></div>
