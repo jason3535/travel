@@ -104,6 +104,15 @@ section{display:flex;flex-direction:column;gap:14px;scroll-margin-top:64px}
 footer{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:4px}
 footer a{color:var(--muted)}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.intro{margin:0;color:var(--ink)}
+.see{margin:2px 0 0;padding-left:1.1em;font-size:13.5px;color:var(--ink)}
+.see li+li{margin-top:2px}
+.tag.warn{border-color:var(--lacquer);color:var(--lacquer)}
+.cmp{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:2px 14px}
+.cmp-row{display:grid;grid-template-columns:64px 1fr;gap:12px;padding-block:11px;border-top:1px solid var(--line)}
+.cmp-row:first-child{border-top:0}
+.cmp-row b{font-family:var(--font-display);color:var(--lacquer);font-size:15px}
+.cmp-row p{margin:0;font-size:14px;min-width:0}
 </style>
 
 </head>
@@ -113,39 +122,64 @@ footer a{color:var(--muted)}
     <div class="eyebrow">国庆自驾 · 深圳 → 潮州 · 两晚</div>
     <h1>潮州三日<br><span>10/3 — 10/5</span></h1>
     <div class="who">
-      <span class="chip">两个大人</span><span class="chip">两位老人</span>
-      <span class="chip warn">派芝 · 腿伤少走路</span><span class="chip">小狗</span><span class="chip">特斯拉</span>
+      <span class="chip">两个大人</span><span class="chip">两位老人</span><span class="chip">派芝</span><span class="chip">小狗</span><span class="chip">特斯拉</span>
     </div>
-    <p class="lede">三天都是<strong>下午 1 点到 7 点有雷阵雨</strong>，上午基本没雨。所以安排成上午出门玩，下午回室内休息。</p>
+    <p class="lede">揭阳、汕头都去过了，这次只看潮州府城：一座宋代的桥、一座唐代的寺、一位只待了八个月的刺史，还有满城的木雕和工夫茶。三天都是<strong>下午 1 点到 7 点有雷阵雨</strong>，所以户外放上午，下午看有屋顶的祠堂和府第。</p>
   </header>
 
   <nav class="days" aria-label="跳转">
-    <a href="#d1">10/3 周六</a><a href="#d2">10/4 周日</a><a href="#d3">10/5 周一</a>
-    <a href="#rules">三条原则</a><a href="#hotel">住宿</a><a href="#road">路上</a><a href="#todo">出发前</a>
+    <a href="#fj">福建人看潮州</a><a href="#d1">10/3 周六</a><a href="#d2">10/4 周日</a><a href="#d3">10/5 周一</a>
+    <a href="#kid">给派芝</a><a href="#eat">吃什么</a><a href="#rules">带狗和老人</a><a href="#hotel">住宿</a><a href="#todo">出发前</a>
   </nav>
 
+  <section id="fj">
+    <div class="sec-head"><h2>福建人看潮州</h2></div>
+    <p class="intro">潮汕有句老话叫「潮州人，福建祖」。唐宋以来，福建人一波接一波迁到潮州，潮汕族谱里写着祖上来自莆田的很常见。所以这趟其实有点像去看一个远房亲戚。</p>
+    <div class="cmp">
+      <div class="cmp-row"><b>说话</b><p>潮州话属于闽南语系，和泉州、漳州、厦门话是近亲。莆仙话也是闽语的一支。老人可以试着用家乡话跟摊主聊几句，看能听懂多少。</p></div>
+      <div class="cmp-row"><b>开元寺</b><p>泉州有开元寺，潮州也有。潮州开元寺建于唐开元二十六年（738 年），寺名就来自唐玄宗那年下令各州设立的「开元寺」。两座寺可以说是同一道诏书的产物。</p></div>
+      <div class="cmp-row"><b>古桥</b><p>泉州的洛阳桥和潮州的广济桥，都在「中国四大古桥」里，也都是宋代的。洛阳桥是一路石梁铺过海湾；广济桥是石墩加一段浮桥，每天傍晚把浮桥拆开放船过去，是世界上最早的启闭式桥。</p></div>
+      <div class="cmp-row"><b>屋顶</b><p>闽南祠堂屋脊上的「剪瓷雕」，在潮汕叫「嵌瓷」，都是把彩色瓷片剪碎了拼成花鸟人物，是同一门手艺。到了祠堂抬头看屋脊。</p></div>
+      <div class="cmp-row"><b>茶</b><p>潮州工夫茶是国家级非遗，喝法和闽南很像。茶换成了凤凰单丛，和武夷岩茶同属乌龙茶，香型走花香和蜜香，可以对比着喝。</p></div>
+    </div>
+  </section>
+
   <section id="d1" data-date="2026-10-03">
-    <div class="sec-head"><h2>10/3 周六 · 开车去潮州</h2></div>
+    <div class="sec-head"><h2>10/3 周六 · 到潮州，下午看宋代府第和木雕</h2></div>
     <div class="rain" data-p="23,25,31,72,98,100,91,59"></div>
     <ol class="tl">
-      <li><span class="t">前一晚</span><div class="body"><b>把车充满</b><p>单程约 400 km，路上不用充电。服务区充电桩今年特别紧张。</p></div></li>
-      <li><span class="t">07:00</span><div class="body"><b>从深圳出发</b><p>赶在淡水段 10–12 点的高峰前开过去。中途在汕尾一带的服务区停一次，上厕所、遛狗。</p><div class="tags"><span class="tag dog">狗下车活动</span></div></div></li>
-      <li><span class="t">11:30</span><div class="body"><b>到潮州，办入住，吃午饭</b><p>牛肉粿条或卤鹅饭，在酒店附近吃就好。</p></div></li>
-      <li><span class="t">13:00</span><div class="body"><b>回酒店午休</b><p>派芝休息腿，老人睡午觉。下雨的话就在酒店泡工夫茶，可以尝尝凤凰单丛。</p><div class="tags"><span class="tag rain">雷阵雨时段</span><span class="tag leg">休息腿</span></div></div></li>
-      <li><span class="t">晚上</span><div class="body"><b>吃潮州菜，雨停了逛一小段牌坊街</b><p>派芝坐三轮车，其他人走路跟着。人多就早点回。</p><div class="tags"><span class="tag leg">坐三轮车</span><span class="tag dog">可牵绳带狗</span></div><a class="go" href="https://uri.amap.com/search?keyword=%E6%BD%AE%E5%B7%9E%E7%89%8C%E5%9D%8A%E8%A1%97&city=%E6%BD%AE%E5%B7%9E">导航 · 牌坊街</a></div></li>
+      <li><span class="t">07:00</span><div class="body"><b>从深圳出发</b><p>赶在淡水段高峰前开过去。中途在汕尾一带的服务区停一次，上厕所、遛狗。前一晚把车充满，路上不用充电。</p></div></li>
+      <li><span class="t">11:30</span><div class="body"><b>到潮州，办入住，吃午饭</b><p>午饭吃牛肉粿条或卤鹅饭，吃完回房间稍微歇一下。</p></div></li>
+      <li><span class="t">14:30</span><div class="body"><b>许驸马府</b><p>北宋英宗的女儿德安公主嫁给了潮州人许珏，这就是驸马的府第。历代修过，但宋代的平面格局一直留着，是潮州现存最早的府第式民居。</p>
+        <ul class="see"><li>看格局：「驷马拖车」式的中轴对称、前厅后堂、两侧从厝，后来潮汕大宅都照这个套路盖</li><li>看地面和柱础，有些石构件是早期留下来的</li></ul>
+        <div class="tags"><span class="tag rain">有屋顶，下雨也能看</span><span class="tag">20 元 · 周一闭馆</span></div><a class="go" href="https://uri.amap.com/search?keyword=%E8%AE%B8%E9%A9%B8%E9%A9%AC%E5%BA%9C&city=%E6%BD%AE%E5%B7%9E">导航</a></div></li>
+      <li><span class="t">15:30</span><div class="body"><b>己略黄公祠</b><p>清光绪十三年（1887 年）建的黄氏宗祠，被称作「潮州木雕艺术的殿堂」。祠堂不大，但梁架上几乎每一寸都雕满了，很多还贴着金。</p>
+        <ul class="see"><li>找梁上的戏文木雕：「张羽煮海」「铜雀台」</li><li>潮州木雕的绝活是镂通雕，一块木头雕出好几层，从侧面看层次最清楚</li><li>抬头看屋脊上的嵌瓷</li></ul>
+        <div class="tags"><span class="tag rain">有屋顶</span><span class="tag">约 20 元 · 周一闭馆</span></div><a class="go" href="https://uri.amap.com/search?keyword=%E5%B7%B1%E7%95%A5%E9%BB%84%E5%85%AC%E7%A5%A0&city=%E6%BD%AE%E5%B7%9E">导航</a></div></li>
+      <li><span class="t">晚上</span><div class="body"><b>牌坊街，加上城墙集市</b><p>牌坊街上有 23 座石牌坊，记的是潮州历代的进士、状元和名臣。原物大多在上世纪被拆，现在看到的多是近年按原样复建的。国庆期间广济门到下水门一段城墙上有集市，2025 年国庆时就有过。</p>
+        <ul class="see"><li>外江梨园公所里有潮剧、潮绣、木雕展示，到了现场问当晚有没有演出</li></ul>
+        <div class="tags"><span class="tag dog">开放街区，牵绳可带狗</span></div><a class="go" href="https://uri.amap.com/search?keyword=%E6%BD%AE%E5%B7%9E%E7%89%8C%E5%9D%8A%E8%A1%97&city=%E6%BD%AE%E5%B7%9E">导航</a></div></li>
     </ol>
   </section>
 
   <section id="d2" data-date="2026-10-04">
-    <div class="sec-head"><h2>10/4 周日 · 广济桥和古城</h2></div>
+    <div class="sec-head"><h2>10/4 周日 · 韩愈、广济桥、开元寺</h2></div>
     <div class="rain" data-p="3,3,8,64,99,100,83,56"></div>
+    <p class="intro">这天上午最晴，把最重要的三处放在一起，顺着韩江走一圈：东岸的韩文公祠 → 过广济桥回西岸 → 开元寺。</p>
     <ol class="tl">
-      <li><span class="t">09:00</span><div class="body"><b>一开门就上广济桥</b><p>这是整个行程最好的时间段：人少、不下雨，浮桥也还连着。派芝从西岸上桥，走到中间浮桥就往回走（来回约 400 米），走不动就在滨江长廊坐着看桥。</p><div class="tags"><span class="tag leg">只走半座桥</span><span class="tag dog">狗：一个大人在滨江长廊陪</span></div><a class="go" href="https://uri.amap.com/search?keyword=%E5%B9%BF%E6%B5%8E%E6%A1%A5&city=%E6%BD%AE%E5%B7%9E">导航 · 广济桥</a></div></li>
-      <li><span class="t">10:30</span><div class="body"><b>坐三轮车逛古城</b><p>叫两辆车，坐着经过甲第巷、许驸马府外面，师傅一般会边走边讲。价格 10–30 元，叫价超过 20 元就讲价。</p><div class="tags"><span class="tag leg">全程坐车</span><span class="tag dog">狗可同车</span></div></div></li>
-      <li><span class="t">12:00</span><div class="body"><b>吃午饭</b><p>下雨前吃完。</p></div></li>
-      <li><span class="t">12:45</span><div class="body"><b>开元寺，看半小时</b><p>大殿有屋顶，地面平。狗留在车里，开狗狗模式，车停阴凉处。</p><div class="tags"><span class="tag dog">狗：狗狗模式</span><span class="tag leg">地面平</span></div><a class="go" href="https://uri.amap.com/search?keyword=%E6%BD%AE%E5%B7%9E%E5%BC%80%E5%85%83%E5%AF%BA&city=%E6%BD%AE%E5%B7%9E">导航 · 开元寺</a></div></li>
-      <li><span class="t">13:30</span><div class="body"><b>回酒店休息</b><p>下午雷阵雨。想出门的话，可以去己略黄公祠看木雕（地方小、路短）。</p><div class="tags"><span class="tag rain">雷阵雨时段</span></div></div></li>
-      <li><span class="t">晚上</span><div class="body"><b>潮州菜，再吃碗鸭母捻</b><p>雨停了可以去江边坐着看广济桥灯光秀，提前半小时去占位。</p><div class="tags"><span class="tag leg">坐着看</span></div></div></li>
+      <li><span class="t">08:30</span><div class="body"><b>韩文公祠（江东岸，笔架山脚下）</b><p>唐元和十四年（819 年），韩愈因为上《论佛骨表》被贬为潮州刺史，在潮州只待了大约八个月：驱鳄鱼、释放奴婢、请人办学。潮州人记了他一千多年，江改名叫韩江，山改名叫韩山，所以有「江山改姓韩」的说法。祠始建于北宋，是现存最早的韩愈祠。</p>
+        <ul class="see"><li>祠建在山坡上，<strong>台阶不少</strong>，老人慢慢走，或者在下面的江边等</li><li>登到上面回头看，韩江和整座府城都在眼前</li></ul>
+        <div class="tags"><span class="tag warn">免费但要提前预约</span><span class="tag">台阶多</span></div><a class="go" href="https://uri.amap.com/search?keyword=%E9%9F%A9%E6%96%87%E5%85%AC%E7%A5%A0&city=%E6%BD%AE%E5%B7%9E">导航</a></div></li>
+      <li><span class="t">09:45</span><div class="body"><b>从东岸走广济桥回西岸</b><p>广济桥始建于南宋乾道七年（1171 年），十八艘梭船连成浮桥，两边是石墩和桥亭。东岸进、西岸出，正好走一趟全桥，不用走回头路。</p>
+        <ul class="see"><li>数一数：浮桥一共几条船？潮州童谣是「十八梭船廿四洲」</li><li>找桥上的那只铁牛。童谣后半句是「两只鉎牛一只溜」，原来有两只，一只被洪水冲走了</li><li>桥上每座亭子都不一样，「廿四楼台廿四样」</li></ul>
+        <div class="tags"><span class="tag">节假日 9:00–17:30 · 收门票</span><span class="tag dog">狗：一个大人开车绕到西岸接</span></div><a class="go" href="https://uri.amap.com/search?keyword=%E5%B9%BF%E6%B5%8E%E6%A1%A5&city=%E6%BD%AE%E5%B7%9E">导航</a></div></li>
+      <li><span class="t">11:00</span><div class="body"><b>开元寺</b><p>738 年建，粤东第一古刹。现在的建筑大多是明清重修的，但整体布局还保留着唐代的格局。</p>
+        <ul class="see"><li>想一想泉州开元寺：同一年、同一道诏书</li><li>大殿四周的石栏板上有很多浮雕，可以慢慢找</li></ul>
+        <div class="tags"><span class="tag dog">狗：留车里开狗狗模式</span></div><a class="go" href="https://uri.amap.com/search?keyword=%E6%BD%AE%E5%B7%9E%E5%BC%80%E5%85%83%E5%AF%BA&city=%E6%BD%AE%E5%B7%9E">导航</a></div></li>
+      <li><span class="t">12:00</span><div class="body"><b>午饭，回酒店躲雨</b></div></li>
+      <li><span class="t">15:00</span><div class="body"><b>潮州府署「工夫雅集」</b><p>潮州市文化馆 10 月 4、5 日在潮州府署办工夫茶活动。下雨天坐着喝茶最合适，可以对比单丛和你熟悉的岩茶。具体时间到现场或文化馆公众号确认。</p>
+        <div class="tags"><span class="tag rain">室内</span></div></div></li>
+      <li><span class="t">晚上</span><div class="body"><b>潮州菜，再去江边看广济桥灯光秀</b><p>傍晚 5 点半浮桥拆开放船，晚上桥上亮灯。江边找个能坐的位置，提前半小时去。</p></div></li>
     </ol>
   </section>
 
@@ -154,25 +188,47 @@ footer a{color:var(--muted)}
     <div class="rain" data-p="9,13,35,74,91,82,66,43"></div>
     <ol class="tl">
       <li><span class="t">07:00</span><div class="body"><b>早餐吃牛肉粿条</b></div></li>
-      <li><span class="t">08:00</span><div class="body"><b>出发回深圳</b><p>潮汕环线预计 5 号前后潮州这一段有个当地的回程小高峰，下午还有雷雨，早上走最稳。大约 13:00 到家。</p><div class="tags"><span class="tag dog">中途遛狗一次</span></div></div></li>
+      <li><span class="t">08:00</span><div class="body"><b>方案 A：直接回深圳</b><p>潮汕环线预计 5 号前后潮州这一段有个当地的回程小高峰，下午还有雷雨，早上走最稳，大约 13:00 到家。</p></div></li>
+      <li><span class="t">08:00</span><div class="body"><b>方案 B：先去龙湖古寨，10:00 再走</b><p>在城南约 20 公里，宋代就有人聚居，「三街六巷」里有上百座明清宅院和祠堂，被叫作潮汕民居的博物馆。早上人少，走一个半小时左右，然后直接上高速。代价是晚两个小时上路，回程可能更堵。</p>
+        <div class="tags"><span class="tag">30 元 · 全天开放</span><span class="tag dog">露天，可以带狗走</span></div><a class="go" href="https://uri.amap.com/search?keyword=%E9%BE%99%E6%B9%96%E5%8F%A4%E5%AF%A8&city=%E6%BD%AE%E5%B7%9E">导航</a></div></li>
     </ol>
   </section>
 
+  <section id="kid">
+    <div class="sec-head"><h2>给派芝的寻宝单</h2></div>
+    <div class="card">
+      <ul class="check" id="kidlist">
+        <li><label><input type="checkbox" id="k1"><span>数广济桥的浮桥船，是不是 18 条？</span></label></li>
+        <li><label><input type="checkbox" id="k2"><span>找到广济桥上的铁牛</span></label></li>
+        <li><label><input type="checkbox" id="k3"><span>在己略黄公祠找到「张羽煮海」的木雕</span></label></li>
+        <li><label><input type="checkbox" id="k4"><span>数牌坊街的牌坊，是不是 23 座？</span></label></li>
+        <li><label><input type="checkbox" id="k5"><span>讲一遍韩愈驱鳄鱼的故事给外公外婆听</span></label></li>
+        <li><label><input type="checkbox" id="k6"><span>在祠堂屋脊上找一只嵌瓷做的动物</span></label></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="eat">
+    <div class="sec-head"><h2>吃什么</h2></div>
+    <div class="cmp">
+      <div class="cmp-row"><b>早餐</b><p>牛肉粿条、猪肠粉、粿汁</p></div>
+      <div class="cmp-row"><b>小吃</b><p>春饼、鸭母捻（汤圆）、腐乳饼、老药桔</p></div>
+      <div class="cmp-row"><b>正餐</b><p>卤鹅、蚝烙、护国菜、清蒸鱼、打冷</p></div>
+      <div class="cmp-row"><b>茶</b><p>凤凰单丛，带一点回去</p></div>
+    </div>
+  </section>
+
   <section id="rules">
-    <div class="sec-head"><h2>三条原则</h2></div>
+    <div class="sec-head"><h2>带狗和老人</h2></div>
     <div class="rules">
-      <div class="rule leg"><h3>派芝的腿：能坐车就坐车，能坐着看就坐着看</h3><ul>
-        <li>古城里车开不进去，用三轮车，派芝和老人坐车。</li>
-        <li>不去台阶多的地方：韩文公祠、城门楼，还有西湖公园台阶多的那半边。</li>
-        <li>伤得比较明显的话，后备箱带一个折叠轮椅或者能坐人的推车。</li>
+      <div class="rule dog"><h3>小狗</h3><ul>
+        <li>收门票的景点（广济桥、开元寺、祠堂、府第）没查到宠物规定，按不能带狗安排：一个大人陪狗在外面，轮流进去。</li>
+        <li>牌坊街、滨江长廊、龙湖古寨的街巷是开放的，牵绳可以带狗。</li>
+        <li>车里留狗 30 分钟以内，开狗狗模式，车停阴凉处。这几天 30°C 左右，不开空调绝对不能把狗留在车里。</li>
       </ul></div>
-      <div class="rule dog"><h3>小狗：大人轮流陪，用好狗狗模式</h3><ul>
-        <li>收门票的景点没查到宠物规定，先按不能带狗来安排，一个大人陪狗在外面，轮流进去。</li>
-        <li>牌坊街、滨江长廊是开放街区，牵绳可以带狗，人多时抱着或短绳牵着。</li>
-        <li>车里留狗 30 分钟以内，开狗狗模式，车停阴凉处。这几天约 30°C，不开空调绝对不能把狗留在车里。</li>
-      </ul></div>
-      <div class="rule"><h3>老人：两小时一歇</h3><ul>
-        <li>开车每两小时进一次服务区。</li>
+      <div class="rule"><h3>老人</h3><ul>
+        <li>韩文公祠台阶多，量力而行，在下面等也看得到江景。</li>
+        <li>古城里可以叫三轮车，一趟 10–30 元，叫价超过 20 元就讲价。</li>
         <li>每天下午都回酒店午休，正好避开雷雨。</li>
       </ul></div>
     </div>
@@ -181,31 +237,11 @@ footer a{color:var(--muted)}
   <section id="hotel">
     <div class="sec-head"><h2>住宿</h2></div>
     <div class="card">
-      <div class="hotel"><b>伍舍精品客栈（广济桥牌坊街店）</b><p>携程上写着可带宠物、免费停车，离牌坊街约 150 米，派芝走过去最近。</p><a class="go" href="https://hotels.ctrip.com/hotels/66794894.html">携程页面</a></div>
+      <div class="hotel"><b>伍舍精品客栈（广济桥牌坊街店）</b><p>携程上写着可带宠物、免费停车，离牌坊街约 150 米。</p><a class="go" href="https://hotels.ctrip.com/hotels/66794894.html">携程页面</a></div>
       <div class="hotel"><b>潮州古城牌坊街漫心酒店</b><p>有充电桩和免费停车，能不能带狗待确认。</p><a class="go" href="https://m.ctrip.com/html5/hotel/hoteldetail/126903373.html">携程页面</a></div>
       <div class="hotel"><b>柏曼酒店（潮州古城牌坊街店）</b><p>有充电桩，离牌坊街约 290 米，能不能带狗待确认。</p><a class="go" href="https://hotels.ctrip.com/hotels/716036.html">携程页面</a></div>
     </div>
-    <p class="note">订之前打电话问清三件事：能不能带狗？有没有电梯（或者有没有一楼的房间）？国庆期间停车位要不要预留？</p>
-  </section>
-
-  <section id="road">
-    <div class="sec-head"><h2>路上</h2></div>
-    <div class="rules">
-      <div class="rule"><h3>深圳 → 淡水 → 汕尾 → 揭阳 → 潮州</h3><ul>
-        <li>深汕高速淡水段：1 号 10–12 点最堵，3 号走就避开了。</li>
-        <li>甬莞高速惠来附近在施工，封了超车道，限速 80，导航走那条的话会慢一点。</li>
-        <li>出发前在「粤通行」小程序看一眼实时路况。</li>
-        <li>高速 10/1–10/7 免费。</li>
-      </ul></div>
-    </div>
-  </section>
-
-  <section id="rainplan">
-    <div class="sec-head"><h2>如果上午也下雨</h2></div>
-    <div class="card"><ol class="tl">
-      <li><span class="t">改去</span><div class="body"><b>己略黄公祠</b><p>看潮州木雕，地方不大，路很短。</p><a class="go" href="https://uri.amap.com/search?keyword=%E5%B7%B1%E7%95%A5%E9%BB%84%E5%85%AC%E7%A5%A0&city=%E6%BD%AE%E5%B7%9E">导航</a></div></li>
-      <li><span class="t">或者</span><div class="body"><b>手拉壶或木雕工坊体验</b><p>坐着就能做，孩子和老人都适合。</p></div></li>
-    </ol></div>
+    <p class="note">订之前打电话问清三件事：能不能带狗？有没有电梯？国庆期间停车位要不要预留？</p>
   </section>
 
   <section id="todo">
@@ -213,22 +249,23 @@ footer a{color:var(--muted)}
     <div class="card">
       <ul class="check" id="checklist">
         <li><label><input type="checkbox" id="c1"><span>打电话给酒店：问能不能带狗、有没有电梯、停车位</span></label></li>
+        <li><label><input type="checkbox" id="c8"><span>预约 10/4 上午的韩文公祠（免费，但要预约）</span></label></li>
         <li><label><input type="checkbox" id="c2"><span>今晚把车充满</span></label></li>
-        <li><label><input type="checkbox" id="c3"><span>派芝的药和护具，要的话带折叠轮椅</span></label></li>
         <li><label><input type="checkbox" id="c4"><span>狗：牵绳、水碗、拾便袋、狗粮、尿垫</span></label></li>
         <li><label><input type="checkbox" id="c5"><span>雨伞和雨衣，每人一把</span></label></li>
         <li><label><input type="checkbox" id="c6"><span>老人常用药</span></label></li>
         <li><label><input type="checkbox" id="c7"><span>出发前在「粤通行」看路况</span></label></li>
       </ul>
     </div>
-    <p class="note">勾选只保存在这台手机上。</p>
+    <p class="note">勾选只保存在这台手机上。路上：深汕高速淡水段是全程第一个易堵点；甬莞高速惠来附近在施工，限速 80。高速 10/1–10/7 免费。</p>
   </section>
 
   <footer>
-    <span>天气：Open-Meteo 10 月 2 日预报，出发前一天再看一次。景点的宠物规定没查到，按不能带狗安排。</span>
-    <span>来源：<a href="https://m.21jingji.com/article/20260930/herald/5de28dee276affe22fd2f66abf8ba028.html">惠州交警避堵指南</a> · <a href="https://www.sohu.com/a/1081899521_122066679">潮汕环线国庆指引</a> · <a href="https://zhuanlan.zhihu.com/p/701327019">古城三轮车价格</a> · <a href="https://you.ctrip.com/travels/Chaozhou467/4135825.html">推轮椅游潮州</a></span>
+    <span>天气：Open-Meteo 10 月 2 日预报，出发前一天再看一次。门票和开放时间来自携程、去哪儿等页面，节假日可能调整，以现场为准。景点宠物规定没查到，按不能带狗安排。</span>
+    <span>来源：<a href="https://zh.wikipedia.org/zh-cn/%E5%BC%80%E5%85%83%E5%AF%BA_(%E6%BD%AE%E5%B7%9E)">开元寺（维基）</a> · <a href="https://zhuanlan.zhihu.com/p/690465709">韩文公祠</a> · <a href="https://you.ctrip.com/sight/chaozhou467/56728.html">许驸马府</a> · <a href="https://touch.travel.qunar.com/poi/715411">己略黄公祠</a> · <a href="https://baike.baidu.com/item/%E6%BD%AE%E5%B7%9E%E4%BA%BA%E7%A6%8F%E5%BB%BA%E7%A5%96/56172918">潮州人福建祖</a> · <a href="https://m.21jingji.com/article/20260923/herald/e36eb60a70b717268742c8f048478ada.html">文化馆国庆活动</a> · <a href="https://www.21jingji.com/article/20260930/herald/bd60a2093a2b7d4cd438048f5b7418f3.html">古城新空间</a> · <a href="https://www.sohu.com/a/1081899521_122066679">潮汕环线国庆指引</a></span>
   </footer>
 </div>
+
 
 <script>
 const HOURS=["07","09","11","13","15","17","19","21"];
@@ -247,7 +284,7 @@ try{
   if(s){s.querySelector(".sec-head").insertAdjacentHTML("beforeend",'<span class="today">今天</span>');}
 }catch(e){}
 // 勾选清单（只存本机）
-document.querySelectorAll("#checklist input").forEach(cb=>{
+document.querySelectorAll(".check input").forEach(cb=>{
   try{cb.checked=localStorage.getItem("cz-"+cb.id)==="1";}catch(e){}
   cb.addEventListener("change",()=>{try{localStorage.setItem("cz-"+cb.id,cb.checked?"1":"0");}catch(e){}});
 });
