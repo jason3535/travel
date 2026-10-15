@@ -10,6 +10,7 @@
     --bg:#F6F4EF; --ink:#26261F; --sub:#6E6B62; --line:#E4E0D6;
     --card:#FFFFFF; --grass:#4A8B63; --forest:#2F5D46; --amber:#C1762C;
     --blue:#6C93AF; --amber-soft:#F5E9D8; --gold:#B8862B; --river:#7FA7B8;
+    --alert:#B0453A; --alert-bg:#F8EDEB;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:rgba(0,0,0,0)}
@@ -24,6 +25,18 @@
   .stat:first-child{border-left:0}
   .stat b{display:block;font-size:19px;font-weight:800}
   .stat span{font-size:12px;color:var(--sub)}
+
+  .alert{background:var(--alert-bg);border:1.5px solid var(--alert);border-radius:16px;padding:16px 18px;margin:8px 0 20px;text-align:left}
+  .alert .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1px;color:#fff;background:var(--alert);border-radius:999px;padding:2px 10px;margin-bottom:8px}
+  .alert b{color:var(--alert)}
+  .alert p{font-size:14px;color:#4c3a38;line-height:1.75}
+
+  .facts{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:6px 22px 10px;margin-bottom:8px}
+  .facts .f-item{padding:14px 0;border-top:1px solid var(--line)}
+  .facts .f-item:first-of-type{border-top:0}
+  .facts .f-item b{display:block;font-size:14px;margin-bottom:4px}
+  .facts .f-item p{font-size:13.5px;color:#4c4a42;line-height:1.75}
+  .facts .f-item .muted{color:var(--sub);font-size:12.5px}
 
   .mapcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;margin:26px 0 8px;overflow:hidden}
   .mapcard svg{width:100%;height:auto;display:block}
@@ -92,7 +105,7 @@
   <header>
     <div class="kicker">BUSINESS TRIP · BANGKOK</div>
     <h1>曼谷 · 会议之外</h1>
-    <div class="sub">2026/10/19–10/23（按下周一到周五排） · 白天开会，四个傍晚 + 周五一个上午 · <b>不去景点，看街区、设计、骑车和茶</b></div>
+    <div class="sub">2026/10/19–10/23 · 白天开会，四个傍晚 + 周五一个上午 · <b>不去景点，看街区、设计、骑车和茶</b></div>
     <div class="stats">
       <div class="stat"><b>4</b><span>个傍晚</span></div>
       <div class="stat"><b>1</b><span>个自由上午</span></div>
@@ -101,24 +114,40 @@
     </div>
   </header>
 
+  <div class="alert">
+    <div class="tag">住宿缺口 · 10/22 晚未订</div>
+    <p><b>Hilton 只订到 10/22 退房</b>（10/19 入住，3 晚 Executive Room）。<b>10/22 周四晚 → 10/23 周五退房这一晚还没订。</b>建议直接把 Hilton Sukhumvit 续到 10/23 退房，不必换酒店；周五上午 Bang Krachao 从 Soi 24 去 Khlong Toei 码头也近。</p>
+  </div>
+
+  <div class="facts">
+    <div class="f-item"><b>✈️ 航班（已出票）</b>
+      <p>去程 <b>CZ8075</b>　深圳宝安 T3 <b>09:05</b> → 曼谷素万那普 T1 <b>11:20</b>　旅客 LIN/ZHENG<br>
+      回程 <b>CZ8324</b>　素万那普 T1 <b>17:25</b> → 宝安 T3 <b>22:05</b><br>
+      <span class="muted">周五务必约 <b>14:00</b> 前离开市区去机场（BKK / 素万那普）</span></p>
+    </div>
+    <div class="f-item"><b>🏨 酒店</b>
+      <p><b>Hilton Sukhumvit Bangkok</b>　11 Sukhumvit Soi 24　Executive Room<br>
+      入住 10/19　退房 10/22（3 晚）· 最近轨道 <b>BTS Phrom Phong</b><br>
+      <span class="muted">傍晚 17–19 点别打车，从酒店走 Soi 24 上 BTS/换乘 MRT 去老城</span></p>
+    </div>
+    <div class="f-item"><b>🌧 天气（Open-Meteo · 2026-10-15）</b>
+      <p>整周傍晚都湿。日降水合计约：一 ~7 mm（夜骑相对最好）、二 ~12、三 ~14、四 ~12、五上午偏干（~30%）。原计划对调：<b>周一夜骑、周四 Talat Noi</b>。</p>
+    </div>
+  </div>
+
   <div class="mapcard">
     <svg viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg" font-family="PingFang SC, sans-serif">
       <rect width="900" height="620" fill="#FBFAF6"/>
-      <!-- 湄南河：自北向南，在 Bang Krachao 处绕一个大弯 -->
       <path d="M300,-10 C330,80 290,150 330,220 C370,290 300,340 340,420 C380,500 560,470 600,540 C620,575 560,620 540,640" fill="none" stroke="#CFE0E8" stroke-width="34" stroke-linecap="round"/>
       <path d="M300,-10 C330,80 290,150 330,220 C370,290 300,340 340,420 C380,500 560,470 600,540 C620,575 560,620 540,640" fill="none" stroke="#B7CFDA" stroke-width="2" stroke-dasharray="6 6"/>
       <text x="245" y="120" fill="#8FB0BF" font-size="13" font-weight="600" transform="rotate(70 245 120)">湄南河</text>
-      <!-- Bang Krachao 绿肺（河湾里） -->
       <ellipse cx="470" cy="520" rx="110" ry="62" fill="#E3EEE2"/>
       <text x="470" y="518" text-anchor="middle" fill="#5E8A6A" font-size="13" font-weight="700">Bang Krachao 绿肺</text>
       <text x="470" y="538" text-anchor="middle" fill="#7CA189" font-size="11">周五上午 · 骑车</text>
-      <!-- MRT 蓝线（示意） -->
       <path d="M560,60 C520,120 470,170 420,210 C380,245 360,300 380,350" fill="none" stroke="#9FB4D6" stroke-width="5" stroke-linecap="round" opacity=".85"/>
       <text x="572" y="58" fill="#7E95BC" font-size="11" font-weight="700">MRT 蓝线</text>
-      <!-- BTS 示意 -->
       <path d="M700,120 L700,460" fill="none" stroke="#B9D3A0" stroke-width="5" stroke-linecap="round" opacity=".9"/>
       <text x="712" y="140" fill="#7CA189" font-size="11" font-weight="700">BTS</text>
-      <!-- 老城（河东岸） -->
       <g font-size="12.5" font-weight="700" fill="#26261F">
         <circle cx="375" cy="230" r="7" fill="#C1762C"/><text x="390" y="226">Pak Khlong Talat 花市</text><text x="390" y="243" font-size="11" font-weight="500" fill="#6E6B62">+ Phahurat 小印度 · 河边</text>
         <circle cx="440" cy="300" r="7" fill="#C1762C"/><text x="455" y="296">耀华力路 唐人街</text><text x="455" y="313" font-size="11" font-weight="500" fill="#6E6B62">MRT Wat Mangkon · 潮州街坊</text>
@@ -126,113 +155,117 @@
         <circle cx="430" cy="440" r="7" fill="#C1762C"/><text x="445" y="436">石龙军路 创意区</text><text x="445" y="453" font-size="11" font-weight="500" fill="#6E6B62">TCDC · Warehouse 30</text>
         <circle cx="330" cy="460" r="7" fill="#4A8B63"/><text x="230" y="456">The Jam Factory</text><text x="230" y="473" font-size="11" font-weight="500" fill="#6E6B62">河西岸 · 设计书店</text>
         <circle cx="700" cy="250" r="7" fill="#6C93AF"/><text x="715" y="246">Siam · BACC</text><text x="715" y="263" font-size="11" font-weight="500" fill="#6E6B62">艺术中心 · ODS 设计店</text>
+        <circle cx="700" cy="310" r="7" fill="#2F5D46"/><text x="715" y="306">Hilton · Soi 24</text><text x="715" y="323" font-size="11" font-weight="500" fill="#6E6B62">BTS Phrom Phong</text>
       </g>
       <text x="450" y="600" text-anchor="middle" fill="#A9A597" font-size="11">示意图，不按比例 · 老城四个点步行可串，彼此 1–2 公里</text>
     </svg>
-    <div class="legend"><span><i style="background:#C1762C"></i>傍晚街区</span><span><i style="background:#4A8B63"></i>设计 / 放空</span><span><i style="background:#6C93AF"></i>市中心备选</span><span><i style="background:#E3EEE2"></i>周五骑车</span></div>
+    <div class="legend"><span><i style="background:#C1762C"></i>傍晚街区</span><span><i style="background:#4A8B63"></i>设计 / 放空</span><span><i style="background:#6C93AF"></i>市中心备选</span><span><i style="background:#2F5D46"></i>酒店</span><span><i style="background:#E3EEE2"></i>周五骑车</span></div>
   </div>
 
   <div class="section-title">四个傍晚 + 周五</div>
 
-  <div class="day"><div class="day-head"><div class="badge"><small>MON</small><b>19</b></div><div class="day-title"><h3>Talat Noi 老街区 → 石龙军路创意区</h3>
-    <div class="meta"><span class="chip date">10/19 一</span><span class="chip wet">⛈ 25–30° · 17 点后 60–73% 阵雨</span><span class="chip go">MRT Hua Lamphong</span></div></div></div>
-    <p class="lede">曼谷最有味道的一片，不是景点：沿河的潮汕老社区，一半是修车铺、机械零件店和成堆的旧发动机，一半是改出来的咖啡馆和小画廊，墙上全是涂鸦。六点前后光线最好，走着拍最舒服。</p>
-    <div class="rain" data-p="20,32,60,73,67,55"></div><div class="hours"><span>14</span><span>16</span><span>17</span><span>19</span><span>21</span><span>23</span></div>
+  <div class="day"><div class="day-head"><div class="badge"><small>MON</small><b>19</b></div><div class="day-title"><h3>夜骑看城（最推荐 · 天气最好）</h3>
+    <div class="meta"><span class="chip date">10/19 一</span><span class="chip wet">🌦 24–30° · 日降水 ~7 mm，这周最适合骑</span><span class="chip go">提前订 · 酒店 check-in 后出发</span></div></div></div>
+    <p class="lede">落地办完入住后，把夜骑放在周一：Open-Meteo 这一天傍晚相对最干。六点左右出发到十点，走小巷、穿唐人街、过河到吞武里社区，中途路边摊吃饭。白天那种车流在小巷里不存在，骑车是看普通人晚上怎么生活的最好方式。</p>
+    <div class="rain" data-p="25,30,45,55,48,40"></div><div class="hours"><span>14</span><span>16</span><span>17</span><span>19</span><span>21</span><span>23</span></div>
     <div class="rows">
-      <div class="row"><div class="k">17:00</div><div class="v">散会直接坐 MRT 到 <b>Hua Lamphong</b>，出站往河边走进 Talat Noi 的小巷<a class="nav" href="https://www.google.com/maps/search/?api=1&query=Talat+Noi+Bangkok">地图</a></div></div>
-      <div class="row"><div class="k">17:30</div><div class="v">沿 Soi Wanit 2 一路走到河边，看修车铺、老祠堂、涂鸦墙；终点 <b>Hong Sieng Kong</b> 河边老宅，坐下喝一杯看对岸<a class="nav" href="https://www.google.com/maps/search/?api=1&query=Hong+Sieng+Kong+Bangkok">地图</a></div></div>
-      <div class="row"><div class="k">18:45</div><div class="v">往南走到石龙军路：<b>TCDC 泰国创意设计中心</b>（设计图书馆 + 展览，一般开到晚上七点左右，去之前查当天时间）和 <b>Warehouse 30</b> 改造仓库<a class="nav" href="https://www.google.com/maps/search/?api=1&query=TCDC+Bangkok+Charoenkrung">地图</a></div></div>
-      <div class="row"><div class="k">19:30</div><div class="v">石龙军路一带吃饭，老字号和新馆子都有；回程 BTS <b>Saphan Taksin</b></div></div>
-      <div class="row tip"><div class="k">下雨</div><div class="v">这一片的阵雨通常半小时就过，躲进 Warehouse 30 或任意咖啡馆等一下；TCDC 整栋室内，顺序可以对调</div></div>
+      <div class="row"><div class="k">上午</div><div class="v">CZ8075 11:20 到 BKK → 去 <b>Hilton Sukhumvit</b>（Soi 24）办入住；行李放好再出门</div></div>
+      <div class="row"><div class="k">预订</div><div class="v">两家口碑稳定：<b>Grasshopper Adventures</b>（Bangkok Night Bike Tour）和 <b>Co van Kessel</b>（傍晚场），英文向导、城市车，约 20 公里慢速<a class="nav" href="https://www.grasshopperadventures.com/">官网</a><a class="nav" href="https://www.covankessel.com/">官网</a></div></div>
+      <div class="row"><div class="k">18:00</div><div class="v">集合点一般在唐人街或 Saphan Taksin 附近；从酒店 BTS <b>Phrom Phong</b> 换乘可达。带薄雨衣，小雨照常出发</div></div>
+      <div class="row"><div class="k">22:00</div><div class="v">结束，回程 BTS/MRT 还在运营（末班约午夜）</div></div>
+      <div class="row tip"><div class="k">天气</div><div class="v">周一降水合计约 7 mm，是这周最适合夜骑的一晚；若临时暴雨，团通常改期或退款，订时看条款</div></div>
+      <div class="row opt"><div class="k">放空</div><div class="v">不想骑：坐船到河西岸 <b>The Jam Factory</b>（设计书店 Candide + 咖啡）<a class="nav" href="https://www.google.com/maps/search/?api=1&query=The+Jam+Factory+Bangkok">地图</a></div></div>
     </div>
   </div>
 
   <div class="day"><div class="day-head"><div class="badge"><small>TUE</small><b>20</b></div><div class="day-title"><h3>耀华力路唐人街 · 用潮州人的眼光看</h3>
-    <div class="meta"><span class="chip date">10/20 二</span><span class="chip wet">🌦 24–31° · 这周最干的一晚</span><span class="chip go">MRT Wat Mangkon</span></div></div></div>
+    <div class="meta"><span class="chip date">10/20 二</span><span class="chip wet">⛈ 24–31° · 日降水 ~12 mm · 傍晚阵雨</span><span class="chip go">MRT Wat Mangkon</span></div></div></div>
     <p class="lede">上周刚去过潮州，曼谷唐人街恰好是潮汕人建的：招牌、庙宇、老字号的格局和潮州古城是同一套东西，对照着看最有意思。</p>
-    <div class="rain" data-p="21,30,52,69,64,50"></div><div class="hours"><span>14</span><span>16</span><span>17</span><span>19</span><span>21</span><span>23</span></div>
+    <div class="rain" data-p="28,35,55,68,62,48"></div><div class="hours"><span>14</span><span>16</span><span>17</span><span>19</span><span>21</span><span>23</span></div>
     <div class="rows">
-      <div class="row"><div class="k">17:15</div><div class="v">MRT <b>Wat Mangkon</b> 出站就是龙莲寺（潮州人建的中式寺庙），先看这个<a class="nav" href="https://www.google.com/maps/search/?api=1&query=Wat+Mangkon+Kamalawat">地图</a></div></div>
-      <div class="row"><div class="k">17:45</div><div class="v"><b>Charoen Chai 社区</b>：耀华力路后面的老潮州街坊，旧茶行、纸扎铺、南洋风骑楼，社区自己办的小老宅博物馆（Baan Kao Lao Rueang，免费，开放时间不固定）<a class="nav" href="https://www.google.com/maps/search/?api=1&query=Charoen+Chai+Community+Bangkok">地图</a></div></div>
-      <div class="row"><div class="k">18:30</div><div class="v">天黑后耀华力路主街变成一整条路边摊，边走边吃：<b>潮州粿条、卤鹅、鱼生、燕窝糖水</b>，和潮州吃到的比一比</div></div>
-      <div class="row"><div class="k">20:00</div><div class="v">找一家老茶行坐下，这里卖的多是潮汕工夫茶路数的乌龙，<b>可以和你喝的岩茶、凤凰单丛对比</b>；顺手带一两泡回去</div></div>
-      <div class="row tip"><div class="k">看什么</div><div class="v">注意几样和潮州一样的东西：屋脊上的嵌瓷、牌匾上的潮州堂号、祠堂里的木雕，还有老人讲的潮州话</div></div>
+      <div class="row"><div class="k">17:15</div><div class="v">酒店 BTS Phrom Phong → 换乘 MRT 到 <b>Wat Mangkon</b>，出站就是龙莲寺（潮州人建的中式寺庙）<a class="nav" href="https://www.google.com/maps/search/?api=1&query=Wat+Mangkon+Kamalawat">地图</a></div></div>
+      <div class="row"><div class="k">17:45</div><div class="v"><b>Charoen Chai 社区</b>：耀华力路后面的老潮州街坊，旧茶行、纸扎铺、南洋风骑楼，社区小老宅博物馆（Baan Kao Lao Rueang，免费，开放时间不固定）<a class="nav" href="https://www.google.com/maps/search/?api=1&query=Charoen+Chai+Community+Bangkok">地图</a></div></div>
+      <div class="row"><div class="k">18:30</div><div class="v">天黑后耀华力路主街变成一整条路边摊：<b>潮州粿条、卤鹅、鱼生、燕窝糖水</b>，和潮州吃到的比一比</div></div>
+      <div class="row"><div class="k">20:00</div><div class="v">找一家老茶行坐下，多是潮汕工夫茶路数的乌龙，<b>可以和家里的岩茶、凤凰单丛对比</b>；顺手带一两泡</div></div>
+      <div class="row tip"><div class="k">看什么</div><div class="v">屋脊嵌瓷、牌匾潮州堂号、祠堂木雕，还有老人讲的潮州话</div></div>
     </div>
   </div>
 
   <div class="day"><div class="day-head"><div class="badge"><small>WED</small><b>21</b></div><div class="day-title"><h3>Phahurat 小印度 → Pak Khlong Talat 花市 → 河边</h3>
-    <div class="meta"><span class="chip date">10/21 三</span><span class="chip wet">⛈ 24–30° · 傍晚 64–75% 阵雨</span><span class="chip go">MRT Sanam Chai</span></div></div></div>
+    <div class="meta"><span class="chip date">10/21 三</span><span class="chip wet">⛈ 24–30° · 日降水 ~14 mm · 傍晚偏湿</span><span class="chip go">MRT Sanam Chai</span></div></div></div>
     <p class="lede">老城西南角一小片：先穿过曼谷的小印度，锡克庙、布料行、香料摊，和唐人街是两种完全不同的移民社区；天黑后走到全泰国最大的鲜花批发市场看卸货和穿花环，最后在河边吃饭看对岸黎明寺。</p>
-    <div class="rain" data-p="39,45,64,75,65,52"></div><div class="hours"><span>14</span><span>16</span><span>17</span><span>19</span><span>21</span><span>23</span></div>
+    <div class="rain" data-p="40,48,65,74,66,52"></div><div class="hours"><span>14</span><span>16</span><span>17</span><span>19</span><span>21</span><span>23</span></div>
     <div class="rows">
-      <div class="row"><div class="k">17:15</div><div class="v">MRT <b>Sanam Chai</b> 出站，步行到 <b>Phahurat</b>：曼谷的小印度，布料街、锡克庙 Gurdwara Siri Guru Singh Sabha（可以进，脱鞋、包头巾），街边的印度甜品和奶茶<a class="nav" href="https://www.google.com/maps/search/?api=1&query=Phahurat+Market+Bangkok">地图</a></div></div>
-      <div class="row"><div class="k">18:15</div><div class="v">走几分钟到 <b>Pak Khlong Talat 花市</b>：晚上八九点开始整车卸货，摊主穿茉莉花环的手速和成吨的万寿菊值得看，凌晨最旺，但八点已经很有气氛<a class="nav" href="https://www.google.com/maps/search/?api=1&query=Pak+Khlong+Talat">地图</a></div></div>
-      <div class="row"><div class="k">19:30</div><div class="v">花市对面 <b>Yodpiman River Walk</b> 的河边餐厅吃饭，正对湄南河和对岸黎明寺的夜景，是看而不是逛</div></div>
-      <div class="row opt"><div class="k">备选</div><div class="v">雨大就改去 Siam 的 <b>BACC 曼谷艺术文化中心</b>（免费，一般开到晚上八点），展览水准不错，建筑本身也值得看<a class="nav" href="https://www.google.com/maps/search/?api=1&query=Bangkok+Art+and+Culture+Centre">地图</a></div></div>
+      <div class="row"><div class="k">17:15</div><div class="v">BTS/MRT 到 <b>Sanam Chai</b>，步行到 <b>Phahurat</b>：布料街、锡克庙 Gurdwara Siri Guru Singh Sabha（可进，脱鞋、包头巾），街边印度甜品和奶茶<a class="nav" href="https://www.google.com/maps/search/?api=1&query=Phahurat+Market+Bangkok">地图</a></div></div>
+      <div class="row"><div class="k">18:15</div><div class="v"><b>Pak Khlong Talat 花市</b>：晚上八九点开始整车卸货，摊主穿茉莉花环的手速和成吨的万寿菊值得看；八点已有气氛<a class="nav" href="https://www.google.com/maps/search/?api=1&query=Pak+Khlong+Talat">地图</a></div></div>
+      <div class="row"><div class="k">19:30</div><div class="v">花市对面 <b>Yodpiman River Walk</b> 河边餐厅吃饭，正对湄南河和对岸黎明寺夜景</div></div>
+      <div class="row opt"><div class="k">备选</div><div class="v">雨大改去 Siam 的 <b>BACC</b>（一般开到晚上八点）<a class="nav" href="https://www.google.com/maps/search/?api=1&query=Bangkok+Art+and+Culture+Centre">地图</a></div></div>
     </div>
   </div>
 
-  <div class="day"><div class="day-head"><div class="badge"><small>THU</small><b>22</b></div><div class="day-title"><h3>夜骑看城（最推荐）</h3>
-    <div class="meta"><span class="chip date">10/22 四</span><span class="chip wet">🌧 24–29° · 这周最湿的一天，看情况和周一对调</span><span class="chip go">提前两天预订</span></div></div></div>
-    <p class="lede">曼谷的夜骑团六点左右出发到十点，走小巷、穿唐人街、过河到吞武里的社区，中途在路边摊吃饭。白天那种车流在小巷里不存在，骑车是看普通人晚上怎么生活的最好方式。</p>
-    <div class="rain" data-p="37,48,64,75,61,50"></div><div class="hours"><span>14</span><span>16</span><span>17</span><span>19</span><span>21</span><span>23</span></div>
+  <div class="day"><div class="day-head"><div class="badge"><small>THU</small><b>22</b></div><div class="day-title"><h3>Talat Noi 老街区 → 石龙军路创意区</h3>
+    <div class="meta"><span class="chip date">10/22 四</span><span class="chip wet">⛈ 24–29° · 日降水 ~12 mm · 傍晚阵雨</span><span class="chip go">MRT Hua Lamphong</span></div></div></div>
+    <p class="lede">曼谷最有味道的一片，不是景点：沿河的潮汕老社区，一半是修车铺、机械零件店和成堆的旧发动机，一半是改出来的咖啡馆和小画廊，墙上全是涂鸦。六点前后光线最好。室内的 TCDC / Warehouse 30 也适合躲雨。</p>
+    <div class="rain" data-p="32,40,58,70,60,48"></div><div class="hours"><span>14</span><span>16</span><span>17</span><span>19</span><span>21</span><span>23</span></div>
     <div class="rows">
-      <div class="row"><div class="k">预订</div><div class="v">两家口碑稳定：<b>Grasshopper Adventures</b>（Bangkok Night Bike Tour）和 <b>Co van Kessel</b>（有傍晚场），都是英文向导、城市车，20 公里左右慢速，不累<a class="nav" href="https://www.grasshopperadventures.com/">官网</a><a class="nav" href="https://www.covankessel.com/">官网</a></div></div>
-      <div class="row"><div class="k">18:00</div><div class="v">集合点一般在唐人街或 Saphan Taksin 附近，散会后 MRT 直达；带一件薄雨衣，骑行团下小雨照常出发</div></div>
-      <div class="row"><div class="k">22:00</div><div class="v">结束，回程 BTS/MRT 还在运营（末班约午夜）</div></div>
-      <div class="row tip"><div class="k">天气</div><div class="v">周四预报是这周最湿的一天。<b>如果订的时候周四雨大，把夜骑订到周一，Talat Noi 挪到周四</b>，那两片本来就挨着</div></div>
-      <div class="row opt"><div class="k">放空</div><div class="v">不想骑车的话，坐船到河西岸的 <b>The Jam Factory</b>：建筑师 Duangrit Bunnag 的工作室改的，设计书店 Candide + 咖啡，Rams 那一路的审美，安静<a class="nav" href="https://www.google.com/maps/search/?api=1&query=The+Jam+Factory+Bangkok">地图</a></div></div>
+      <div class="row"><div class="k">17:00</div><div class="v">散会后 MRT 到 <b>Hua Lamphong</b>，出站往河边走进 Talat Noi 小巷<a class="nav" href="https://www.google.com/maps/search/?api=1&query=Talat+Noi+Bangkok">地图</a></div></div>
+      <div class="row"><div class="k">17:30</div><div class="v">沿 Soi Wanit 2 走到河边，看修车铺、老祠堂、涂鸦墙；终点 <b>Hong Sieng Kong</b> 河边老宅喝一杯看对岸<a class="nav" href="https://www.google.com/maps/search/?api=1&query=Hong+Sieng+Kong+Bangkok">地图</a></div></div>
+      <div class="row"><div class="k">18:45</div><div class="v">往南到石龙军路：<b>TCDC 泰国创意设计中心</b>（设计图书馆 + 展览，一般开到晚上七点左右，去前查当天）和 <b>Warehouse 30</b><a class="nav" href="https://www.google.com/maps/search/?api=1&query=TCDC+Bangkok+Charoenkrung">地图</a></div></div>
+      <div class="row"><div class="k">19:30</div><div class="v">石龙军路一带吃饭；回程 BTS <b>Saphan Taksin</b> 或 MRT</div></div>
+      <div class="row tip"><div class="k">下雨</div><div class="v">阵雨通常半小时过，躲进 Warehouse 30 或咖啡馆；TCDC 整栋室内，顺序可对调</div></div>
+      <div class="row tip"><div class="k">住宿</div><div class="v"><span class="hl">今晚还没订</span>——建议续订 Hilton 到周五退房，别临时找新酒店</div></div>
     </div>
   </div>
 
-  <div class="day"><div class="day-head"><div class="badge"><small>FRI</small><b>23</b></div><div class="day-title"><h3>Bang Krachao 绿肺骑车 → 退房 → 机场</h3>
-    <div class="meta"><span class="chip date">10/23 五</span><span class="chip wet">⛈ 25–30° · 上午 30% 左右，下午转雨</span><span class="chip go">17:xx 航班 · 14:30 前出发</span></div></div></div>
-    <p class="lede">河对岸的一块绿肺，几乎没有汽车。租辆自行车沿着架在湿地上的水泥小路骑两三个小时，穿过村子、寺庙、鱼塘，是曼谷城里完全不同的生活节奏。上午去，不晒，也避开下午的雨。</p>
-    <div class="rain" data-p="36,33,29,34,57,67"></div><div class="hours"><span>08</span><span>10</span><span>11</span><span>14</span><span>17</span><span>19</span></div>
+  <div class="day"><div class="day-head"><div class="badge"><small>FRI</small><b>23</b></div><div class="day-title"><h3>Bang Krachao 绿肺骑车 → ODS（可选）→ 机场</h3>
+    <div class="meta"><span class="chip date">10/23 五</span><span class="chip wet">🌦 25–30° · 上午 ~30% 偏干，下午转雨</span><span class="chip go">CZ8324 17:25 · 14:00 前出发</span></div></div></div>
+    <p class="lede">河对岸的一块绿肺，几乎没有汽车。租辆自行车沿着架在湿地上的水泥小路骑两三个小时，穿过村子、寺庙、鱼塘。从 Hilton Soi 24 过去，Khlong Toei 码头很近。上午去，不晒，也避开下午的雨；然后可选 ODS，<b>约 14:00 离开市区</b>赶 17:25 的 CZ8324。</p>
+    <div class="rain" data-p="30,28,30,35,55,65"></div><div class="hours"><span>08</span><span>10</span><span>11</span><span>14</span><span>17</span><span>19</span></div>
     <div class="rows">
-      <div class="row"><div class="k">08:00</div><div class="v">MRT/出租车到 <b>Khlong Toei 码头</b>（Wat Khlong Toei Nok 旁），坐长尾小船过河，几分钟、几十泰铢<a class="nav" href="https://www.google.com/maps/search/?api=1&query=Khlong+Toei+Pier+Bang+Krachao">地图</a></div></div>
-      <div class="row"><div class="k">08:15</div><div class="v">对岸码头就有租车铺（约 100 泰铢/天），往 <b>Sri Nakhon Khuean Khan 公园</b>方向骑，路窄、单向、全是绿的；公园里有观鸟塔</div></div>
-      <div class="row"><div class="k">10:30</div><div class="v">往回骑，还车过河，<b>11:00 前回到酒店</b>冲澡、收拾、退房</div></div>
-      <div class="row opt"><div class="k">12:00</div><div class="v">时间富余的话去 Siam Discovery 四楼的 <b>ODS（Objects of Desire Store）</b>：泰国本土设计师的产品集合，比纪念品有意思，可以给派芝挑一样小东西<a class="nav" href="https://www.google.com/maps/search/?api=1&query=Objects+of+Desire+Store+Siam+Discovery">地图</a></div></div>
-      <div class="row tip"><div class="k">14:30</div><div class="v"><b>出发去机场</b>。素万那普走机场线 ARL 从 Phaya Thai 约 30 分钟；廊曼只能打车，周五下午堵，留足 1.5 小时</div></div>
+      <div class="row"><div class="k">08:00</div><div class="v">从 Soi 24 去 <b>Khlong Toei 码头</b>（Wat Khlong Toei Nok 旁）很方便，坐长尾小船过河，几分钟、几十泰铢<a class="nav" href="https://www.google.com/maps/search/?api=1&query=Khlong+Toei+Pier+Bang+Krachao">地图</a></div></div>
+      <div class="row"><div class="k">08:15</div><div class="v">对岸码头租车（约 100 泰铢/天），往 <b>Sri Nakhon Khuean Khan 公园</b>方向骑；公园有观鸟塔</div></div>
+      <div class="row"><div class="k">10:30</div><div class="v">往回骑，还车过河，<b>11:00 前回到酒店</b>冲澡、收拾、退房（若已续订到今天）</div></div>
+      <div class="row opt"><div class="k">12:00</div><div class="v">时间富余可去 Siam Discovery 四楼 <b>ODS</b>：泰国本土设计师集合店，比纪念品有意思<a class="nav" href="https://www.google.com/maps/search/?api=1&query=Objects+of+Desire+Store+Siam+Discovery">地图</a></div></div>
+      <div class="row tip"><div class="k">14:00</div><div class="v"><b>离开市区去素万那普</b>。机场线 ARL 从 Phaya Thai 约 30 分钟；BTS Phrom Phong → Phaya Thai 再转 ARL。CZ8324 17:25 从 BKK T1 起飞，留足安检与值机时间</div></div>
     </div>
   </div>
 
   <div class="section-title">实用要点</div>
   <div class="tips">
-    <details class="grp" open><summary>🚇 交通：傍晚只坐轨道和船</summary><p>五到七点是曼谷堵得最狠的时候，上面所有地方都选在 <b>MRT 蓝线 / BTS / 湄南河快船</b>能到的位置，别打车。MRT 和 BTS 用 Rabbit 卡或直接刷信用卡（Visa/Master 感应），末班车大约午夜。老城四个点（Talat Noi、唐人街、花市、石龙军路）彼此 1–2 公里，可以步行串。</p></details>
-    <details class="grp"><summary>🌧 雨季尾巴：傍晚阵雨怎么办</summary><p>预报这周每天傍晚 17–21 点都有 60–75% 的阵雨概率，典型的雨季尾巴：下半小时就停。包里常备一把折叠伞或薄雨衣；每晚都给了一个室内备选（TCDC、Warehouse 30、BACC、Jam Factory）。夜骑团小雨照常，暴雨会改期或退款，订的时候看一下条款。</p></details>
-    <details class="grp"><summary>🚲 夜骑：怎么订</summary><p>Grasshopper Adventures 的 Bangkok Night Bike Tour 和 Co van Kessel 的傍晚场都是老牌，官网或 Klook 都能订，约 1,500–2,000 泰铢含晚餐。提前两天订，写明酒店位置，有的可以接。穿运动鞋、带小背包，车上有灯和头盔。</p></details>
-    <details class="grp"><summary>🍵 茶：在唐人街买什么</summary><p>耀华力路和 Charoen Chai 的老茶行多是潮州人开的，主卖凤凰单丛、铁观音和福建乌龙，有的店还有自己焙的老茶。买之前要求试泡，按两（泰国叫 "tael"）或 100 克卖。岩茶在这里反而少见，带两泡单丛回去和家里的对比就够了，别囤。</p></details>
-    <details class="grp" open><summary>🚲 自行车从哪来</summary><p><b>周四夜骑</b>：报名费里包车，Grasshopper / Co van Kessel 用的是城市车或混合车（平把、有变速、带灯和头盔），到集合点按身高领车，不用自己准备任何东西；你平时骑 ATX860，领车时说一声要大一号的车架会舒服些。<b>周五 Bang Krachao</b>：过河的码头边有好几家租车铺，100 泰铢左右一天，多是单速的通勤车，骑之前捏一下刹车、看看轮胎气；想要带变速的山地车，往里走到 Sri Nakhon Khuean Khan 公园门口那几家，车况好一些，150–200 泰铢。绿肺里路平、全程不超过 15 公里，单速车也够。曼谷没有像样的共享单车，别指望扫码。</p></details>
-    <details class="grp"><summary>🎁 给派芝和家里</summary><p>ODS 设计店（Siam Discovery）的泰国设计师小物、唐人街的老式铁皮玩具、花市的干花香包。别在机场买纪念品，又贵又没意思。</p></details>
-    <details class="grp"><summary>🍜 吃</summary><p>唐人街：路边摊的潮州粿条、卤鹅、鱼生、燕窝糖水；Talat Noi：河边老宅咖啡馆；石龙军路：Prachak 烧鹅（百年老店，六点左右人多）；花市对面 Yodpiman 河景餐厅；Bang Krachao：码头附近的泰式早餐摊。</p></details>
+    <details class="grp" open><summary>🚇 交通：傍晚只坐轨道和船</summary><p>酒店在 <b>Sukhumvit Soi 24 / BTS Phrom Phong</b>。五到七点别打车去老城，走 BTS 再换乘 MRT 蓝线。末班车大约午夜。老城四个点（Talat Noi、唐人街、花市、石龙军路）彼此 1–2 公里，可步行串。周五 Bang Krachao 走 <b>Khlong Toei 码头</b>，从 Soi 24 过去近。</p></details>
+    <details class="grp"><summary>🌧 雨季尾巴：傍晚阵雨怎么办</summary><p>Open-Meteo（10-15）显示整周傍晚都湿，日降水约 7–14 mm。典型雨季尾巴：下半小时就停。包里常备折叠伞或薄雨衣；每晚有室内备选（TCDC、Warehouse 30、BACC、Jam Factory）。夜骑小雨照常，暴雨改期或退款。</p></details>
+    <details class="grp"><summary>🚲 夜骑：怎么订</summary><p>Grasshopper Adventures 的 Bangkok Night Bike Tour 和 Co van Kessel 的傍晚场都是老牌，官网或 Klook 能订。提前两天订，写明 Hilton Sukhumvit / Soi 24，有的可接。穿运动鞋、带小背包，车上有灯和头盔。<b>已按天气把夜骑排在周一</b>。</p></details>
+    <details class="grp"><summary>🍵 茶：在唐人街买什么</summary><p>耀华力路和 Charoen Chai 的老茶行多是潮州人开的，主卖凤凰单丛、铁观音和福建乌龙。买之前要求试泡，按两或 100 克卖。岩茶在这里反而少见，带两泡单丛回去对比就够，别囤。</p></details>
+    <details class="grp" open><summary>🚲 自行车从哪来</summary><p><b>周一夜骑</b>：报名费里包车，Grasshopper / Co van Kessel 用城市车或混合车（平把、有变速、带灯和头盔），到集合点按身高领车；平时骑 ATX860 的话，领车时说要大一号车架会舒服些。<b>周五 Bang Krachao</b>：码头边租车铺约 100 泰铢/天，多是单速通勤车；想要带变速的，往公园门口那几家，约 150–200 泰铢。绿肺路平、全程不超过 15 公里。曼谷没有像样的共享单车。</p></details>
+    <details class="grp"><summary>🎁 给派芝和家里</summary><p>ODS 设计店（Siam Discovery）的泰国设计师小物、唐人街的老式铁皮玩具、花市的干花香包。别在机场买纪念品。</p></details>
+    <details class="grp"><summary>🍜 吃</summary><p>唐人街：潮州粿条、卤鹅、鱼生、燕窝糖水；Talat Noi：河边老宅咖啡馆；石龙军路：Prachak 烧鹅（六点左右人多）；花市对面 Yodpiman 河景餐厅；Bang Krachao：码头附近泰式早餐摊。</p></details>
   </div>
 
   <div class="section-title">避雷</div>
   <div class="pit">
-    <div class="p-item"><b><span class="no">别</span>在五到七点打车去老城</b><p>唐人街和老城周边这个时段基本不动，MRT Wat Mangkon / Sanam Chai / Hua Lamphong 三站就在门口。</p></div>
-    <div class="p-item"><b><span class="no">别</span>惦记周末市场</b><p>乍都乍周末市场、Khlong Thom 夜市都是周六日，你周五走，赶不上，不用绕路去看。</p></div>
-    <div class="p-item"><b><span class="no">别</span>跟着「嘟嘟车一日游」走</b><p>老城里主动搭话说「今天寺庙关门，带你去别处」的，一律不理，是带去珠宝店的老套路。</p></div>
-    <div class="p-item"><b>唐人街的茶行和老店<span class="no">九点前后就收</span></b><p>想买茶的话周二七点前到，花市和夜骑是例外。</p></div>
+    <div class="p-item"><b><span class="no">别</span>忘了订 10/22 那一晚</b><p>Hilton 目前只到 10/22 退房。优先续同一家到 10/23，别周四晚上才临时找房。</p></div>
+    <div class="p-item"><b><span class="no">别</span>在五到七点打车去老城</b><p>从 Soi 24 走 BTS Phrom Phong，再换乘 MRT Wat Mangkon / Sanam Chai / Hua Lamphong。</p></div>
+    <div class="p-item"><b><span class="no">别</span>惦记周末市场</b><p>乍都乍、Khlong Thom 都是周六日，你周五走，赶不上。</p></div>
+    <div class="p-item"><b><span class="no">别</span>跟着「嘟嘟车一日游」走</b><p>老城里主动搭话说「今天寺庙关门，带你去别处」的，一律不理。</p></div>
+    <div class="p-item"><b>唐人街的茶行和老店<span class="no">九点前后就收</span></b><p>想买茶的话周二七点前到；花市和夜骑是例外。</p></div>
   </div>
 
   <div class="section-title">出发前</div>
   <div class="card">
     <div class="todo" id="todo">
-      <label><input type="checkbox" id="t1"><span>订夜骑（看周四天气，雨大就订周一）</span></label>
-      <label><input type="checkbox" id="t2"><span>查当周 TCDC、BACC 的开放时间</span></label>
-      <label><input type="checkbox" id="t3"><span>折叠伞或薄雨衣</span></label>
-      <label><input type="checkbox" id="t4"><span>运动鞋（夜骑 + 周五骑车）</span></label>
-      <label><input type="checkbox" id="t5"><span>手机开境外流量 / eSIM</span></label>
-      <label><input type="checkbox" id="t6"><span>信用卡开通境外感应支付（MRT/BTS 直接刷）</span></label>
-      <label><input type="checkbox" id="t7"><span>周五航班：确认是素万那普还是廊曼</span></label>
-      <label><input type="checkbox" id="t8"><span>把酒店地址发我，按位置细排每晚路线</span></label>
+      <label><input type="checkbox" id="t1"><span>续订 Hilton：10/22 晚 → 10/23 退房</span></label>
+      <label><input type="checkbox" id="t2"><span>订周一夜骑（Grasshopper / Co van Kessel）</span></label>
+      <label><input type="checkbox" id="t3"><span>查当周 TCDC、BACC 开放时间</span></label>
+      <label><input type="checkbox" id="t4"><span>折叠伞或薄雨衣</span></label>
+      <label><input type="checkbox" id="t5"><span>运动鞋（夜骑 + 周五骑车）</span></label>
+      <label><input type="checkbox" id="t6"><span>手机开境外流量 / eSIM</span></label>
+      <label><input type="checkbox" id="t7"><span>信用卡开通境外感应支付（MRT/BTS）</span></label>
+      <label><input type="checkbox" id="t8"><span>确认 CZ8324 值机时间 / 行李额</span></label>
     </div>
     <p style="font-size:12px;color:#A9A597;margin-top:10px">勾选只保存在这台手机上。</p>
   </div>
 
-  <footer>日期按下周一到周五排，航班和酒店未知，按「五点多的航班、14:30 出发去机场」预留。<br>天气：Open-Meteo 10 月 12 日预报，出发前再看。开放时间、价格以当天官网为准。</footer>
+  <footer>航班 CZ8075 / CZ8324 已出票 · 酒店 Hilton Sukhumvit Soi 24（10/19–22，续住待办）· 回程 17:25，市区约 14:00 出发。<br>天气：Open-Meteo 2026-10-15 预报，出发前再看。开放时间、价格以当天官网为准。</footer>
 </div>
 <script>
 document.querySelectorAll(".rain[data-p]").forEach(el=>{
